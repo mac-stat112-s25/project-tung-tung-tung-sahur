@@ -3,3 +3,15 @@ title: "Proposal"
 ---
 
 Your proposal will go here.
+
+Title: Economic Impact of the World Cup: Predicting What Will Happen During the 2026 World Cup in the U.S 
+
+Names: Ben, Ari, PJ, Nolan
+
+Reasons/Inspiration: The World Cup is the biggest event in the world. Next year, 2026, the World Cup will be in the United States. The magnitude of the world cup has influence on daily life for almost everyone in the world. The guiding question for our data analysis project is: what are the economic impacts of hosting the largest event in the world? 
+
+
+Each team should submit a proposal for their project in the form of a rendered HTML Quarto page added as an appendix to their project website. The proposal should include the followings
+
+
+a rough implementation and responsibility plan, ie, what needs to be accomplished and who will do what when. Think about the list of deliverables when building the plan. The plan should be presented in a table format.

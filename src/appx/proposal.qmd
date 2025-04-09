@@ -15,3 +15,7 @@ Each team should submit a proposal for their project in the form of a rendered H
 
 
 a rough implementation and responsibility plan, ie, what needs to be accomplished and who will do what when. Think about the list of deliverables when building the plan. The plan should be presented in a table format.
+
+Responsibility Plan: 
+- Group members will meet 3 times per week to discuss relevant information and make sure everyone is contributing. 
+- The team group chat serves as a place where group members can inform each other of changes and updated goals towards the project. 

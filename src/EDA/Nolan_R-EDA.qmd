@@ -4,7 +4,13 @@ format: html
 ---
 
 
+```{r}
+library(tidyverse)
+```
 
+```{r}
+read_csv("~/Documents/project-tung-tung-tung-sahur/data/wcmatches.csv")
+```
 
 
 

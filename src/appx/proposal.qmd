@@ -14,7 +14,6 @@ Reasons/Inspiration: The World Cup is the biggest event in the world. Next year,
 Each team should submit a proposal for their project in the form of a rendered HTML Quarto page added as an appendix to their project website. The proposal should include the followings
 
 
-a rough implementation and responsibility plan, ie, what needs to be accomplished and who will do what when. Think about the list of deliverables when building the plan. The plan should be presented in a table format.
 
 Responsibility Plan: 
 - Group members will meet 3 times per week to discuss relevant information and make sure everyone is contributing. 

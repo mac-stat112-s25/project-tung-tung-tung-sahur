@@ -10,6 +10,7 @@ Names: Ben, Ari, PJ, Nolan
 
 Reasons/Inspiration: The World Cup is the biggest event in the world. Next year, 2026, the World Cup will be in the United States. The magnitude of the world cup has influence on daily life for almost everyone in the world. The guiding question for our data analysis project is: what are the economic impacts of hosting the largest event in the world? 
 
+Description: We will explore the relationship between the economic impact between the FIFA world cup and the hosting country's economic indexes. We will study different economic indicators (GDP, PPP, etc.) with respect to the hosting countries, yielding a holistic prospect of economics in the upcoming US-Mexico-Canada world cup.
 
 Each team should submit a proposal for their project in the form of a rendered HTML Quarto page added as an appendix to their project website. The proposal should include the followings
 

@@ -59,7 +59,7 @@ brazil_gdp_long <- brazil_gdp_long |>
 
 ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) + 
   geom_col() + 
-  scale_fill_manual(values = c("Hosted" = "blue", "Did Not Host" = "lightgrey")) + 
+  scale_fill_manual(values = c("Hosted" = "#009C3B", "Did Not Host" = "lightgrey")) + 
   labs(title = "Brazil GPD Over Time (USD)", 
        subtitle = "Brazil Hosted the World Cup in 2014",
        x = "Year",
@@ -68,6 +68,15 @@ ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) +
   theme_minimal() 
 
 ```
+
+Key Takeaways:
+- Brazil's economy was on a rapid upward trend from 2002 to 2014 (the year of the World Cup)
+- After the world cup, the upward trend was haulted and the GDP decreased. 
+
+Questions: 
+- What specifically caused the GDP of Brazil to increase before the World Cup?
+- What caused the GDP of Brazil to decrease after hosting the World Cup? 
+- Can this be attributed to the World Cup or are other events more impactful?
 
 
 

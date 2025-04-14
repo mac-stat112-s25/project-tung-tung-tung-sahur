@@ -5,7 +5,11 @@ format: html
 
 
 ```{r}
+
 library(tidyverse)
+
+library(shiny)
+
 ```
 
 ```{r}
@@ -66,6 +70,7 @@ ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) +
        y = "Brazil's GDP (USD)", 
        fill = "Hosted World Cup") + 
   theme_minimal() 
+  
 
 ```
 
@@ -77,8 +82,6 @@ Questions:
 - What specifically caused the GDP of Brazil to increase before the World Cup?
 - What caused the GDP of Brazil to decrease after hosting the World Cup? 
 - Can this be attributed to the World Cup or are other events more impactful?
-
-
 
 
 

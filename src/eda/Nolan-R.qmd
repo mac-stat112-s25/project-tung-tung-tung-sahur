@@ -17,18 +17,18 @@ library(shiny)
 ```
 
 ```{r}
-read_csv("~/Documents/project-tung-tung-tung-sahur/data/wcmatches.csv")
+read_csv("../../data/wcmatches.csv")
 ```
 
 
 
 ```{r}
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
 ```
 

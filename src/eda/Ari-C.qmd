@@ -4,6 +4,9 @@ format: html
 ---
 
 ```{r}
+#| echo: false
+#| message: false
+#| warning: false
 
 library(tidyverse)
 
@@ -12,5 +15,10 @@ library(shiny)
 ```
 
 ```{r}
-read_csv("~/Documents/project-tung-tung-tung-sahur/data/wcmatches.csv")
+#| echo: false
+#| message: false
+#| warning: false
+#| results: hide
+
+read_csv("../../data/wcmatches.csv")
 ```

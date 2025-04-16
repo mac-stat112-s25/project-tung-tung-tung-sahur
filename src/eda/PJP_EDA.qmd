@@ -1,0 +1,69 @@
+---
+title: "PJP_EDA"
+format: html
+---
+
+```{r}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(scales)
+```
+
+```{r}
+file_path <- "C:/Users/thepj/Downloads/API_NY.GDP.MKTP.CD_DS2_en_excel_v2_17967.xls"
+gdp_data <- read_excel(file_path, sheet = 1, skip = 3)
+
+```
+
+```{r}
+brazil_gdp <- gdp_data %>%
+  filter(`Country Name` == "Brazil") %>%
+  select(`Country Name`, starts_with("19"), starts_with("20")) %>%
+  pivot_longer(
+    cols = -`Country Name`,
+    names_to = "Year",
+    values_to = "GDP"
+  ) %>%
+  mutate(Year = as.numeric(Year))
+
+```
+
+```{r}
+ggplot(brazil_gdp, aes(x = Year, y = GDP)) +
+  geom_line(color = "blue", size = 1.2) +
+  scale_y_continuous(labels = scales::dollar_format(scale = 1e-9, suffix = "B")) +
+  labs(
+    title = "Brazil's GDP Over Time",
+    x = "Year",
+    y = "GDP (USD, Billions)"
+  ) +
+  theme_minimal()
+
+```
+
+```{r}
+
+# Extract 2014 GDP value
+gdp_2014 <- brazil_gdp %>% filter(Year == 2014)
+
+ggplot(brazil_gdp, aes(x = Year, y = GDP)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(data = gdp_2014, aes(x = Year, y = GDP), color = "red", size = 3) +
+  geom_text(
+    data = gdp_2014,
+    aes(label = paste0("2014: $", round(GDP / 1e9, 1), "B")),
+    vjust = -1, hjust = 0.5,
+    color = "red"
+  ) +
+  scale_y_continuous(labels = dollar_format(scale = 1e-9, suffix = "B")) +
+  labs(
+    title = "Brazil's GDP Over Time (Highlighted: 2014)",
+    x = "Year",
+    y = "GDP (USD, Billions)"
+  ) +
+  theme_minimal()
+
+```
+The visualization shows how Brazil's GDP was higher before the world cup most likely because they knew they would be hosting it and the government was spending money to get ready for it and then during the world cup it was high because they were bringing in a lot of money hosting it. However after the world cup the GDP dropped by a good amount most likely because now the government wasn't spendning money or bringing in money from the world cup so it dropped.

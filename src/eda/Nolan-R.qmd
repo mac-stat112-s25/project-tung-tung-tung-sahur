@@ -35,9 +35,9 @@ read_csv("../../data/brazil_econ 2/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_
 
 ```{r}
 
-gdp_data <- read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
+gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
 
-# Filter for Brazil
+
 brazil_gdp <- gdp_data |>
   filter(`Country Name` == "Brazil")
 

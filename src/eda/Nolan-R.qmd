@@ -1,6 +1,10 @@
 ---
-title: "Nolan_R-EDA"
+title: "Nolan R"
 format: html
+execute: 
+  echo: false
+  warning: false
+  error: false
 ---
 
 
@@ -13,45 +17,41 @@ library(shiny)
 ```
 
 ```{r}
-read_csv("~/Documents/project-tung-tung-tung-sahur/data/wcmatches.csv")
+read_csv("../../data/wcmatches.csv")
 ```
 
 
 
 ```{r}
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
-read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+read_csv("../../data/brazil_econ 2/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
 
 ```
 
 
 ```{r}
-# Load required libraries
-library(tidyverse)
 
-# Load the CSV (adjust the path to your file location)
-gdp_data <- read_csv("~/Documents/project-tung-tung-tung-sahur/World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
+gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
 
-# Filter for Brazil
-brazil_gdp <- gdp_data %>%
+
+brazil_gdp <- gdp_data |>
   filter(`Country Name` == "Brazil")
 
-# Remove unnecessary columns and pivot the data
-brazil_gdp_long <- brazil_gdp %>%
-  select(-`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) %>%
-  pivot_longer(cols = everything(), names_to = "year", values_to = "gdp_usd") %>%
+brazil_gdp_long <- brazil_gdp |>
+  select(-`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) |>
+  pivot_longer(cols = everything(), names_to = "year", values_to = "gdp_usd") |>
   mutate(
     year = as.integer(year),
     gdp_usd = as.numeric(gdp_usd)
-  ) %>%
+  ) |>
   filter(!is.na(year))
 
-# View the cleaned data
-print(head(brazil_gdp_long))
+head(brazil_gdp_long)
+
 
 ```
 
@@ -82,6 +82,8 @@ Questions:
 - What specifically caused the GDP of Brazil to increase before the World Cup?
 - What caused the GDP of Brazil to decrease after hosting the World Cup? 
 - Can this be attributed to the World Cup or are other events more impactful?
+
+
 
 
 

@@ -1,7 +1,0 @@
----
-title: "BW"
-format: html
----
-
-https://pubmed.ncbi.nlm.nih.gov/20085405/
-

@@ -1,0 +1,11 @@
+---
+title: "Ben W"
+format: html
+---
+
+https://pubmed.ncbi.nlm.nih.gov/20085405/
+
+In this study about effective teamwork, team cognitive foundation
+is revealed to be underpinning teamwork. Team cognition is highly related to the team's behavioral process, motivational states, and the overall performance of teamwork. 
+Emergent cognition, defined as multilevel process whereby individual elemental cognitive content combines to constitute collective cognition, enables team members both to predict and anticipate one another’s actions and to fully utilize the often diverse array of expertise present in the team are essential underpinnings of team functioning.
+Team cohesion and team behavioral processes together explain nearly 12% of the variance in team performance; adding team cognition to the equation offers nearly an additional 7% incremental explained variance in team performance over and above cohesion and process. Although team cognition was found to be positively related to team process and performance, the current findings highlight the importance of three classes of moderators of these relationships: (a) cognitive underpinnings (nature of emergence, form of cognition, content of cognition), (b) task features (team interdependence and type), and (c) study characteristics (performance criterion, study setting and design).

@@ -98,8 +98,13 @@ ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) +
 
 library(summarytools)
 
+dfSummary(gdp_data)
 ```
 
+```{r}
+view(dfSummary(gdp_data))
+
+```
 
 
 

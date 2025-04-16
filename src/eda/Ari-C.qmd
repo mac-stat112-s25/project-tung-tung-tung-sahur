@@ -12,5 +12,5 @@ library(shiny)
 ```
 
 ```{r}
-read_csv("~/Documents/project-tung-tung-tung-sahur/data/wcmatches.csv")
+read_csv("../../data/wcmatches.csv")
 ```

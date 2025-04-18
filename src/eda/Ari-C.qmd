@@ -50,3 +50,27 @@ ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`)) +
 - Why was the unemployment rate decreasing from 2010-2014, and what caused the unemployment rate to increase after 2016?
 
 - Is the world cup a key attribute to the increase in the unemployment rate, and/or are there other factors that contributed to this increase in umployment?
+
+
+
+Inflation Rate:
+
+```{r}
+inflation_data <- read_csv("~/Documents/Brazil Inflation data.csv")
+```
+
+```{r}
+inflation_data <- inflation_data|>
+  rename(year = observation_date, inflation_rate = FPCPITOTLZGBRA)
+```
+
+```{r}
+ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(breaks = c(2010:2024)) +
+  labs(
+    title = "Brazil's Inflation Rate",
+    color = "inflation_rate"
+  )
+```
+

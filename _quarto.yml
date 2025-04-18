@@ -37,6 +37,19 @@ book:
 
   chapters:
     - index.qmd
+    - part: "Teamwork"
+      chapters: 
+      - src/et/Nolan-R.qmd
+      - src/et/Ari-C.qmd
+      - src/et/Ben-W.qmd
+      - src/et/PJ-P.qmd
+    - part: "EDA"
+      chapters: 
+        - src/EDA/Nolan-R.qmd
+        - src/EDA/PJ-P.qmd
+        - src/EDA/Ari-C.qmd
+        - src/EDA/Ben-W.qmd
+        
 
   appendices:
   - src/appx/proposal.qmd

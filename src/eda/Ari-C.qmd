@@ -12,6 +12,8 @@ library(tidyverse)
 
 library(shiny)
 
+library(tibble)
+
 ```
 
 ```{r}
@@ -22,3 +24,64 @@ library(shiny)
 
 read_csv("../../data/wcmatches.csv")
 ```
+
+
+```{r}
+unemployment_data <- read_csv("~/Documents/Brazil-Unemployment-Rate-Unemployment-Rate-2025-04-16-11-18.csv") |>
+  slice_head(n = 30) |>
+  slice_tail(n = 11) |>
+  rename(Year = ...1)
+ 
+```
+
+```{r}
+ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`)) +
+  geom_jitter() +
+  geom_line() +
+  scale_x_continuous(breaks = c(2010:2020)) 
+```
+# Key Takeaways
+
+- The unemployment rate steadily decreased from 2010-2014 going from 8.42% to 6.76% in 2014, the year of the world cup
+- After the world cup, from 2014-2020, the unemployment skyrocketed from 6.76% to 13.70%, an more than double increase in the span of 6 years
+
+# Key Questions
+
+- Why was the unemployment rate decreasing from 2010-2014, and what caused the unemployment rate to increase after 2016?
+
+- Is the world cup a key attribute to the increase in the unemployment rate, and/or are there other factors that contributed to this increase in umployment?
+
+
+
+Inflation Rate:
+
+```{r}
+inflation_data <- read_csv("~/Documents/Brazil Inflation data.csv")
+```
+
+```{r}
+inflation_data <- inflation_data|>
+  rename(year = observation_date, inflation_rate = FPCPITOTLZGBRA)
+```
+
+```{r}
+ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(breaks = c(2010:2024)) +
+  labs(
+    title = "Brazil's Inflation Rate",
+    color = "inflation_rate"
+  )
+```
+```{r}
+ "Unemployment rate in Brazil (2010-2020)"
+
+ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemployment Rate`)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(breaks = c(2010:2020)) +
+  labs(
+    title = "Unemployment rate in Brazil (2010-2020)" ,
+    y = "Unemployment Rate (%)"
+     )
+```
+

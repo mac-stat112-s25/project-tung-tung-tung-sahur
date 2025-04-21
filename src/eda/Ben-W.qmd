@@ -3,3 +3,34 @@ title: "Ben W"
 format: html
 ---
 
+```{r}
+library(tidyverse)
+library(summarytools)
+library(janitor)
+```
+
+```{r}
+world_cup <- read_csv("../../data/wcmatches.csv")
+```
+
+```{r}
+
+world_cup |>
+  clean_names() |>            # standardizes column names to snake_case
+  remove_empty("rows") |>     # removes empty rows
+  remove_empty("cols") |>     # removes empty columns
+  remove_constant()            # removes columns with only 1 unique value
+```
+
+```{r}
+world_cup|>
+  get_dupes()                  
+```
+
+```{r}
+dfSummary(world_cup)
+```
+```{r}
+freq(world_cup$city)
+freq(world_cup$winning_team)
+```

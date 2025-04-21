@@ -34,3 +34,55 @@ dfSummary(world_cup)
 freq(world_cup$city)
 freq(world_cup$winning_team)
 ```
+
+
+
+
+
+```{r}
+gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
+
+pop_data <- read_csv("../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv", skip = 4)
+```
+
+```{r}
+BRA_gdp <- gdp_data |>
+  filter(`Country Name`== "Brazil")|>
+  select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
+
+BRA_pop <- pop_data |>
+  filter(`Country Name`== "Brazil")|>
+  select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
+```
+
+```{r}
+BRA_gdp_long <- pivot_longer(BRA_gdp, cols = everything(), names_to = "Year", values_to = "GDP($)")
+
+BRA_pop_long <- pivot_longer(BRA_pop, cols = everything(), names_to = "Year", values_to = "Population")
+
+BRA_pop_long |>
+  filter(Population != 2024)
+
+BRA_gdppop <- left_join(BRA_gdp_long, BRA_pop_long, by = join_by(Year))
+```
+
+```{r}
+BRA_gdppop <- BRA_gdppop |>
+  mutate(GDP_per_Capita = `GDP($)`/Population)|>
+  filter(!is.na(Year))|>
+  mutate(Year = as.numeric(Year))
+```
+
+```{r}
+BRA_gdppop <- BRA_gdppop |>
+  mutate(Host_Status = "No World Cup")
+BRA_gdppop$Host_Status[BRA_gdppop$Year == 2014] <- "World Cup"
+
+ggplot(BRA_gdppop, aes(x = Year, y = GDP_per_Capita, fill = Host_Status)) + 
+  geom_col() + 
+  scale_fill_manual(values = c("World Cup" = "#009C3B", "No World Cup" = "lightgrey")) + 
+  labs(title = "Brazil GDP per Capita (USD)",
+       x = "Year",
+       y = "Brazil's GDP per Capita (USD)") + 
+  theme_minimal()
+```

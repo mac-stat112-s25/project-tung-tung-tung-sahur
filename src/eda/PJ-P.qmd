@@ -9,13 +9,15 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 library(scales)
+library(readr)
 ```
+
 
 ```{r}
-file_path <- "C:/Users/thepj/Downloads/API_NY.GDP.MKTP.CD_DS2_en_excel_v2_17967.xls"
-gdp_data <- read_excel(file_path, sheet = 1, skip = 3)
+gdp_data <- read_csv("../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
 
 ```
+
 
 ```{r}
 brazil_gdp <- gdp_data %>%
@@ -92,11 +94,7 @@ library(dplyr)
 library(tidyr)
 library(summarytools)
 
-# Load data
-file_path <- "C:/Users/thepj/Downloads/API_NY.GDP.MKTP.CD_DS2_en_excel_v2_17967.xls"
-gdp_data <- read_excel(file_path, skip = 3)
 
-# Reshape: long format with Country, Year, GDP
 gdp_long <- gdp_data %>%
   select(`Country Name`, starts_with("19"), starts_with("20")) %>%
   pivot_longer(
@@ -107,6 +105,7 @@ gdp_long <- gdp_data %>%
   mutate(Year = as.numeric(Year))
 
 ```
+
 ```{r}
 
 # Summary of GDP across all countries and years
@@ -130,6 +129,7 @@ gdp_by_country <- gdp_long %>%
   ) %>%
   arrange(desc(mean_gdp))  # Optional: sort by average GDP
 ```
+
 ```{r}
 head(gdp_by_country, 10)
 

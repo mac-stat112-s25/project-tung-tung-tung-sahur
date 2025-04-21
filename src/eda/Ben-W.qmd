@@ -26,3 +26,11 @@ world_cup |>
 world_cup|>
   get_dupes()                  
 ```
+
+```{r}
+dfSummary(world_cup)
+```
+```{r}
+freq(world_cup$city)
+freq(world_cup$winning_team)
+```

@@ -73,4 +73,15 @@ ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) 
     color = "inflation_rate"
   )
 ```
+```{r}
+ "Unemployment rate in Brazil (2010-2020)"
+
+ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemployment Rate`)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(breaks = c(2010:2020)) +
+  labs(
+    title = "Unemployment rate in Brazil (2010-2020)" ,
+    y = "Unemployment Rate (%)"
+     )
+```
 

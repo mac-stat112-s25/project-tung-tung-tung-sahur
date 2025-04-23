@@ -66,13 +66,21 @@ inflation_data <- inflation_data|>
   rename(year = observation_date, inflation_rate = FPCPITOTLZGBRA)
 ```
 
+
 ```{r}
 ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) +
   geom_bar(stat = "identity") +
+   scale_fill_gradient(low = "blue", high = "red") +
   labs(
     title = "Brazil's Inflation Rate",
-    color = "inflation_rate"
-  )
+    color = "inflation_rate",
+    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis",
+    y = "Inflation Rate",
+    x = "Year"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0, size = 5))
 ```
 ```{r}
  "Unemployment rate in Brazil (2010-2020)"
@@ -83,7 +91,11 @@ ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemploy
   scale_x_continuous(breaks = c(2010:2020)) +
   labs(
     title = "Unemployment rate in Brazil (2010-2020)" ,
-    y = "Unemployment Rate (%)"
-     ) 
+    y = "Unemployment Rate (%)",
+    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis"
+    ) +
+  theme_minimal() +
+    theme(plot.title = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0, size = 5))
 ```
 

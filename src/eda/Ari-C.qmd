@@ -73,7 +73,7 @@ ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) 
    scale_fill_gradient(low = "blue", high = "red") +
   labs(
     title = "Brazil's Inflation Rate",
-    color = "inflation_rate",
+    fill = "Inflation Rate (%)",
     caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis",
     y = "Inflation Rate",
     x = "Year"

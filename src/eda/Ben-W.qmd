@@ -43,6 +43,8 @@ freq(world_cup$winning_team)
 gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
 
 pop_data <- read_csv("../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv", skip = 4)
+
+tour_data <- read_csv("../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv", skip = 4)
 ```
 
 ```{r}
@@ -53,12 +55,21 @@ BRA_gdp <- gdp_data |>
 BRA_pop <- pop_data |>
   filter(`Country Name`== "Brazil")|>
   select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
+
+BRA_tour <- tour_data |>
+  filter(`Country Name`== "Brazil")|>
+  select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
 ```
 
 ```{r}
 BRA_gdp_long <- pivot_longer(BRA_gdp, cols = everything(), names_to = "Year", values_to = "GDP($)")
 
 BRA_pop_long <- pivot_longer(BRA_pop, cols = everything(), names_to = "Year", values_to = "Population")
+
+BRA_tour_long <- pivot_longer(BRA_tour, cols = everything(), names_to = "Year", values_to = "NTourists")|>
+  filter(!is.na(NTourists))|>
+  mutate(Year = as.numeric(Year)) |>
+  mutate(Tourists_Millions = NTourists / 1e6)
 
 BRA_pop_long |>
   filter(Population != 2024)
@@ -80,9 +91,28 @@ BRA_gdppop$Host_Status[BRA_gdppop$Year == 2014] <- "World Cup"
 
 ggplot(BRA_gdppop, aes(x = Year, y = GDP_per_Capita, fill = Host_Status)) + 
   geom_col() + 
-  scale_fill_manual(values = c("World Cup" = "#009C3B", "No World Cup" = "lightgrey")) + 
+  scale_fill_manual(values = c("World Cup" = "#FFCB00", "No World Cup" = "lightgrey")) + 
   labs(title = "Brazil GDP per Capita (USD)",
        x = "Year",
-       y = "Brazil's GDP per Capita (USD)") + 
-  theme_minimal()
+       y = "Brazil's GDP per Capita (USD)", caption = "Source: World Bank Population & GDP Data", fill = "World Cup Status") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
+```
+```{r}
+highlight_years <- BRA_tour_long |>
+  filter(Year %in% c(2014, 2016))
+
+
+ggplot(BRA_tour_long, aes(x = Year, y = Tourists_Millions)) +
+  geom_point(color = "black") +  # All points in black
+  geom_point(data = subset(BRA_tour_long, Year == 2014), color = "green", size = 3) +  # World Cup
+  geom_point(data = subset(BRA_tour_long, Year == 2016), color = "red", size = 3) +    # Olympics
+  geom_line(color = "black") +  # Connect all the points with a black line
+  labs(
+    title = "Brazil International Tourist Arrivals Over Time",
+    x = "Year",
+    y = "International Arrivals (Millions)",
+    caption = "Source: World Bank International Tourists Data"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+
 ```

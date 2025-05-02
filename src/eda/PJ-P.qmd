@@ -144,4 +144,50 @@ View(gdp_by_country)
 
 
 
+```{r}
+
+library(tidyverse)
+
+# Skip the first three rows to get to the real header row
+tourism_data <- read_csv("../../data/API_ST.INT.RCPT.CD_DS2_en_csv_v2_19613.csv", skip = 3)
+
+# Filter for Brazil and select only year columns
+brazil_data <- tourism_data %>%
+  filter(`Country Name` == "Brazil") %>%
+  select(`Country Name`, matches("^\\d{4}$"))  # Select only year columns
+
+# Reshape for plotting
+brazil_long <- brazil_data %>%
+  pivot_longer(
+    cols = -`Country Name`,
+    names_to = "Year",
+    values_to = "Receipts"
+  ) %>%
+  mutate(
+    Year = as.integer(Year),
+    Receipts = as.numeric(Receipts) / 1e9  # Convert to billions
+  ) %>%
+  filter(Year >= 2010 & Year <= 2018) %>%
+  mutate(
+    Highlight = if_else(Year == 2014, "2014", "Other")  # Highlight 2014
+  )
+
+# Plot with line connecting all years and 2014 highlighted
+ggplot(brazil_long, aes(x = Year, y = Receipts)) +
+  geom_line(color = "black", size = 1.2) +  # Line connecting all years
+  geom_point(aes(color = Highlight), size = 3) +  # Points with different color for 2014
+  scale_color_manual(values = c("2014" = "#FCD116", "Other" = "#009B4D")) +  # Color 2014 differently
+  labs(
+    title = "Brazil: International Tourism Receipts (2010-2018)",
+    x = "Year",
+    y = "Receipts (billion US$)",
+    color = "Year"
+  ) +
+  theme_minimal()
+
+
+```
+
+
+
 

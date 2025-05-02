@@ -29,7 +29,7 @@ read_csv("../../data/wcmatches.csv")
 
 
 ```{r}
-unemployment_data <- read_csv("~/Documents/Brazil-Unemployment-Rate-Unemployment-Rate-2025-04-16-11-18.csv") |>
+unemployment_data <- read_csv("../../data/Brazil-Unemployment-Rate-Unemployment-Rate-2025-04-16-11-18.csv") |>
   slice_head(n = 30) |>
   slice_tail(n = 11) |>
   rename(Year = ...1)

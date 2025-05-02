@@ -188,6 +188,53 @@ ggplot(brazil_long, aes(x = Year, y = Receipts)) +
 
 ```
 
+```{r}
+ggplot(brazil_long, aes(x = Year, y = Receipts)) +
+  geom_line(color = "black", size = 1.2) +  # Line connecting all years
+  geom_point(aes(color = Highlight), size = 3) +  # Points with different color for 2014
+  geom_point(data = subset(brazil_long, Year == 2016), 
+             aes(x = Year, y = Receipts), 
+             color = "red", size = 4) +  # Red dot for 2016
+  geom_text(data = subset(brazil_long, Year == 2016), 
+            aes(label = "Olympics"), 
+            vjust = -1, color = "red", size = 4.5) +  # Label for 2016
+  scale_color_manual(values = c("2014" = "#FCD116", "Other" = "#009B4D")) +  # Color 2014 differently
+  labs(
+    title = "Brazil: International Tourism Receipts (2010-2018)",
+    x = "Year",
+    y = "Receipts (billion US$)",
+    color = "Year"
+  ) +
+  theme_minimal()
+
+```
+
+```{r}
+brazil_long$Highlight <- ifelse(brazil_long$Year == 2014, "World Cup",
+                          ifelse(brazil_long$Year == 2016, "Olympics", "Other"))
+
+ggplot(brazil_long, aes(x = Year, y = Receipts)) +
+  geom_line(color = "black", size = 1.2) +  # Line connecting all years
+  geom_point(aes(color = Highlight), size = 3) +  # Points with different color for 2014
+  geom_point(data = subset(brazil_long, Year == 2016), 
+             aes(x = Year, y = Receipts), 
+             color = "red", size = 4) +  # Red dot for 2016
+  geom_text(data = subset(brazil_long, Year == 2016), 
+            aes(label = "Olympics"), 
+            vjust = -1, color = "red", size = 4.5) +  # Label for 2016
+  geom_text(data = subset(brazil_long, Year == 2014), 
+            aes(label = "World Cup"), 
+            vjust = -1, color = "#FCD116", size = 4.5) +  # Label for 2014
+  scale_color_manual(values = c("2014" = "#FCD116", "Other" = "#009B4D")) +  # Color 2014 differently
+  labs(
+    title = "Brazil: International Tourism Receipts (2010-2018)",
+    x = "Year",
+    y = "Receipts (billion US$)",
+    color = "Year"
+  ) +
+  theme_minimal()
+
+```
 
 
 

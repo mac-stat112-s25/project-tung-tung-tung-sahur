@@ -58,7 +58,7 @@ ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`)) +
 Inflation Rate:
 
 ```{r}
-inflation_data <- read_csv("~/Documents/Brazil Inflation data.csv")
+inflation_data <- read_csv("../../data/Brazil Inflation data.csv")
 ```
 
 ```{r}

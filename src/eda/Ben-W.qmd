@@ -103,18 +103,21 @@ ggplot(BRA_gdppop, aes(x = Year, y = GDP_per_Capita, fill = Host_Status)) +
        y = "Brazil's GDP per Capita (USD)", caption = "Source: World Bank Population & GDP Data", fill = "World Cup Status") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
 ```
 ```{r}
-highlight_years <- BRA_tour_long |>
+BRA_subset <- BRA_tour_long |> 
+  filter(Year >= 2010 & Year <= 2018)
+
+highlight_years <- BRA_subset |> 
   filter(Year %in% c(2014, 2016))
 
 
-ggplot(BRA_tour_long, aes(x = Year, y = Tourists_Millions)) +
+ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +
   geom_point(color = "black") +
   geom_point(
-    data = subset(BRA_tour_long, Year == 2014),
+    data = subset(BRA_subset, Year == 2014),
     aes(color = "World Cup"),
     size = 3) +
   geom_point(
-    data = subset(BRA_tour_long, Year == 2016),
+    data = subset(BRA_subset, Year == 2016),
     aes(color = "Olympics"),
     size = 3) +
   geom_line(color = "black") +
@@ -168,7 +171,7 @@ brazil|>
   labs(
     title = "Expected Stadium Costs - Brazil World Cup",
     subtitle = "Size reflects expected construction cost",
-    caption = "Source: StadiumDB & Natural Earth")
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")
 ```
 ```{r}
 ggplot(data = brazil) +
@@ -180,7 +183,7 @@ ggplot(data = brazil) +
   labs(
     title = "Actual Stadium Costs - Brazil World Cup",
     subtitle = "Size reflects actual construction cost",
-    caption = "Source: StadiumDB & Natural Earth"
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
   )
 
 ```
@@ -201,7 +204,7 @@ ggplot(data = brazil) +
   labs(
     title = "Over-Budget Stadiums - Brazil World Cup",
     subtitle = "Size shows how much actual cost exceeded expected",
-    caption = "Source: StadiumDB & Natural Earth"
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
   )
 
 ```

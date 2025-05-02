@@ -7,6 +7,12 @@ format: html
 library(tidyverse)
 library(summarytools)
 library(janitor)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(dplyr)
+library(tibble)
+library(leaflet)
 ```
 
 ```{r}
@@ -43,6 +49,8 @@ freq(world_cup$winning_team)
 gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
 
 pop_data <- read_csv("../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv", skip = 4)
+
+tour_data <- read_csv("../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv", skip = 4)
 ```
 
 ```{r}
@@ -53,12 +61,21 @@ BRA_gdp <- gdp_data |>
 BRA_pop <- pop_data |>
   filter(`Country Name`== "Brazil")|>
   select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
+
+BRA_tour <- tour_data |>
+  filter(`Country Name`== "Brazil")|>
+  select(-c(`Country Code`, `Indicator Code`, `Indicator Name`, `Country Name`))
 ```
 
 ```{r}
 BRA_gdp_long <- pivot_longer(BRA_gdp, cols = everything(), names_to = "Year", values_to = "GDP($)")
 
 BRA_pop_long <- pivot_longer(BRA_pop, cols = everything(), names_to = "Year", values_to = "Population")
+
+BRA_tour_long <- pivot_longer(BRA_tour, cols = everything(), names_to = "Year", values_to = "NTourists")|>
+  filter(!is.na(NTourists))|>
+  mutate(Year = as.numeric(Year)) |>
+  mutate(Tourists_Millions = NTourists / 1e6)
 
 BRA_pop_long |>
   filter(Population != 2024)
@@ -80,9 +97,111 @@ BRA_gdppop$Host_Status[BRA_gdppop$Year == 2014] <- "World Cup"
 
 ggplot(BRA_gdppop, aes(x = Year, y = GDP_per_Capita, fill = Host_Status)) + 
   geom_col() + 
-  scale_fill_manual(values = c("World Cup" = "#009C3B", "No World Cup" = "lightgrey")) + 
+  scale_fill_manual(values = c("World Cup" = "#FFCB00", "No World Cup" = "lightgrey")) + 
   labs(title = "Brazil GDP per Capita (USD)",
        x = "Year",
-       y = "Brazil's GDP per Capita (USD)") + 
-  theme_minimal()
+       y = "Brazil's GDP per Capita (USD)", caption = "Source: World Bank Population & GDP Data", fill = "World Cup Status") + theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
+```
+```{r}
+highlight_years <- BRA_tour_long |>
+  filter(Year %in% c(2014, 2016))
+
+
+ggplot(BRA_tour_long, aes(x = Year, y = Tourists_Millions)) +
+  geom_point(color = "black") +
+  geom_point(
+    data = subset(BRA_tour_long, Year == 2014),
+    aes(color = "World Cup"),
+    size = 3) +
+  geom_point(
+    data = subset(BRA_tour_long, Year == 2016),
+    aes(color = "Olympics"),
+    size = 3) +
+  geom_line(color = "black") +
+  scale_color_manual(
+    name = "Event",
+    values = c("World Cup" = "green", "Olympics" = "red")) +
+  labs(
+    title = "Brazil International Tourist Arrivals Over Time",
+    x = "Year",
+    y = "International Arrivals (Millions)",
+    caption = "Source: World Bank International Tourists Data") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), legend.title = element_text(size = 12), legend.text = element_text(size = 10))
+```
+
+```{r}
+stadiums <- tribble(
+  ~name,                   ~lat,                 ~lon,                   ~renovated, ~expected_cost, ~actual_cost,
+  "Arena da Amazonia",     -3.083224270281717,   -60.02811774693085,    "no",       499,            669.5,
+  "Estadio das Dunas",     -5.826773453735864,   -35.21243203342208,    "no",       400,            423,
+  "Arena Pernambuco",      -8.040609375176933,   -35.00828336408932,    "no",       532,            650,
+  "Arena Fonte Nova",      -12.978740111372705,  -38.504352444705404,   "no",       400,            592,
+  "Estadio Nacional",      -15.783384471395678,  -47.898643789835376,   "no",       696,           1400,
+  "Arena de Sao Paulo",    -23.545165844720582,  -46.473606931949604,   "no",       820,           1200,
+  "Arena Pantanal",        -15.603874717209912,  -56.121517216278384,   "no",       342,            646,
+  "Estadio Castelao",      -3.8071014084665564,  -38.52176791698881,    "yes",      519,            519,
+  "Estadio De Maracana",   -22.912012743760158,  -43.2296347626551,     "yes",      706,           1050,
+  "Arena de Baixada",      -25.4479984444347,    -49.27604246681617,    "yes",      184.6,          360,
+  "Estadio Beira-Rio",     -30.064370408151312,  -51.231847404307615,   "yes",      200,            330,
+  "Estadio Mineirao",      -19.865665173965294,  -43.970670164595845,   "yes",      750,            695
+)
+```
+
+```{r}
+stadiums_sf <- st_as_sf(stadiums, coords = c("lon", "lat"), crs = 4326)
+```
+
+
+
+```{r}
+# Download the 'countries' shapefile
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+brazil <- world %>% filter(admin == "Brazil")
+
+brazil|>
+  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Expected Stadium Costs - Brazil World Cup",
+    subtitle = "Size reflects expected construction cost",
+    caption = "Source: StadiumDB & Natural Earth")
+```
+```{r}
+ggplot(data = brazil) +
+  geom_sf(fill = "gray95", color = "black") +
+  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Actual Stadium Costs - Brazil World Cup",
+    subtitle = "Size reflects actual construction cost",
+    caption = "Source: StadiumDB & Natural Earth"
+  )
+
+```
+
+```{r}
+over_budget <- stadiums_sf %>%
+  mutate(overrun = actual_cost - expected_cost) %>%
+  filter(overrun > 0)
+```
+
+```{r}
+ggplot(data = brazil) +
+  geom_sf(fill = "gray95", color = "black") +
+  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Over-Budget Stadiums - Brazil World Cup",
+    subtitle = "Size shows how much actual cost exceeded expected",
+    caption = "Source: StadiumDB & Natural Earth"
+  )
+
 ```

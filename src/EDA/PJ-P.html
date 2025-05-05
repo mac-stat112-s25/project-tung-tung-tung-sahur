@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>7&nbsp; PJP_EDA – project title</title>
+<title>7&nbsp; PJ P – The Economic Effects of the World Cup: Case Study on Brazil World Cup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -262,7 +262,7 @@ cookieconsent.run({
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/EDA/Nolan-R.html">EDA</a></li><li class="breadcrumb-item"><a href="../../src/EDA/PJ-P.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PJP_EDA</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PJP_EDA</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">PJ P</span>
 </h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -557,6 +557,66 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="PJ-P_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb32-5"><a href="#cb32-5"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts), </span>
+<span id="cb32-6"><a href="#cb32-6"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb32-8"><a href="#cb32-8"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), </span>
+<span id="cb32-9"><a href="#cb32-9"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-12"><a href="#cb32-12"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb32-13"><a href="#cb32-13"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb32-14"><a href="#cb32-14"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb32-15"><a href="#cb32-15"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb32-16"><a href="#cb32-16"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-17"><a href="#cb32-17"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="PJ-P_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>brazil_long<span class="sc">$</span>Highlight <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(brazil_long<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>, <span class="st">"World Cup"</span>,</span>
+<span id="cb34-2"><a href="#cb34-2"></a>                          <span class="fu">ifelse</span>(brazil_long<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2016</span>, <span class="st">"Olympics"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb34-8"><a href="#cb34-8"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts), </span>
+<span id="cb34-9"><a href="#cb34-9"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb34-11"><a href="#cb34-11"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), </span>
+<span id="cb34-12"><a href="#cb34-12"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2014</span>), </span>
+<span id="cb34-14"><a href="#cb34-14"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"World Cup"</span>), </span>
+<span id="cb34-15"><a href="#cb34-15"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"#FCD116"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2014</span></span>
+<span id="cb34-16"><a href="#cb34-16"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
+<span id="cb34-17"><a href="#cb34-17"></a>  <span class="fu">labs</span>(</span>
+<span id="cb34-18"><a href="#cb34-18"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb34-19"><a href="#cb34-19"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb34-20"><a href="#cb34-20"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb34-21"><a href="#cb34-21"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb34-22"><a href="#cb34-22"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-23"><a href="#cb34-23"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="PJ-P_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1196,195 +1256,242 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">---</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="an">title:</span><span class="co"> "PJP_EDA"</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co">---</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a></span>
-<span id="cb32-8"><a href="#cb32-8"></a><span class="in">```{r}</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb32-10"><a href="#cb32-10"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb32-12"><a href="#cb32-12"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb32-13"><a href="#cb32-13"></a><span class="fu">library</span>(scales)</span>
-<span id="cb32-14"><a href="#cb32-14"></a><span class="fu">library</span>(readr)</span>
-<span id="cb32-15"><a href="#cb32-15"></a><span class="in">```</span></span>
-<span id="cb32-16"><a href="#cb32-16"></a></span>
-<span id="cb32-17"><a href="#cb32-17"></a></span>
-<span id="cb32-20"><a href="#cb32-20"></a><span class="in">```{r}</span></span>
-<span id="cb32-21"><a href="#cb32-21"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
-<span id="cb32-22"><a href="#cb32-22"></a></span>
-<span id="cb32-23"><a href="#cb32-23"></a><span class="in">```</span></span>
-<span id="cb32-24"><a href="#cb32-24"></a></span>
-<span id="cb32-25"><a href="#cb32-25"></a></span>
-<span id="cb32-28"><a href="#cb32-28"></a><span class="in">```{r}</span></span>
-<span id="cb32-29"><a href="#cb32-29"></a>brazil_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">%&gt;%</span></span>
-<span id="cb32-30"><a href="#cb32-30"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Brazil"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-31"><a href="#cb32-31"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">starts_with</span>(<span class="st">"19"</span>), <span class="fu">starts_with</span>(<span class="st">"20"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-32"><a href="#cb32-32"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb32-33"><a href="#cb32-33"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
-<span id="cb32-34"><a href="#cb32-34"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-35"><a href="#cb32-35"></a>    <span class="at">values_to =</span> <span class="st">"GDP"</span></span>
-<span id="cb32-36"><a href="#cb32-36"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-37"><a href="#cb32-37"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
-<span id="cb32-38"><a href="#cb32-38"></a></span>
-<span id="cb32-39"><a href="#cb32-39"></a><span class="in">```</span></span>
-<span id="cb32-40"><a href="#cb32-40"></a></span>
-<span id="cb32-43"><a href="#cb32-43"></a><span class="in">```{r}</span></span>
-<span id="cb32-44"><a href="#cb32-44"></a><span class="fu">ggplot</span>(brazil_gdp, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP)) <span class="sc">+</span></span>
-<span id="cb32-45"><a href="#cb32-45"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb32-46"><a href="#cb32-46"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">scale =</span> <span class="fl">1e-9</span>, <span class="at">suffix =</span> <span class="st">"B"</span>)) <span class="sc">+</span></span>
-<span id="cb32-47"><a href="#cb32-47"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-48"><a href="#cb32-48"></a>    <span class="at">title =</span> <span class="st">"Brazil's GDP Over Time"</span>,</span>
-<span id="cb32-49"><a href="#cb32-49"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-50"><a href="#cb32-50"></a>    <span class="at">y =</span> <span class="st">"GDP (USD, Billions)"</span></span>
-<span id="cb32-51"><a href="#cb32-51"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-52"><a href="#cb32-52"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb32-53"><a href="#cb32-53"></a></span>
-<span id="cb32-54"><a href="#cb32-54"></a><span class="in">```</span></span>
-<span id="cb32-55"><a href="#cb32-55"></a></span>
-<span id="cb32-58"><a href="#cb32-58"></a><span class="in">```{r}</span></span>
-<span id="cb32-59"><a href="#cb32-59"></a><span class="co"># Extract 2014 GDP value</span></span>
-<span id="cb32-60"><a href="#cb32-60"></a>gdp_2014 <span class="ot">&lt;-</span> brazil_gdp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2014</span>)</span>
-<span id="cb32-61"><a href="#cb32-61"></a></span>
-<span id="cb32-62"><a href="#cb32-62"></a><span class="fu">ggplot</span>(brazil_gdp, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP)) <span class="sc">+</span></span>
-<span id="cb32-63"><a href="#cb32-63"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb32-64"><a href="#cb32-64"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> gdp_2014, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb32-65"><a href="#cb32-65"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb32-66"><a href="#cb32-66"></a>    <span class="at">data =</span> gdp_2014,</span>
-<span id="cb32-67"><a href="#cb32-67"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"2014: $"</span>, <span class="fu">round</span>(GDP <span class="sc">/</span> <span class="fl">1e9</span>, <span class="dv">1</span>), <span class="st">"B"</span>)),</span>
-<span id="cb32-68"><a href="#cb32-68"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
-<span id="cb32-69"><a href="#cb32-69"></a>    <span class="at">color =</span> <span class="st">"red"</span></span>
-<span id="cb32-70"><a href="#cb32-70"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-71"><a href="#cb32-71"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">dollar_format</span>(<span class="at">scale =</span> <span class="fl">1e-9</span>, <span class="at">suffix =</span> <span class="st">"B"</span>)) <span class="sc">+</span></span>
-<span id="cb32-72"><a href="#cb32-72"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-73"><a href="#cb32-73"></a>    <span class="at">title =</span> <span class="st">"Brazil's GDP Over Time (Highlighted: 2014)"</span>,</span>
-<span id="cb32-74"><a href="#cb32-74"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-75"><a href="#cb32-75"></a>    <span class="at">y =</span> <span class="st">"GDP (USD, Billions)"</span></span>
-<span id="cb32-76"><a href="#cb32-76"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-77"><a href="#cb32-77"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb32-78"><a href="#cb32-78"></a></span>
-<span id="cb32-79"><a href="#cb32-79"></a><span class="in">```</span></span>
-<span id="cb32-80"><a href="#cb32-80"></a>The visualization shows how Brazil's GDP was higher before the world cup most likely because they knew they would be hosting it and the government was spending money to get ready for it and then during the world cup it was high because they were bringing in a lot of money hosting it. However after the world cup the GDP dropped by a good amount most likely because now the government wasn't spendning money or bringing in money from the world cup so it dropped.</span>
-<span id="cb32-81"><a href="#cb32-81"></a></span>
-<span id="cb32-84"><a href="#cb32-84"></a><span class="in">```{r}</span></span>
-<span id="cb32-85"><a href="#cb32-85"></a>summary_stats <span class="ot">&lt;-</span> brazil_gdp <span class="sc">%&gt;%</span></span>
-<span id="cb32-86"><a href="#cb32-86"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb32-87"><a href="#cb32-87"></a>    <span class="at">Years_Available =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(GDP)),</span>
-<span id="cb32-88"><a href="#cb32-88"></a>    <span class="at">First_Year =</span> <span class="fu">min</span>(Year[<span class="sc">!</span><span class="fu">is.na</span>(GDP)]),</span>
-<span id="cb32-89"><a href="#cb32-89"></a>    <span class="at">Last_Year =</span> <span class="fu">max</span>(Year[<span class="sc">!</span><span class="fu">is.na</span>(GDP)]),</span>
-<span id="cb32-90"><a href="#cb32-90"></a>    <span class="at">Min_GDP =</span> <span class="fu">min</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-91"><a href="#cb32-91"></a>    <span class="at">Max_GDP =</span> <span class="fu">max</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-92"><a href="#cb32-92"></a>    <span class="at">Mean_GDP =</span> <span class="fu">mean</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-93"><a href="#cb32-93"></a>    <span class="at">Median_GDP =</span> <span class="fu">median</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-94"><a href="#cb32-94"></a>    <span class="at">SD_GDP =</span> <span class="fu">sd</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-95"><a href="#cb32-95"></a>  )</span>
-<span id="cb32-96"><a href="#cb32-96"></a></span>
-<span id="cb32-97"><a href="#cb32-97"></a><span class="co"># View the summary</span></span>
-<span id="cb32-98"><a href="#cb32-98"></a><span class="fu">print</span>(summary_stats)</span>
-<span id="cb32-99"><a href="#cb32-99"></a></span>
-<span id="cb32-100"><a href="#cb32-100"></a><span class="in">```</span></span>
-<span id="cb32-101"><a href="#cb32-101"></a></span>
-<span id="cb32-104"><a href="#cb32-104"></a><span class="in">```{r}</span></span>
-<span id="cb32-105"><a href="#cb32-105"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb32-106"><a href="#cb32-106"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb32-107"><a href="#cb32-107"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb32-108"><a href="#cb32-108"></a><span class="fu">library</span>(summarytools)</span>
-<span id="cb32-109"><a href="#cb32-109"></a></span>
-<span id="cb32-110"><a href="#cb32-110"></a></span>
-<span id="cb32-111"><a href="#cb32-111"></a>gdp_long <span class="ot">&lt;-</span> gdp_data <span class="sc">%&gt;%</span></span>
-<span id="cb32-112"><a href="#cb32-112"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">starts_with</span>(<span class="st">"19"</span>), <span class="fu">starts_with</span>(<span class="st">"20"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-113"><a href="#cb32-113"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb32-114"><a href="#cb32-114"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
-<span id="cb32-115"><a href="#cb32-115"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-116"><a href="#cb32-116"></a>    <span class="at">values_to =</span> <span class="st">"GDP"</span></span>
-<span id="cb32-117"><a href="#cb32-117"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-118"><a href="#cb32-118"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
-<span id="cb32-119"><a href="#cb32-119"></a></span>
-<span id="cb32-120"><a href="#cb32-120"></a><span class="in">```</span></span>
-<span id="cb32-121"><a href="#cb32-121"></a></span>
-<span id="cb32-124"><a href="#cb32-124"></a><span class="in">```{r}</span></span>
-<span id="cb32-125"><a href="#cb32-125"></a><span class="co"># Summary of GDP across all countries and years</span></span>
-<span id="cb32-126"><a href="#cb32-126"></a><span class="fu">dfSummary</span>(gdp_long<span class="sc">$</span>GDP)</span>
-<span id="cb32-127"><a href="#cb32-127"></a></span>
-<span id="cb32-128"><a href="#cb32-128"></a><span class="in">```</span></span>
-<span id="cb32-129"><a href="#cb32-129"></a></span>
-<span id="cb32-132"><a href="#cb32-132"></a><span class="in">```{r}</span></span>
-<span id="cb32-133"><a href="#cb32-133"></a>gdp_by_country <span class="ot">&lt;-</span> gdp_long <span class="sc">%&gt;%</span></span>
-<span id="cb32-134"><a href="#cb32-134"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-135"><a href="#cb32-135"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb32-136"><a href="#cb32-136"></a>    <span class="at">start_year =</span> <span class="fu">min</span>(Year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-137"><a href="#cb32-137"></a>    <span class="at">end_year =</span> <span class="fu">max</span>(Year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-138"><a href="#cb32-138"></a>    <span class="at">num_years =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(GDP)),</span>
-<span id="cb32-139"><a href="#cb32-139"></a>    <span class="at">min_gdp =</span> <span class="fu">min</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-140"><a href="#cb32-140"></a>    <span class="at">max_gdp =</span> <span class="fu">max</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-141"><a href="#cb32-141"></a>    <span class="at">mean_gdp =</span> <span class="fu">mean</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-142"><a href="#cb32-142"></a>    <span class="at">median_gdp =</span> <span class="fu">median</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-143"><a href="#cb32-143"></a>    <span class="at">sd_gdp =</span> <span class="fu">sd</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-144"><a href="#cb32-144"></a>    <span class="at">total_gdp =</span> <span class="fu">sum</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-145"><a href="#cb32-145"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-146"><a href="#cb32-146"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_gdp))  <span class="co"># Optional: sort by average GDP</span></span>
-<span id="cb32-147"><a href="#cb32-147"></a><span class="in">```</span></span>
-<span id="cb32-148"><a href="#cb32-148"></a></span>
-<span id="cb32-151"><a href="#cb32-151"></a><span class="in">```{r}</span></span>
-<span id="cb32-152"><a href="#cb32-152"></a><span class="fu">head</span>(gdp_by_country, <span class="dv">10</span>)</span>
-<span id="cb32-153"><a href="#cb32-153"></a></span>
-<span id="cb32-154"><a href="#cb32-154"></a><span class="in">```</span></span>
-<span id="cb32-155"><a href="#cb32-155"></a></span>
-<span id="cb32-158"><a href="#cb32-158"></a><span class="in">```{r}</span></span>
-<span id="cb32-159"><a href="#cb32-159"></a><span class="fu">View</span>(gdp_by_country)</span>
-<span id="cb32-160"><a href="#cb32-160"></a></span>
-<span id="cb32-161"><a href="#cb32-161"></a><span class="in">```</span></span>
-<span id="cb32-162"><a href="#cb32-162"></a></span>
-<span id="cb32-163"><a href="#cb32-163"></a></span>
-<span id="cb32-164"><a href="#cb32-164"></a></span>
-<span id="cb32-165"><a href="#cb32-165"></a></span>
-<span id="cb32-166"><a href="#cb32-166"></a></span>
-<span id="cb32-169"><a href="#cb32-169"></a><span class="in">```{r}</span></span>
-<span id="cb32-170"><a href="#cb32-170"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb32-171"><a href="#cb32-171"></a></span>
-<span id="cb32-172"><a href="#cb32-172"></a><span class="co"># Skip the first three rows to get to the real header row</span></span>
-<span id="cb32-173"><a href="#cb32-173"></a>tourism_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/API_ST.INT.RCPT.CD_DS2_en_csv_v2_19613.csv"</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
-<span id="cb32-174"><a href="#cb32-174"></a></span>
-<span id="cb32-175"><a href="#cb32-175"></a><span class="co"># Filter for Brazil and select only year columns</span></span>
-<span id="cb32-176"><a href="#cb32-176"></a>brazil_data <span class="ot">&lt;-</span> tourism_data <span class="sc">%&gt;%</span></span>
-<span id="cb32-177"><a href="#cb32-177"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Brazil"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-178"><a href="#cb32-178"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">matches</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d{4}$"</span>))  <span class="co"># Select only year columns</span></span>
-<span id="cb32-179"><a href="#cb32-179"></a></span>
-<span id="cb32-180"><a href="#cb32-180"></a><span class="co"># Reshape for plotting</span></span>
-<span id="cb32-181"><a href="#cb32-181"></a>brazil_long <span class="ot">&lt;-</span> brazil_data <span class="sc">%&gt;%</span></span>
-<span id="cb32-182"><a href="#cb32-182"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb32-183"><a href="#cb32-183"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
-<span id="cb32-184"><a href="#cb32-184"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-185"><a href="#cb32-185"></a>    <span class="at">values_to =</span> <span class="st">"Receipts"</span></span>
-<span id="cb32-186"><a href="#cb32-186"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-187"><a href="#cb32-187"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb32-188"><a href="#cb32-188"></a>    <span class="at">Year =</span> <span class="fu">as.integer</span>(Year),</span>
-<span id="cb32-189"><a href="#cb32-189"></a>    <span class="at">Receipts =</span> <span class="fu">as.numeric</span>(Receipts) <span class="sc">/</span> <span class="fl">1e9</span>  <span class="co"># Convert to billions</span></span>
-<span id="cb32-190"><a href="#cb32-190"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-191"><a href="#cb32-191"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-192"><a href="#cb32-192"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb32-193"><a href="#cb32-193"></a>    <span class="at">Highlight =</span> <span class="fu">if_else</span>(Year <span class="sc">==</span> <span class="dv">2014</span>, <span class="st">"2014"</span>, <span class="st">"Other"</span>)  <span class="co"># Highlight 2014</span></span>
-<span id="cb32-194"><a href="#cb32-194"></a>  )</span>
-<span id="cb32-195"><a href="#cb32-195"></a></span>
-<span id="cb32-196"><a href="#cb32-196"></a><span class="co"># Plot with line connecting all years and 2014 highlighted</span></span>
-<span id="cb32-197"><a href="#cb32-197"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
-<span id="cb32-198"><a href="#cb32-198"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
-<span id="cb32-199"><a href="#cb32-199"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
-<span id="cb32-200"><a href="#cb32-200"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
-<span id="cb32-201"><a href="#cb32-201"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-202"><a href="#cb32-202"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
-<span id="cb32-203"><a href="#cb32-203"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb32-204"><a href="#cb32-204"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
-<span id="cb32-205"><a href="#cb32-205"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
-<span id="cb32-206"><a href="#cb32-206"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-207"><a href="#cb32-207"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb32-208"><a href="#cb32-208"></a></span>
-<span id="cb32-209"><a href="#cb32-209"></a></span>
-<span id="cb32-210"><a href="#cb32-210"></a><span class="in">```</span></span>
-<span id="cb32-211"><a href="#cb32-211"></a></span>
-<span id="cb32-212"><a href="#cb32-212"></a></span>
-<span id="cb32-213"><a href="#cb32-213"></a></span>
+<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">---</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="an">title:</span><span class="co"> "PJ P"</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="co">---</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="in">```{r}</span></span>
+<span id="cb35-9"><a href="#cb35-9"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb35-10"><a href="#cb35-10"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb35-11"><a href="#cb35-11"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-12"><a href="#cb35-12"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb35-13"><a href="#cb35-13"></a><span class="fu">library</span>(scales)</span>
+<span id="cb35-14"><a href="#cb35-14"></a><span class="fu">library</span>(readr)</span>
+<span id="cb35-15"><a href="#cb35-15"></a><span class="in">```</span></span>
+<span id="cb35-16"><a href="#cb35-16"></a></span>
+<span id="cb35-17"><a href="#cb35-17"></a></span>
+<span id="cb35-20"><a href="#cb35-20"></a><span class="in">```{r}</span></span>
+<span id="cb35-21"><a href="#cb35-21"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb35-22"><a href="#cb35-22"></a></span>
+<span id="cb35-23"><a href="#cb35-23"></a><span class="in">```</span></span>
+<span id="cb35-24"><a href="#cb35-24"></a></span>
+<span id="cb35-25"><a href="#cb35-25"></a></span>
+<span id="cb35-28"><a href="#cb35-28"></a><span class="in">```{r}</span></span>
+<span id="cb35-29"><a href="#cb35-29"></a>brazil_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-30"><a href="#cb35-30"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Brazil"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-31"><a href="#cb35-31"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">starts_with</span>(<span class="st">"19"</span>), <span class="fu">starts_with</span>(<span class="st">"20"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-32"><a href="#cb35-32"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb35-33"><a href="#cb35-33"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
+<span id="cb35-34"><a href="#cb35-34"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-35"><a href="#cb35-35"></a>    <span class="at">values_to =</span> <span class="st">"GDP"</span></span>
+<span id="cb35-36"><a href="#cb35-36"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-37"><a href="#cb35-37"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
+<span id="cb35-38"><a href="#cb35-38"></a></span>
+<span id="cb35-39"><a href="#cb35-39"></a><span class="in">```</span></span>
+<span id="cb35-40"><a href="#cb35-40"></a></span>
+<span id="cb35-43"><a href="#cb35-43"></a><span class="in">```{r}</span></span>
+<span id="cb35-44"><a href="#cb35-44"></a><span class="fu">ggplot</span>(brazil_gdp, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb35-45"><a href="#cb35-45"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb35-46"><a href="#cb35-46"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">scale =</span> <span class="fl">1e-9</span>, <span class="at">suffix =</span> <span class="st">"B"</span>)) <span class="sc">+</span></span>
+<span id="cb35-47"><a href="#cb35-47"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-48"><a href="#cb35-48"></a>    <span class="at">title =</span> <span class="st">"Brazil's GDP Over Time"</span>,</span>
+<span id="cb35-49"><a href="#cb35-49"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-50"><a href="#cb35-50"></a>    <span class="at">y =</span> <span class="st">"GDP (USD, Billions)"</span></span>
+<span id="cb35-51"><a href="#cb35-51"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-52"><a href="#cb35-52"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb35-53"><a href="#cb35-53"></a></span>
+<span id="cb35-54"><a href="#cb35-54"></a><span class="in">```</span></span>
+<span id="cb35-55"><a href="#cb35-55"></a></span>
+<span id="cb35-58"><a href="#cb35-58"></a><span class="in">```{r}</span></span>
+<span id="cb35-59"><a href="#cb35-59"></a><span class="co"># Extract 2014 GDP value</span></span>
+<span id="cb35-60"><a href="#cb35-60"></a>gdp_2014 <span class="ot">&lt;-</span> brazil_gdp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2014</span>)</span>
+<span id="cb35-61"><a href="#cb35-61"></a></span>
+<span id="cb35-62"><a href="#cb35-62"></a><span class="fu">ggplot</span>(brazil_gdp, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb35-63"><a href="#cb35-63"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb35-64"><a href="#cb35-64"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> gdp_2014, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb35-65"><a href="#cb35-65"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb35-66"><a href="#cb35-66"></a>    <span class="at">data =</span> gdp_2014,</span>
+<span id="cb35-67"><a href="#cb35-67"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"2014: $"</span>, <span class="fu">round</span>(GDP <span class="sc">/</span> <span class="fl">1e9</span>, <span class="dv">1</span>), <span class="st">"B"</span>)),</span>
+<span id="cb35-68"><a href="#cb35-68"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb35-69"><a href="#cb35-69"></a>    <span class="at">color =</span> <span class="st">"red"</span></span>
+<span id="cb35-70"><a href="#cb35-70"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-71"><a href="#cb35-71"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">dollar_format</span>(<span class="at">scale =</span> <span class="fl">1e-9</span>, <span class="at">suffix =</span> <span class="st">"B"</span>)) <span class="sc">+</span></span>
+<span id="cb35-72"><a href="#cb35-72"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-73"><a href="#cb35-73"></a>    <span class="at">title =</span> <span class="st">"Brazil's GDP Over Time (Highlighted: 2014)"</span>,</span>
+<span id="cb35-74"><a href="#cb35-74"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-75"><a href="#cb35-75"></a>    <span class="at">y =</span> <span class="st">"GDP (USD, Billions)"</span></span>
+<span id="cb35-76"><a href="#cb35-76"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-77"><a href="#cb35-77"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb35-78"><a href="#cb35-78"></a></span>
+<span id="cb35-79"><a href="#cb35-79"></a><span class="in">```</span></span>
+<span id="cb35-80"><a href="#cb35-80"></a>The visualization shows how Brazil's GDP was higher before the world cup most likely because they knew they would be hosting it and the government was spending money to get ready for it and then during the world cup it was high because they were bringing in a lot of money hosting it. However after the world cup the GDP dropped by a good amount most likely because now the government wasn't spendning money or bringing in money from the world cup so it dropped.</span>
+<span id="cb35-81"><a href="#cb35-81"></a></span>
+<span id="cb35-84"><a href="#cb35-84"></a><span class="in">```{r}</span></span>
+<span id="cb35-85"><a href="#cb35-85"></a>summary_stats <span class="ot">&lt;-</span> brazil_gdp <span class="sc">%&gt;%</span></span>
+<span id="cb35-86"><a href="#cb35-86"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb35-87"><a href="#cb35-87"></a>    <span class="at">Years_Available =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(GDP)),</span>
+<span id="cb35-88"><a href="#cb35-88"></a>    <span class="at">First_Year =</span> <span class="fu">min</span>(Year[<span class="sc">!</span><span class="fu">is.na</span>(GDP)]),</span>
+<span id="cb35-89"><a href="#cb35-89"></a>    <span class="at">Last_Year =</span> <span class="fu">max</span>(Year[<span class="sc">!</span><span class="fu">is.na</span>(GDP)]),</span>
+<span id="cb35-90"><a href="#cb35-90"></a>    <span class="at">Min_GDP =</span> <span class="fu">min</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-91"><a href="#cb35-91"></a>    <span class="at">Max_GDP =</span> <span class="fu">max</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-92"><a href="#cb35-92"></a>    <span class="at">Mean_GDP =</span> <span class="fu">mean</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-93"><a href="#cb35-93"></a>    <span class="at">Median_GDP =</span> <span class="fu">median</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-94"><a href="#cb35-94"></a>    <span class="at">SD_GDP =</span> <span class="fu">sd</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-95"><a href="#cb35-95"></a>  )</span>
+<span id="cb35-96"><a href="#cb35-96"></a></span>
+<span id="cb35-97"><a href="#cb35-97"></a><span class="co"># View the summary</span></span>
+<span id="cb35-98"><a href="#cb35-98"></a><span class="fu">print</span>(summary_stats)</span>
+<span id="cb35-99"><a href="#cb35-99"></a></span>
+<span id="cb35-100"><a href="#cb35-100"></a><span class="in">```</span></span>
+<span id="cb35-101"><a href="#cb35-101"></a></span>
+<span id="cb35-104"><a href="#cb35-104"></a><span class="in">```{r}</span></span>
+<span id="cb35-105"><a href="#cb35-105"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb35-106"><a href="#cb35-106"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb35-107"><a href="#cb35-107"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb35-108"><a href="#cb35-108"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb35-109"><a href="#cb35-109"></a></span>
+<span id="cb35-110"><a href="#cb35-110"></a></span>
+<span id="cb35-111"><a href="#cb35-111"></a>gdp_long <span class="ot">&lt;-</span> gdp_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-112"><a href="#cb35-112"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">starts_with</span>(<span class="st">"19"</span>), <span class="fu">starts_with</span>(<span class="st">"20"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-113"><a href="#cb35-113"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb35-114"><a href="#cb35-114"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
+<span id="cb35-115"><a href="#cb35-115"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-116"><a href="#cb35-116"></a>    <span class="at">values_to =</span> <span class="st">"GDP"</span></span>
+<span id="cb35-117"><a href="#cb35-117"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-118"><a href="#cb35-118"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
+<span id="cb35-119"><a href="#cb35-119"></a></span>
+<span id="cb35-120"><a href="#cb35-120"></a><span class="in">```</span></span>
+<span id="cb35-121"><a href="#cb35-121"></a></span>
+<span id="cb35-124"><a href="#cb35-124"></a><span class="in">```{r}</span></span>
+<span id="cb35-125"><a href="#cb35-125"></a><span class="co"># Summary of GDP across all countries and years</span></span>
+<span id="cb35-126"><a href="#cb35-126"></a><span class="fu">dfSummary</span>(gdp_long<span class="sc">$</span>GDP)</span>
+<span id="cb35-127"><a href="#cb35-127"></a></span>
+<span id="cb35-128"><a href="#cb35-128"></a><span class="in">```</span></span>
+<span id="cb35-129"><a href="#cb35-129"></a></span>
+<span id="cb35-132"><a href="#cb35-132"></a><span class="in">```{r}</span></span>
+<span id="cb35-133"><a href="#cb35-133"></a>gdp_by_country <span class="ot">&lt;-</span> gdp_long <span class="sc">%&gt;%</span></span>
+<span id="cb35-134"><a href="#cb35-134"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-135"><a href="#cb35-135"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb35-136"><a href="#cb35-136"></a>    <span class="at">start_year =</span> <span class="fu">min</span>(Year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-137"><a href="#cb35-137"></a>    <span class="at">end_year =</span> <span class="fu">max</span>(Year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-138"><a href="#cb35-138"></a>    <span class="at">num_years =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(GDP)),</span>
+<span id="cb35-139"><a href="#cb35-139"></a>    <span class="at">min_gdp =</span> <span class="fu">min</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-140"><a href="#cb35-140"></a>    <span class="at">max_gdp =</span> <span class="fu">max</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-141"><a href="#cb35-141"></a>    <span class="at">mean_gdp =</span> <span class="fu">mean</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-142"><a href="#cb35-142"></a>    <span class="at">median_gdp =</span> <span class="fu">median</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-143"><a href="#cb35-143"></a>    <span class="at">sd_gdp =</span> <span class="fu">sd</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb35-144"><a href="#cb35-144"></a>    <span class="at">total_gdp =</span> <span class="fu">sum</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-145"><a href="#cb35-145"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-146"><a href="#cb35-146"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_gdp))  <span class="co"># Optional: sort by average GDP</span></span>
+<span id="cb35-147"><a href="#cb35-147"></a><span class="in">```</span></span>
+<span id="cb35-148"><a href="#cb35-148"></a></span>
+<span id="cb35-151"><a href="#cb35-151"></a><span class="in">```{r}</span></span>
+<span id="cb35-152"><a href="#cb35-152"></a><span class="fu">head</span>(gdp_by_country, <span class="dv">10</span>)</span>
+<span id="cb35-153"><a href="#cb35-153"></a></span>
+<span id="cb35-154"><a href="#cb35-154"></a><span class="in">```</span></span>
+<span id="cb35-155"><a href="#cb35-155"></a></span>
+<span id="cb35-158"><a href="#cb35-158"></a><span class="in">```{r}</span></span>
+<span id="cb35-159"><a href="#cb35-159"></a><span class="fu">View</span>(gdp_by_country)</span>
+<span id="cb35-160"><a href="#cb35-160"></a></span>
+<span id="cb35-161"><a href="#cb35-161"></a><span class="in">```</span></span>
+<span id="cb35-162"><a href="#cb35-162"></a></span>
+<span id="cb35-163"><a href="#cb35-163"></a></span>
+<span id="cb35-164"><a href="#cb35-164"></a></span>
+<span id="cb35-165"><a href="#cb35-165"></a></span>
+<span id="cb35-166"><a href="#cb35-166"></a></span>
+<span id="cb35-169"><a href="#cb35-169"></a><span class="in">```{r}</span></span>
+<span id="cb35-170"><a href="#cb35-170"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-171"><a href="#cb35-171"></a></span>
+<span id="cb35-172"><a href="#cb35-172"></a><span class="co"># Skip the first three rows to get to the real header row</span></span>
+<span id="cb35-173"><a href="#cb35-173"></a>tourism_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/API_ST.INT.RCPT.CD_DS2_en_csv_v2_19613.csv"</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
+<span id="cb35-174"><a href="#cb35-174"></a></span>
+<span id="cb35-175"><a href="#cb35-175"></a><span class="co"># Filter for Brazil and select only year columns</span></span>
+<span id="cb35-176"><a href="#cb35-176"></a>brazil_data <span class="ot">&lt;-</span> tourism_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-177"><a href="#cb35-177"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Brazil"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-178"><a href="#cb35-178"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>, <span class="fu">matches</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">d{4}$"</span>))  <span class="co"># Select only year columns</span></span>
+<span id="cb35-179"><a href="#cb35-179"></a></span>
+<span id="cb35-180"><a href="#cb35-180"></a><span class="co"># Reshape for plotting</span></span>
+<span id="cb35-181"><a href="#cb35-181"></a>brazil_long <span class="ot">&lt;-</span> brazil_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-182"><a href="#cb35-182"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb35-183"><a href="#cb35-183"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>,</span>
+<span id="cb35-184"><a href="#cb35-184"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-185"><a href="#cb35-185"></a>    <span class="at">values_to =</span> <span class="st">"Receipts"</span></span>
+<span id="cb35-186"><a href="#cb35-186"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-187"><a href="#cb35-187"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-188"><a href="#cb35-188"></a>    <span class="at">Year =</span> <span class="fu">as.integer</span>(Year),</span>
+<span id="cb35-189"><a href="#cb35-189"></a>    <span class="at">Receipts =</span> <span class="fu">as.numeric</span>(Receipts) <span class="sc">/</span> <span class="fl">1e9</span>  <span class="co"># Convert to billions</span></span>
+<span id="cb35-190"><a href="#cb35-190"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-191"><a href="#cb35-191"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-192"><a href="#cb35-192"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-193"><a href="#cb35-193"></a>    <span class="at">Highlight =</span> <span class="fu">if_else</span>(Year <span class="sc">==</span> <span class="dv">2014</span>, <span class="st">"2014"</span>, <span class="st">"Other"</span>)  <span class="co"># Highlight 2014</span></span>
+<span id="cb35-194"><a href="#cb35-194"></a>  )</span>
+<span id="cb35-195"><a href="#cb35-195"></a></span>
+<span id="cb35-196"><a href="#cb35-196"></a><span class="co"># Plot with line connecting all years and 2014 highlighted</span></span>
+<span id="cb35-197"><a href="#cb35-197"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
+<span id="cb35-198"><a href="#cb35-198"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
+<span id="cb35-199"><a href="#cb35-199"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
+<span id="cb35-200"><a href="#cb35-200"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
+<span id="cb35-201"><a href="#cb35-201"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-202"><a href="#cb35-202"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb35-203"><a href="#cb35-203"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-204"><a href="#cb35-204"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb35-205"><a href="#cb35-205"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb35-206"><a href="#cb35-206"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-207"><a href="#cb35-207"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb35-208"><a href="#cb35-208"></a></span>
+<span id="cb35-209"><a href="#cb35-209"></a></span>
+<span id="cb35-210"><a href="#cb35-210"></a><span class="in">```</span></span>
+<span id="cb35-211"><a href="#cb35-211"></a></span>
+<span id="cb35-214"><a href="#cb35-214"></a><span class="in">```{r}</span></span>
+<span id="cb35-215"><a href="#cb35-215"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
+<span id="cb35-216"><a href="#cb35-216"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
+<span id="cb35-217"><a href="#cb35-217"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
+<span id="cb35-218"><a href="#cb35-218"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb35-219"><a href="#cb35-219"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts), </span>
+<span id="cb35-220"><a href="#cb35-220"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016</span></span>
+<span id="cb35-221"><a href="#cb35-221"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb35-222"><a href="#cb35-222"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), </span>
+<span id="cb35-223"><a href="#cb35-223"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
+<span id="cb35-224"><a href="#cb35-224"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
+<span id="cb35-225"><a href="#cb35-225"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-226"><a href="#cb35-226"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb35-227"><a href="#cb35-227"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-228"><a href="#cb35-228"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb35-229"><a href="#cb35-229"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb35-230"><a href="#cb35-230"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-231"><a href="#cb35-231"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb35-232"><a href="#cb35-232"></a></span>
+<span id="cb35-233"><a href="#cb35-233"></a><span class="in">```</span></span>
+<span id="cb35-234"><a href="#cb35-234"></a></span>
+<span id="cb35-237"><a href="#cb35-237"></a><span class="in">```{r}</span></span>
+<span id="cb35-238"><a href="#cb35-238"></a>brazil_long<span class="sc">$</span>Highlight <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(brazil_long<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>, <span class="st">"World Cup"</span>,</span>
+<span id="cb35-239"><a href="#cb35-239"></a>                          <span class="fu">ifelse</span>(brazil_long<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2016</span>, <span class="st">"Olympics"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb35-240"><a href="#cb35-240"></a></span>
+<span id="cb35-241"><a href="#cb35-241"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
+<span id="cb35-242"><a href="#cb35-242"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
+<span id="cb35-243"><a href="#cb35-243"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
+<span id="cb35-244"><a href="#cb35-244"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb35-245"><a href="#cb35-245"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts), </span>
+<span id="cb35-246"><a href="#cb35-246"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016</span></span>
+<span id="cb35-247"><a href="#cb35-247"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb35-248"><a href="#cb35-248"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), </span>
+<span id="cb35-249"><a href="#cb35-249"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
+<span id="cb35-250"><a href="#cb35-250"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2014</span>), </span>
+<span id="cb35-251"><a href="#cb35-251"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"World Cup"</span>), </span>
+<span id="cb35-252"><a href="#cb35-252"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"#FCD116"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2014</span></span>
+<span id="cb35-253"><a href="#cb35-253"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
+<span id="cb35-254"><a href="#cb35-254"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-255"><a href="#cb35-255"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb35-256"><a href="#cb35-256"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb35-257"><a href="#cb35-257"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb35-258"><a href="#cb35-258"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb35-259"><a href="#cb35-259"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-260"><a href="#cb35-260"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb35-261"><a href="#cb35-261"></a></span>
+<span id="cb35-262"><a href="#cb35-262"></a><span class="in">```</span></span>
+<span id="cb35-263"><a href="#cb35-263"></a></span>
+<span id="cb35-264"><a href="#cb35-264"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

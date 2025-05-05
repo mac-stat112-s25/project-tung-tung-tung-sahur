@@ -2,12 +2,17 @@
 title: "Report"
 execute: 
   echo: true      # change to true to show the code
-code-fold: false  # change to true to fold the code chunks
+code-fold: true  # change to true to fold the code chunks
 ---
 
 Your report will go here.
 
-```{r}
-# this is a test code
+```{=html}
+<h2>Report</h2>
+<p>
+  <a href="Data%20Science%20Group%20Project%20Report.pdf" target="_blank">
+    2014 Brazil World Cup Economic Impacts Report
+  </a>
+</p>
 ```
 

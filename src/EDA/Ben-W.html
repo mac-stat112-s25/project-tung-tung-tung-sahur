@@ -177,7 +177,7 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/et/Ari-C.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ari Ck</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ari C</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,7 +263,7 @@ cookieconsent.run({
 <main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/EDA/Nolan-R.html">EDA</a></li><li class="breadcrumb-item"><a href="../../src/EDA/Ben-W.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ben W</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
 <span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ben W</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -278,97 +278,28 @@ cookieconsent.run({
 
 
 </header><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyverse' was built under R version 4.4.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(summarytools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'summarytools' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'summarytools'
-
-The following object is masked from 'package:tibble':
-
-    view</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'janitor' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'
-
-The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'sf' was built under R version 4.4.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.13.0, GDAL 3.10.1, PROJ 9.5.1; sf_use_s2() is TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(rnaturalearth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'rnaturalearth' was built under R version 4.4.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">library</span>(rnaturalearthdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'rnaturalearthdata' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'rnaturalearthdata'
-
-The following object is masked from 'package:rnaturalearth':
-
-    countries110</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">library</span>(leaflet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'leaflet' was built under R version 4.4.2</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(leaflet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>world_cup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/wcmatches.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 900 Columns: 15
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (11): country, city, stage, home_team, away_team, outcome, win_conditio...
-dbl   (3): year, home_score, away_score
-date  (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>world_cup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/wcmatches.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>world_cup <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span>            <span class="co"># standardizes column names to snake_case</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">remove_empty</span>(<span class="st">"rows"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty rows</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">remove_empty</span>(<span class="st">"cols"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty columns</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">remove_constant</span>()            <span class="co"># removes columns with only 1 unique value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>world_cup <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span>            <span class="co"># standardizes column names to snake_case</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">remove_empty</span>(<span class="st">"rows"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty rows</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">remove_empty</span>(<span class="st">"cols"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty columns</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">remove_constant</span>()            <span class="co"># removes columns with only 1 unique value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 900 × 15
     year country city    stage home_team away_team home_score away_score outcome
    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  
@@ -388,15 +319,9 @@ date  (1): date
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>world_cup<span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">get_dupes</span>()                  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>No variable names specified - using all columns.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>No duplicate combinations found of: year, country, city, stage, home_team, away_team, home_score, away_score, outcome, ... and 6 other variables</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>world_cup<span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">get_dupes</span>()                  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 16
 # ℹ 16 variables: year &lt;dbl&gt;, country &lt;chr&gt;, city &lt;chr&gt;, stage &lt;chr&gt;,
 #   home_team &lt;chr&gt;, away_team &lt;chr&gt;, home_score &lt;dbl&gt;, away_score &lt;dbl&gt;,
@@ -405,8 +330,8 @@ date  (1): date
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">dfSummary</span>(world_cup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">dfSummary</span>(world_cup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>Data Frame Summary  
 world_cup  
 Dimensions: 900 x 15  
@@ -558,8 +483,8 @@ No   Variable         Stats / Values                  Freqs (% of Valid)    Grap
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>Frequencies  
 world_cup$city  
 Type: Character  
@@ -730,8 +655,8 @@ Type: Character
                    &lt;NA&gt;      0                               0.00         100.00
                   Total    900    100.00         100.00    100.00         100.00</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>winning_team)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>winning_team)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>Frequencies  
 world_cup$winning_team  
 Type: Character  
@@ -808,71 +733,40 @@ Type: Character
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 266 Columns: 69
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(4): Country Name, Country Code, Indicator Name, Indicator Code dbl (64): 1960,
-1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, ... lgl (1): ...69
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...69`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>pop_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 266 Columns: 70
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(4): Country Name, Country Code, Indicator Name, Indicator Code dbl (64): 1960,
-1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, ... lgl (2): 2024,
-...70
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...70`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>tour_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 266 Columns: 70
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(4): Country Name, Country Code, Indicator Name, Indicator Code dbl (26): 1995,
-1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, ... lgl (40): 1960,
-1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, ...
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...70`</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>pop_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a>tour_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>BRA_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">|&gt;</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
-<span id="cb40-4"><a href="#cb40-4"></a></span>
-<span id="cb40-5"><a href="#cb40-5"></a>BRA_pop <span class="ot">&lt;-</span> pop_data <span class="sc">|&gt;</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb40-7"><a href="#cb40-7"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
-<span id="cb40-8"><a href="#cb40-8"></a></span>
-<span id="cb40-9"><a href="#cb40-9"></a>BRA_tour <span class="ot">&lt;-</span> tour_data <span class="sc">|&gt;</span></span>
-<span id="cb40-10"><a href="#cb40-10"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb40-11"><a href="#cb40-11"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>BRA_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>BRA_pop <span class="ot">&lt;-</span> pop_data <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>BRA_tour <span class="ot">&lt;-</span> tour_data <span class="sc">|&gt;</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>BRA_gdp_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_gdp, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"GDP($)"</span>)</span>
-<span id="cb41-2"><a href="#cb41-2"></a></span>
-<span id="cb41-3"><a href="#cb41-3"></a>BRA_pop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_pop, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Population"</span>)</span>
-<span id="cb41-4"><a href="#cb41-4"></a></span>
-<span id="cb41-5"><a href="#cb41-5"></a>BRA_tour_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_tour, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"NTourists"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(NTourists))<span class="sc">|&gt;</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year)) <span class="sc">|&gt;</span></span>
-<span id="cb41-8"><a href="#cb41-8"></a>  <span class="fu">mutate</span>(<span class="at">Tourists_Millions =</span> NTourists <span class="sc">/</span> <span class="fl">1e6</span>)</span>
-<span id="cb41-9"><a href="#cb41-9"></a></span>
-<span id="cb41-10"><a href="#cb41-10"></a>BRA_pop_long <span class="sc">|&gt;</span></span>
-<span id="cb41-11"><a href="#cb41-11"></a>  <span class="fu">filter</span>(Population <span class="sc">!=</span> <span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>BRA_gdp_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_gdp, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"GDP($)"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>BRA_pop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_pop, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Population"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a>BRA_tour_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_tour, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"NTourists"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(NTourists))<span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year)) <span class="sc">|&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">mutate</span>(<span class="at">Tourists_Millions =</span> NTourists <span class="sc">/</span> <span class="fl">1e6</span>)</span>
+<span id="cb15-9"><a href="#cb15-9"></a></span>
+<span id="cb15-10"><a href="#cb15-10"></a>BRA_pop_long <span class="sc">|&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">filter</span>(Population <span class="sc">!=</span> <span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 64 × 2
    Year  Population
    &lt;chr&gt;      &lt;dbl&gt;
@@ -888,36 +782,28 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 10 1969    93045777
 # ℹ 54 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>BRA_gdppop <span class="ot">&lt;-</span> <span class="fu">left_join</span>(BRA_gdp_long, BRA_pop_long, <span class="at">by =</span> <span class="fu">join_by</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>BRA_gdppop <span class="ot">&lt;-</span> <span class="fu">left_join</span>(BRA_gdp_long, BRA_pop_long, <span class="at">by =</span> <span class="fu">join_by</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> <span class="st">`</span><span class="at">GDP($)</span><span class="st">`</span><span class="sc">/</span>Population)<span class="sc">|&gt;</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))<span class="sc">|&gt;</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `Year = as.numeric(Year)`.
-Caused by warning:
-! NAs introduced by coercion</code></pre>
-</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> <span class="st">`</span><span class="at">GDP($)</span><span class="st">`</span><span class="sc">/</span>Population)<span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))<span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">mutate</span>(<span class="at">Host_Status =</span> <span class="st">"No World Cup"</span>)</span>
-<span id="cb46-3"><a href="#cb46-3"></a>BRA_gdppop<span class="sc">$</span>Host_Status[BRA_gdppop<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>] <span class="ot">&lt;-</span> <span class="st">"World Cup"</span></span>
-<span id="cb46-4"><a href="#cb46-4"></a></span>
-<span id="cb46-5"><a href="#cb46-5"></a><span class="fu">ggplot</span>(BRA_gdppop, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP_per_Capita, <span class="at">fill =</span> Host_Status)) <span class="sc">+</span> </span>
-<span id="cb46-6"><a href="#cb46-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
-<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"#FFCB00"</span>, <span class="st">"No World Cup"</span> <span class="ot">=</span> <span class="st">"lightgrey"</span>)) <span class="sc">+</span> </span>
-<span id="cb46-8"><a href="#cb46-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Brazil GDP per Capita (USD)"</span>,</span>
-<span id="cb46-9"><a href="#cb46-9"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb46-10"><a href="#cb46-10"></a>       <span class="at">y =</span> <span class="st">"Brazil's GDP per Capita (USD)"</span>, <span class="at">caption =</span> <span class="st">"Source: World Bank Population &amp; GDP Data"</span>, <span class="at">fill =</span> <span class="st">"World Cup Status"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
-(`geom_col()`).</code></pre>
-</div>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">mutate</span>(<span class="at">Host_Status =</span> <span class="st">"No World Cup"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>BRA_gdppop<span class="sc">$</span>Host_Status[BRA_gdppop<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>] <span class="ot">&lt;-</span> <span class="st">"World Cup"</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="fu">ggplot</span>(BRA_gdppop, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP_per_Capita, <span class="at">fill =</span> Host_Status)) <span class="sc">+</span> </span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"#FFCB00"</span>, <span class="st">"No World Cup"</span> <span class="ot">=</span> <span class="st">"lightgrey"</span>)) <span class="sc">+</span> </span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Brazil GDP per Capita (USD)"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>       <span class="at">y =</span> <span class="st">"Brazil's GDP per Capita (USD)"</span>, <span class="at">caption =</span> <span class="st">"Source: World Bank Population &amp; GDP Data"</span>, <span class="at">fill =</span> <span class="st">"World Cup Status"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -925,35 +811,35 @@ Caused by warning:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>BRA_subset <span class="ot">&lt;-</span> BRA_tour_long <span class="sc">|&gt;</span> </span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>)</span>
-<span id="cb48-3"><a href="#cb48-3"></a></span>
-<span id="cb48-4"><a href="#cb48-4"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
-<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
-<span id="cb48-6"><a href="#cb48-6"></a></span>
-<span id="cb48-7"><a href="#cb48-7"></a></span>
-<span id="cb48-8"><a href="#cb48-8"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
-<span id="cb48-9"><a href="#cb48-9"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb48-10"><a href="#cb48-10"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb48-11"><a href="#cb48-11"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
-<span id="cb48-12"><a href="#cb48-12"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
-<span id="cb48-13"><a href="#cb48-13"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb48-14"><a href="#cb48-14"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb48-15"><a href="#cb48-15"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
-<span id="cb48-16"><a href="#cb48-16"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
-<span id="cb48-17"><a href="#cb48-17"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb48-18"><a href="#cb48-18"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb48-19"><a href="#cb48-19"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb48-20"><a href="#cb48-20"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
-<span id="cb48-21"><a href="#cb48-21"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb48-22"><a href="#cb48-22"></a>  <span class="fu">labs</span>(</span>
-<span id="cb48-23"><a href="#cb48-23"></a>    <span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>,</span>
-<span id="cb48-24"><a href="#cb48-24"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb48-25"><a href="#cb48-25"></a>    <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>,</span>
-<span id="cb48-26"><a href="#cb48-26"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
-<span id="cb48-27"><a href="#cb48-27"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb48-28"><a href="#cb48-28"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>BRA_subset <span class="ot">&lt;-</span> BRA_tour_long <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
+<span id="cb20-6"><a href="#cb20-6"></a></span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb20-11"><a href="#cb20-11"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
+<span id="cb20-12"><a href="#cb20-12"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
+<span id="cb20-13"><a href="#cb20-13"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb20-15"><a href="#cb20-15"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
+<span id="cb20-16"><a href="#cb20-16"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
+<span id="cb20-17"><a href="#cb20-17"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb20-20"><a href="#cb20-20"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb20-22"><a href="#cb20-22"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-23"><a href="#cb20-23"></a>    <span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>,</span>
+<span id="cb20-24"><a href="#cb20-24"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb20-25"><a href="#cb20-25"></a>    <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>,</span>
+<span id="cb20-26"><a href="#cb20-26"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
+<span id="cb20-27"><a href="#cb20-27"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-28"><a href="#cb20-28"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -961,41 +847,43 @@ Caused by warning:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>stadiums <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb49-2"><a href="#cb49-2"></a>  <span class="sc">~</span>name,                   <span class="sc">~</span>lat,                 <span class="sc">~</span>lon,                   <span class="sc">~</span>renovated, <span class="sc">~</span>expected_cost, <span class="sc">~</span>actual_cost,</span>
-<span id="cb49-3"><a href="#cb49-3"></a>  <span class="st">"Arena da Amazonia"</span>,     <span class="sc">-</span><span class="fl">3.083224270281717</span>,   <span class="sc">-</span><span class="fl">60.02811774693085</span>,    <span class="st">"no"</span>,       <span class="dv">499</span>,            <span class="fl">669.5</span>,</span>
-<span id="cb49-4"><a href="#cb49-4"></a>  <span class="st">"Estadio das Dunas"</span>,     <span class="sc">-</span><span class="fl">5.826773453735864</span>,   <span class="sc">-</span><span class="fl">35.21243203342208</span>,    <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">423</span>,</span>
-<span id="cb49-5"><a href="#cb49-5"></a>  <span class="st">"Arena Pernambuco"</span>,      <span class="sc">-</span><span class="fl">8.040609375176933</span>,   <span class="sc">-</span><span class="fl">35.00828336408932</span>,    <span class="st">"no"</span>,       <span class="dv">532</span>,            <span class="dv">650</span>,</span>
-<span id="cb49-6"><a href="#cb49-6"></a>  <span class="st">"Arena Fonte Nova"</span>,      <span class="sc">-</span><span class="fl">12.978740111372705</span>,  <span class="sc">-</span><span class="fl">38.504352444705404</span>,   <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">592</span>,</span>
-<span id="cb49-7"><a href="#cb49-7"></a>  <span class="st">"Estadio Nacional"</span>,      <span class="sc">-</span><span class="fl">15.783384471395678</span>,  <span class="sc">-</span><span class="fl">47.898643789835376</span>,   <span class="st">"no"</span>,       <span class="dv">696</span>,           <span class="dv">1400</span>,</span>
-<span id="cb49-8"><a href="#cb49-8"></a>  <span class="st">"Arena de Sao Paulo"</span>,    <span class="sc">-</span><span class="fl">23.545165844720582</span>,  <span class="sc">-</span><span class="fl">46.473606931949604</span>,   <span class="st">"no"</span>,       <span class="dv">820</span>,           <span class="dv">1200</span>,</span>
-<span id="cb49-9"><a href="#cb49-9"></a>  <span class="st">"Arena Pantanal"</span>,        <span class="sc">-</span><span class="fl">15.603874717209912</span>,  <span class="sc">-</span><span class="fl">56.121517216278384</span>,   <span class="st">"no"</span>,       <span class="dv">342</span>,            <span class="dv">646</span>,</span>
-<span id="cb49-10"><a href="#cb49-10"></a>  <span class="st">"Estadio Castelao"</span>,      <span class="sc">-</span><span class="fl">3.8071014084665564</span>,  <span class="sc">-</span><span class="fl">38.52176791698881</span>,    <span class="st">"yes"</span>,      <span class="dv">519</span>,            <span class="dv">519</span>,</span>
-<span id="cb49-11"><a href="#cb49-11"></a>  <span class="st">"Estadio De Maracana"</span>,   <span class="sc">-</span><span class="fl">22.912012743760158</span>,  <span class="sc">-</span><span class="fl">43.2296347626551</span>,     <span class="st">"yes"</span>,      <span class="dv">706</span>,           <span class="dv">1050</span>,</span>
-<span id="cb49-12"><a href="#cb49-12"></a>  <span class="st">"Arena de Baixada"</span>,      <span class="sc">-</span><span class="fl">25.4479984444347</span>,    <span class="sc">-</span><span class="fl">49.27604246681617</span>,    <span class="st">"yes"</span>,      <span class="fl">184.6</span>,          <span class="dv">360</span>,</span>
-<span id="cb49-13"><a href="#cb49-13"></a>  <span class="st">"Estadio Beira-Rio"</span>,     <span class="sc">-</span><span class="fl">30.064370408151312</span>,  <span class="sc">-</span><span class="fl">51.231847404307615</span>,   <span class="st">"yes"</span>,      <span class="dv">200</span>,            <span class="dv">330</span>,</span>
-<span id="cb49-14"><a href="#cb49-14"></a>  <span class="st">"Estadio Mineirao"</span>,      <span class="sc">-</span><span class="fl">19.865665173965294</span>,  <span class="sc">-</span><span class="fl">43.970670164595845</span>,   <span class="st">"yes"</span>,      <span class="dv">750</span>,            <span class="dv">695</span></span>
-<span id="cb49-15"><a href="#cb49-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>stadiums <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="sc">~</span>name,                   <span class="sc">~</span>lat,                 <span class="sc">~</span>lon,                   <span class="sc">~</span>renovated, <span class="sc">~</span>expected_cost, <span class="sc">~</span>actual_cost,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="st">"Arena da Amazonia"</span>,     <span class="sc">-</span><span class="fl">3.083224270281717</span>,   <span class="sc">-</span><span class="fl">60.02811774693085</span>,    <span class="st">"no"</span>,       <span class="dv">499</span>,            <span class="fl">669.5</span>,</span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="st">"Estadio das Dunas"</span>,     <span class="sc">-</span><span class="fl">5.826773453735864</span>,   <span class="sc">-</span><span class="fl">35.21243203342208</span>,    <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">423</span>,</span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="st">"Arena Pernambuco"</span>,      <span class="sc">-</span><span class="fl">8.040609375176933</span>,   <span class="sc">-</span><span class="fl">35.00828336408932</span>,    <span class="st">"no"</span>,       <span class="dv">532</span>,            <span class="dv">650</span>,</span>
+<span id="cb21-6"><a href="#cb21-6"></a>  <span class="st">"Arena Fonte Nova"</span>,      <span class="sc">-</span><span class="fl">12.978740111372705</span>,  <span class="sc">-</span><span class="fl">38.504352444705404</span>,   <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">592</span>,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>  <span class="st">"Estadio Nacional"</span>,      <span class="sc">-</span><span class="fl">15.783384471395678</span>,  <span class="sc">-</span><span class="fl">47.898643789835376</span>,   <span class="st">"no"</span>,       <span class="dv">696</span>,           <span class="dv">1400</span>,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>  <span class="st">"Arena de Sao Paulo"</span>,    <span class="sc">-</span><span class="fl">23.545165844720582</span>,  <span class="sc">-</span><span class="fl">46.473606931949604</span>,   <span class="st">"no"</span>,       <span class="dv">820</span>,           <span class="dv">1200</span>,</span>
+<span id="cb21-9"><a href="#cb21-9"></a>  <span class="st">"Arena Pantanal"</span>,        <span class="sc">-</span><span class="fl">15.603874717209912</span>,  <span class="sc">-</span><span class="fl">56.121517216278384</span>,   <span class="st">"no"</span>,       <span class="dv">342</span>,            <span class="dv">646</span>,</span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="st">"Estadio Castelao"</span>,      <span class="sc">-</span><span class="fl">3.8071014084665564</span>,  <span class="sc">-</span><span class="fl">38.52176791698881</span>,    <span class="st">"yes"</span>,      <span class="dv">519</span>,            <span class="dv">519</span>,</span>
+<span id="cb21-11"><a href="#cb21-11"></a>  <span class="st">"Estadio De Maracana"</span>,   <span class="sc">-</span><span class="fl">22.912012743760158</span>,  <span class="sc">-</span><span class="fl">43.2296347626551</span>,     <span class="st">"yes"</span>,      <span class="dv">706</span>,           <span class="dv">1050</span>,</span>
+<span id="cb21-12"><a href="#cb21-12"></a>  <span class="st">"Arena de Baixada"</span>,      <span class="sc">-</span><span class="fl">25.4479984444347</span>,    <span class="sc">-</span><span class="fl">49.27604246681617</span>,    <span class="st">"yes"</span>,      <span class="fl">184.6</span>,          <span class="dv">360</span>,</span>
+<span id="cb21-13"><a href="#cb21-13"></a>  <span class="st">"Estadio Beira-Rio"</span>,     <span class="sc">-</span><span class="fl">30.064370408151312</span>,  <span class="sc">-</span><span class="fl">51.231847404307615</span>,   <span class="st">"yes"</span>,      <span class="dv">200</span>,            <span class="dv">330</span>,</span>
+<span id="cb21-14"><a href="#cb21-14"></a>  <span class="st">"Estadio Mineirao"</span>,      <span class="sc">-</span><span class="fl">19.865665173965294</span>,  <span class="sc">-</span><span class="fl">43.970670164595845</span>,   <span class="st">"yes"</span>,      <span class="dv">750</span>,            <span class="dv">695</span></span>
+<span id="cb21-15"><a href="#cb21-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>stadiums_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(stadiums, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>stadiums_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(stadiums, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Download the 'countries' shapefile</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb51-3"><a href="#cb51-3"></a></span>
-<span id="cb51-4"><a href="#cb51-4"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
-<span id="cb51-5"><a href="#cb51-5"></a></span>
-<span id="cb51-6"><a href="#cb51-6"></a>brazil<span class="sc">|&gt;</span></span>
-<span id="cb51-7"><a href="#cb51-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb51-8"><a href="#cb51-8"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb51-9"><a href="#cb51-9"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb51-10"><a href="#cb51-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb51-11"><a href="#cb51-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb51-12"><a href="#cb51-12"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb51-13"><a href="#cb51-13"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
-<span id="cb51-14"><a href="#cb51-14"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Download the 'countries' shapefile</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5"></a></span>
+<span id="cb23-6"><a href="#cb23-6"></a>brazil<span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-12"><a href="#cb23-12"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -1003,18 +891,18 @@ Caused by warning:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb52-5"><a href="#cb52-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb52-6"><a href="#cb52-6"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb52-7"><a href="#cb52-7"></a>  <span class="fu">labs</span>(</span>
-<span id="cb52-8"><a href="#cb52-8"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb52-9"><a href="#cb52-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
-<span id="cb52-10"><a href="#cb52-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb52-11"><a href="#cb52-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-8"><a href="#cb24-8"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -1022,23 +910,24 @@ Caused by warning:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb54-5"><a href="#cb54-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb54-6"><a href="#cb54-6"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb54-7"><a href="#cb54-7"></a>  <span class="fu">labs</span>(</span>
-<span id="cb54-8"><a href="#cb54-8"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
-<span id="cb54-9"><a href="#cb54-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
-<span id="cb54-10"><a href="#cb54-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb54-11"><a href="#cb54-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb26-8"><a href="#cb26-8"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
+<span id="cb26-9"><a href="#cb26-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -1680,215 +1569,215 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb55" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">---</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="an">title:</span><span class="co"> "Ben W"</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb55-4"><a href="#cb55-4"></a><span class="co">---</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a></span>
-<span id="cb55-8"><a href="#cb55-8"></a><span class="in">```{r}</span></span>
-<span id="cb55-9"><a href="#cb55-9"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb55-10"><a href="#cb55-10"></a><span class="fu">library</span>(summarytools)</span>
-<span id="cb55-11"><a href="#cb55-11"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb55-12"><a href="#cb55-12"></a><span class="fu">library</span>(sf)</span>
-<span id="cb55-13"><a href="#cb55-13"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb55-14"><a href="#cb55-14"></a><span class="fu">library</span>(rnaturalearthdata)</span>
-<span id="cb55-15"><a href="#cb55-15"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb55-16"><a href="#cb55-16"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb55-17"><a href="#cb55-17"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb55-18"><a href="#cb55-18"></a><span class="in">```</span></span>
-<span id="cb55-19"><a href="#cb55-19"></a></span>
-<span id="cb55-22"><a href="#cb55-22"></a><span class="in">```{r}</span></span>
-<span id="cb55-23"><a href="#cb55-23"></a>world_cup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/wcmatches.csv"</span>)</span>
-<span id="cb55-24"><a href="#cb55-24"></a><span class="in">```</span></span>
-<span id="cb55-25"><a href="#cb55-25"></a></span>
-<span id="cb55-28"><a href="#cb55-28"></a><span class="in">```{r}</span></span>
-<span id="cb55-29"><a href="#cb55-29"></a>world_cup <span class="sc">|&gt;</span></span>
-<span id="cb55-30"><a href="#cb55-30"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span>            <span class="co"># standardizes column names to snake_case</span></span>
-<span id="cb55-31"><a href="#cb55-31"></a>  <span class="fu">remove_empty</span>(<span class="st">"rows"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty rows</span></span>
-<span id="cb55-32"><a href="#cb55-32"></a>  <span class="fu">remove_empty</span>(<span class="st">"cols"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty columns</span></span>
-<span id="cb55-33"><a href="#cb55-33"></a>  <span class="fu">remove_constant</span>()            <span class="co"># removes columns with only 1 unique value</span></span>
-<span id="cb55-34"><a href="#cb55-34"></a><span class="in">```</span></span>
-<span id="cb55-35"><a href="#cb55-35"></a></span>
-<span id="cb55-38"><a href="#cb55-38"></a><span class="in">```{r}</span></span>
-<span id="cb55-39"><a href="#cb55-39"></a>world_cup<span class="sc">|&gt;</span></span>
-<span id="cb55-40"><a href="#cb55-40"></a>  <span class="fu">get_dupes</span>()                  </span>
-<span id="cb55-41"><a href="#cb55-41"></a><span class="in">```</span></span>
-<span id="cb55-42"><a href="#cb55-42"></a></span>
-<span id="cb55-45"><a href="#cb55-45"></a><span class="in">```{r}</span></span>
-<span id="cb55-46"><a href="#cb55-46"></a><span class="fu">dfSummary</span>(world_cup)</span>
-<span id="cb55-47"><a href="#cb55-47"></a><span class="in">```</span></span>
-<span id="cb55-50"><a href="#cb55-50"></a><span class="in">```{r}</span></span>
-<span id="cb55-51"><a href="#cb55-51"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>city)</span>
-<span id="cb55-52"><a href="#cb55-52"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>winning_team)</span>
-<span id="cb55-53"><a href="#cb55-53"></a><span class="in">```</span></span>
-<span id="cb55-54"><a href="#cb55-54"></a></span>
-<span id="cb55-55"><a href="#cb55-55"></a></span>
-<span id="cb55-56"><a href="#cb55-56"></a></span>
-<span id="cb55-57"><a href="#cb55-57"></a></span>
-<span id="cb55-58"><a href="#cb55-58"></a></span>
-<span id="cb55-61"><a href="#cb55-61"></a><span class="in">```{r}</span></span>
-<span id="cb55-62"><a href="#cb55-62"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
-<span id="cb55-63"><a href="#cb55-63"></a></span>
-<span id="cb55-64"><a href="#cb55-64"></a>pop_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
-<span id="cb55-65"><a href="#cb55-65"></a></span>
-<span id="cb55-66"><a href="#cb55-66"></a>tour_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
-<span id="cb55-67"><a href="#cb55-67"></a><span class="in">```</span></span>
-<span id="cb55-68"><a href="#cb55-68"></a></span>
-<span id="cb55-71"><a href="#cb55-71"></a><span class="in">```{r}</span></span>
-<span id="cb55-72"><a href="#cb55-72"></a>BRA_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">|&gt;</span></span>
-<span id="cb55-73"><a href="#cb55-73"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb55-74"><a href="#cb55-74"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
-<span id="cb55-75"><a href="#cb55-75"></a></span>
-<span id="cb55-76"><a href="#cb55-76"></a>BRA_pop <span class="ot">&lt;-</span> pop_data <span class="sc">|&gt;</span></span>
-<span id="cb55-77"><a href="#cb55-77"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb55-78"><a href="#cb55-78"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
-<span id="cb55-79"><a href="#cb55-79"></a></span>
-<span id="cb55-80"><a href="#cb55-80"></a>BRA_tour <span class="ot">&lt;-</span> tour_data <span class="sc">|&gt;</span></span>
-<span id="cb55-81"><a href="#cb55-81"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb55-82"><a href="#cb55-82"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
-<span id="cb55-83"><a href="#cb55-83"></a><span class="in">```</span></span>
-<span id="cb55-84"><a href="#cb55-84"></a></span>
-<span id="cb55-87"><a href="#cb55-87"></a><span class="in">```{r}</span></span>
-<span id="cb55-88"><a href="#cb55-88"></a>BRA_gdp_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_gdp, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"GDP($)"</span>)</span>
-<span id="cb55-89"><a href="#cb55-89"></a></span>
-<span id="cb55-90"><a href="#cb55-90"></a>BRA_pop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_pop, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Population"</span>)</span>
-<span id="cb55-91"><a href="#cb55-91"></a></span>
-<span id="cb55-92"><a href="#cb55-92"></a>BRA_tour_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_tour, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"NTourists"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb55-93"><a href="#cb55-93"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(NTourists))<span class="sc">|&gt;</span></span>
-<span id="cb55-94"><a href="#cb55-94"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year)) <span class="sc">|&gt;</span></span>
-<span id="cb55-95"><a href="#cb55-95"></a>  <span class="fu">mutate</span>(<span class="at">Tourists_Millions =</span> NTourists <span class="sc">/</span> <span class="fl">1e6</span>)</span>
-<span id="cb55-96"><a href="#cb55-96"></a></span>
-<span id="cb55-97"><a href="#cb55-97"></a>BRA_pop_long <span class="sc">|&gt;</span></span>
-<span id="cb55-98"><a href="#cb55-98"></a>  <span class="fu">filter</span>(Population <span class="sc">!=</span> <span class="dv">2024</span>)</span>
-<span id="cb55-99"><a href="#cb55-99"></a></span>
-<span id="cb55-100"><a href="#cb55-100"></a>BRA_gdppop <span class="ot">&lt;-</span> <span class="fu">left_join</span>(BRA_gdp_long, BRA_pop_long, <span class="at">by =</span> <span class="fu">join_by</span>(Year))</span>
-<span id="cb55-101"><a href="#cb55-101"></a><span class="in">```</span></span>
-<span id="cb55-102"><a href="#cb55-102"></a></span>
-<span id="cb55-105"><a href="#cb55-105"></a><span class="in">```{r}</span></span>
-<span id="cb55-106"><a href="#cb55-106"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
-<span id="cb55-107"><a href="#cb55-107"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> <span class="st">`</span><span class="at">GDP($)</span><span class="st">`</span><span class="sc">/</span>Population)<span class="sc">|&gt;</span></span>
-<span id="cb55-108"><a href="#cb55-108"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))<span class="sc">|&gt;</span></span>
-<span id="cb55-109"><a href="#cb55-109"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
-<span id="cb55-110"><a href="#cb55-110"></a><span class="in">```</span></span>
-<span id="cb55-111"><a href="#cb55-111"></a></span>
-<span id="cb55-114"><a href="#cb55-114"></a><span class="in">```{r}</span></span>
-<span id="cb55-115"><a href="#cb55-115"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
-<span id="cb55-116"><a href="#cb55-116"></a>  <span class="fu">mutate</span>(<span class="at">Host_Status =</span> <span class="st">"No World Cup"</span>)</span>
-<span id="cb55-117"><a href="#cb55-117"></a>BRA_gdppop<span class="sc">$</span>Host_Status[BRA_gdppop<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>] <span class="ot">&lt;-</span> <span class="st">"World Cup"</span></span>
-<span id="cb55-118"><a href="#cb55-118"></a></span>
-<span id="cb55-119"><a href="#cb55-119"></a><span class="fu">ggplot</span>(BRA_gdppop, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP_per_Capita, <span class="at">fill =</span> Host_Status)) <span class="sc">+</span> </span>
-<span id="cb55-120"><a href="#cb55-120"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
-<span id="cb55-121"><a href="#cb55-121"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"#FFCB00"</span>, <span class="st">"No World Cup"</span> <span class="ot">=</span> <span class="st">"lightgrey"</span>)) <span class="sc">+</span> </span>
-<span id="cb55-122"><a href="#cb55-122"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Brazil GDP per Capita (USD)"</span>,</span>
-<span id="cb55-123"><a href="#cb55-123"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb55-124"><a href="#cb55-124"></a>       <span class="at">y =</span> <span class="st">"Brazil's GDP per Capita (USD)"</span>, <span class="at">caption =</span> <span class="st">"Source: World Bank Population &amp; GDP Data"</span>, <span class="at">fill =</span> <span class="st">"World Cup Status"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
-<span id="cb55-125"><a href="#cb55-125"></a><span class="in">```</span></span>
-<span id="cb55-128"><a href="#cb55-128"></a><span class="in">```{r}</span></span>
-<span id="cb55-129"><a href="#cb55-129"></a>BRA_subset <span class="ot">&lt;-</span> BRA_tour_long <span class="sc">|&gt;</span> </span>
-<span id="cb55-130"><a href="#cb55-130"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>)</span>
-<span id="cb55-131"><a href="#cb55-131"></a></span>
-<span id="cb55-132"><a href="#cb55-132"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
-<span id="cb55-133"><a href="#cb55-133"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
-<span id="cb55-134"><a href="#cb55-134"></a></span>
-<span id="cb55-135"><a href="#cb55-135"></a></span>
-<span id="cb55-136"><a href="#cb55-136"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
-<span id="cb55-137"><a href="#cb55-137"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb55-138"><a href="#cb55-138"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb55-139"><a href="#cb55-139"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
-<span id="cb55-140"><a href="#cb55-140"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
-<span id="cb55-141"><a href="#cb55-141"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb55-142"><a href="#cb55-142"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb55-143"><a href="#cb55-143"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
-<span id="cb55-144"><a href="#cb55-144"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
-<span id="cb55-145"><a href="#cb55-145"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb55-146"><a href="#cb55-146"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb55-147"><a href="#cb55-147"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb55-148"><a href="#cb55-148"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
-<span id="cb55-149"><a href="#cb55-149"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb55-150"><a href="#cb55-150"></a>  <span class="fu">labs</span>(</span>
-<span id="cb55-151"><a href="#cb55-151"></a>    <span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>,</span>
-<span id="cb55-152"><a href="#cb55-152"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb55-153"><a href="#cb55-153"></a>    <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>,</span>
-<span id="cb55-154"><a href="#cb55-154"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
-<span id="cb55-155"><a href="#cb55-155"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb55-156"><a href="#cb55-156"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span>
-<span id="cb55-157"><a href="#cb55-157"></a><span class="in">```</span></span>
-<span id="cb55-158"><a href="#cb55-158"></a></span>
-<span id="cb55-161"><a href="#cb55-161"></a><span class="in">```{r}</span></span>
-<span id="cb55-162"><a href="#cb55-162"></a>stadiums <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb55-163"><a href="#cb55-163"></a>  <span class="sc">~</span>name,                   <span class="sc">~</span>lat,                 <span class="sc">~</span>lon,                   <span class="sc">~</span>renovated, <span class="sc">~</span>expected_cost, <span class="sc">~</span>actual_cost,</span>
-<span id="cb55-164"><a href="#cb55-164"></a>  <span class="st">"Arena da Amazonia"</span>,     <span class="sc">-</span><span class="fl">3.083224270281717</span>,   <span class="sc">-</span><span class="fl">60.02811774693085</span>,    <span class="st">"no"</span>,       <span class="dv">499</span>,            <span class="fl">669.5</span>,</span>
-<span id="cb55-165"><a href="#cb55-165"></a>  <span class="st">"Estadio das Dunas"</span>,     <span class="sc">-</span><span class="fl">5.826773453735864</span>,   <span class="sc">-</span><span class="fl">35.21243203342208</span>,    <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">423</span>,</span>
-<span id="cb55-166"><a href="#cb55-166"></a>  <span class="st">"Arena Pernambuco"</span>,      <span class="sc">-</span><span class="fl">8.040609375176933</span>,   <span class="sc">-</span><span class="fl">35.00828336408932</span>,    <span class="st">"no"</span>,       <span class="dv">532</span>,            <span class="dv">650</span>,</span>
-<span id="cb55-167"><a href="#cb55-167"></a>  <span class="st">"Arena Fonte Nova"</span>,      <span class="sc">-</span><span class="fl">12.978740111372705</span>,  <span class="sc">-</span><span class="fl">38.504352444705404</span>,   <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">592</span>,</span>
-<span id="cb55-168"><a href="#cb55-168"></a>  <span class="st">"Estadio Nacional"</span>,      <span class="sc">-</span><span class="fl">15.783384471395678</span>,  <span class="sc">-</span><span class="fl">47.898643789835376</span>,   <span class="st">"no"</span>,       <span class="dv">696</span>,           <span class="dv">1400</span>,</span>
-<span id="cb55-169"><a href="#cb55-169"></a>  <span class="st">"Arena de Sao Paulo"</span>,    <span class="sc">-</span><span class="fl">23.545165844720582</span>,  <span class="sc">-</span><span class="fl">46.473606931949604</span>,   <span class="st">"no"</span>,       <span class="dv">820</span>,           <span class="dv">1200</span>,</span>
-<span id="cb55-170"><a href="#cb55-170"></a>  <span class="st">"Arena Pantanal"</span>,        <span class="sc">-</span><span class="fl">15.603874717209912</span>,  <span class="sc">-</span><span class="fl">56.121517216278384</span>,   <span class="st">"no"</span>,       <span class="dv">342</span>,            <span class="dv">646</span>,</span>
-<span id="cb55-171"><a href="#cb55-171"></a>  <span class="st">"Estadio Castelao"</span>,      <span class="sc">-</span><span class="fl">3.8071014084665564</span>,  <span class="sc">-</span><span class="fl">38.52176791698881</span>,    <span class="st">"yes"</span>,      <span class="dv">519</span>,            <span class="dv">519</span>,</span>
-<span id="cb55-172"><a href="#cb55-172"></a>  <span class="st">"Estadio De Maracana"</span>,   <span class="sc">-</span><span class="fl">22.912012743760158</span>,  <span class="sc">-</span><span class="fl">43.2296347626551</span>,     <span class="st">"yes"</span>,      <span class="dv">706</span>,           <span class="dv">1050</span>,</span>
-<span id="cb55-173"><a href="#cb55-173"></a>  <span class="st">"Arena de Baixada"</span>,      <span class="sc">-</span><span class="fl">25.4479984444347</span>,    <span class="sc">-</span><span class="fl">49.27604246681617</span>,    <span class="st">"yes"</span>,      <span class="fl">184.6</span>,          <span class="dv">360</span>,</span>
-<span id="cb55-174"><a href="#cb55-174"></a>  <span class="st">"Estadio Beira-Rio"</span>,     <span class="sc">-</span><span class="fl">30.064370408151312</span>,  <span class="sc">-</span><span class="fl">51.231847404307615</span>,   <span class="st">"yes"</span>,      <span class="dv">200</span>,            <span class="dv">330</span>,</span>
-<span id="cb55-175"><a href="#cb55-175"></a>  <span class="st">"Estadio Mineirao"</span>,      <span class="sc">-</span><span class="fl">19.865665173965294</span>,  <span class="sc">-</span><span class="fl">43.970670164595845</span>,   <span class="st">"yes"</span>,      <span class="dv">750</span>,            <span class="dv">695</span></span>
-<span id="cb55-176"><a href="#cb55-176"></a>)</span>
-<span id="cb55-177"><a href="#cb55-177"></a><span class="in">```</span></span>
-<span id="cb55-178"><a href="#cb55-178"></a></span>
-<span id="cb55-181"><a href="#cb55-181"></a><span class="in">```{r}</span></span>
-<span id="cb55-182"><a href="#cb55-182"></a>stadiums_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(stadiums, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb55-183"><a href="#cb55-183"></a><span class="in">```</span></span>
-<span id="cb55-184"><a href="#cb55-184"></a></span>
-<span id="cb55-185"><a href="#cb55-185"></a></span>
-<span id="cb55-186"><a href="#cb55-186"></a></span>
-<span id="cb55-189"><a href="#cb55-189"></a><span class="in">```{r}</span></span>
-<span id="cb55-190"><a href="#cb55-190"></a><span class="co"># Download the 'countries' shapefile</span></span>
-<span id="cb55-191"><a href="#cb55-191"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb55-192"><a href="#cb55-192"></a></span>
-<span id="cb55-193"><a href="#cb55-193"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
-<span id="cb55-194"><a href="#cb55-194"></a></span>
-<span id="cb55-195"><a href="#cb55-195"></a>brazil<span class="sc">|&gt;</span></span>
-<span id="cb55-196"><a href="#cb55-196"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb55-197"><a href="#cb55-197"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb55-198"><a href="#cb55-198"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb55-199"><a href="#cb55-199"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb55-200"><a href="#cb55-200"></a>  <span class="fu">labs</span>(</span>
-<span id="cb55-201"><a href="#cb55-201"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb55-202"><a href="#cb55-202"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
-<span id="cb55-203"><a href="#cb55-203"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span>
-<span id="cb55-204"><a href="#cb55-204"></a><span class="in">```</span></span>
-<span id="cb55-207"><a href="#cb55-207"></a><span class="in">```{r}</span></span>
-<span id="cb55-208"><a href="#cb55-208"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb55-209"><a href="#cb55-209"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb55-210"><a href="#cb55-210"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb55-211"><a href="#cb55-211"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb55-212"><a href="#cb55-212"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb55-213"><a href="#cb55-213"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb55-214"><a href="#cb55-214"></a>  <span class="fu">labs</span>(</span>
-<span id="cb55-215"><a href="#cb55-215"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb55-216"><a href="#cb55-216"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
-<span id="cb55-217"><a href="#cb55-217"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb55-218"><a href="#cb55-218"></a>  )</span>
-<span id="cb55-219"><a href="#cb55-219"></a></span>
-<span id="cb55-220"><a href="#cb55-220"></a><span class="in">```</span></span>
-<span id="cb55-221"><a href="#cb55-221"></a></span>
-<span id="cb55-224"><a href="#cb55-224"></a><span class="in">```{r}</span></span>
-<span id="cb55-225"><a href="#cb55-225"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
-<span id="cb55-226"><a href="#cb55-226"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
-<span id="cb55-227"><a href="#cb55-227"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb55-228"><a href="#cb55-228"></a><span class="in">```</span></span>
-<span id="cb55-229"><a href="#cb55-229"></a></span>
-<span id="cb55-232"><a href="#cb55-232"></a><span class="in">```{r}</span></span>
-<span id="cb55-233"><a href="#cb55-233"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb55-234"><a href="#cb55-234"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb55-235"><a href="#cb55-235"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb55-236"><a href="#cb55-236"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb55-237"><a href="#cb55-237"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb55-238"><a href="#cb55-238"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb55-239"><a href="#cb55-239"></a>  <span class="fu">labs</span>(</span>
-<span id="cb55-240"><a href="#cb55-240"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
-<span id="cb55-241"><a href="#cb55-241"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
-<span id="cb55-242"><a href="#cb55-242"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb55-243"><a href="#cb55-243"></a>  )</span>
-<span id="cb55-244"><a href="#cb55-244"></a></span>
-<span id="cb55-245"><a href="#cb55-245"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb27" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">---</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="an">title:</span><span class="co"> "Ben W"</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co">---</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="in">```{r}</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="fu">library</span>(sf)</span>
+<span id="cb27-13"><a href="#cb27-13"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb27-15"><a href="#cb27-15"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb27-17"><a href="#cb27-17"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="in">```</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a></span>
+<span id="cb27-22"><a href="#cb27-22"></a><span class="in">```{r}</span></span>
+<span id="cb27-23"><a href="#cb27-23"></a>world_cup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/wcmatches.csv"</span>)</span>
+<span id="cb27-24"><a href="#cb27-24"></a><span class="in">```</span></span>
+<span id="cb27-25"><a href="#cb27-25"></a></span>
+<span id="cb27-28"><a href="#cb27-28"></a><span class="in">```{r}</span></span>
+<span id="cb27-29"><a href="#cb27-29"></a>world_cup <span class="sc">|&gt;</span></span>
+<span id="cb27-30"><a href="#cb27-30"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span>            <span class="co"># standardizes column names to snake_case</span></span>
+<span id="cb27-31"><a href="#cb27-31"></a>  <span class="fu">remove_empty</span>(<span class="st">"rows"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty rows</span></span>
+<span id="cb27-32"><a href="#cb27-32"></a>  <span class="fu">remove_empty</span>(<span class="st">"cols"</span>) <span class="sc">|&gt;</span>     <span class="co"># removes empty columns</span></span>
+<span id="cb27-33"><a href="#cb27-33"></a>  <span class="fu">remove_constant</span>()            <span class="co"># removes columns with only 1 unique value</span></span>
+<span id="cb27-34"><a href="#cb27-34"></a><span class="in">```</span></span>
+<span id="cb27-35"><a href="#cb27-35"></a></span>
+<span id="cb27-38"><a href="#cb27-38"></a><span class="in">```{r}</span></span>
+<span id="cb27-39"><a href="#cb27-39"></a>world_cup<span class="sc">|&gt;</span></span>
+<span id="cb27-40"><a href="#cb27-40"></a>  <span class="fu">get_dupes</span>()                  </span>
+<span id="cb27-41"><a href="#cb27-41"></a><span class="in">```</span></span>
+<span id="cb27-42"><a href="#cb27-42"></a></span>
+<span id="cb27-45"><a href="#cb27-45"></a><span class="in">```{r}</span></span>
+<span id="cb27-46"><a href="#cb27-46"></a><span class="fu">dfSummary</span>(world_cup)</span>
+<span id="cb27-47"><a href="#cb27-47"></a><span class="in">```</span></span>
+<span id="cb27-50"><a href="#cb27-50"></a><span class="in">```{r}</span></span>
+<span id="cb27-51"><a href="#cb27-51"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>city)</span>
+<span id="cb27-52"><a href="#cb27-52"></a><span class="fu">freq</span>(world_cup<span class="sc">$</span>winning_team)</span>
+<span id="cb27-53"><a href="#cb27-53"></a><span class="in">```</span></span>
+<span id="cb27-54"><a href="#cb27-54"></a></span>
+<span id="cb27-55"><a href="#cb27-55"></a></span>
+<span id="cb27-56"><a href="#cb27-56"></a></span>
+<span id="cb27-57"><a href="#cb27-57"></a></span>
+<span id="cb27-58"><a href="#cb27-58"></a></span>
+<span id="cb27-61"><a href="#cb27-61"></a><span class="in">```{r}</span></span>
+<span id="cb27-62"><a href="#cb27-62"></a>gdp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb27-63"><a href="#cb27-63"></a></span>
+<span id="cb27-64"><a href="#cb27-64"></a>pop_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank Population Data/API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb27-65"><a href="#cb27-65"></a></span>
+<span id="cb27-66"><a href="#cb27-66"></a>tour_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../World Bank International Tourist Data/API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb27-67"><a href="#cb27-67"></a><span class="in">```</span></span>
+<span id="cb27-68"><a href="#cb27-68"></a></span>
+<span id="cb27-71"><a href="#cb27-71"></a><span class="in">```{r}</span></span>
+<span id="cb27-72"><a href="#cb27-72"></a>BRA_gdp <span class="ot">&lt;-</span> gdp_data <span class="sc">|&gt;</span></span>
+<span id="cb27-73"><a href="#cb27-73"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb27-74"><a href="#cb27-74"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
+<span id="cb27-75"><a href="#cb27-75"></a></span>
+<span id="cb27-76"><a href="#cb27-76"></a>BRA_pop <span class="ot">&lt;-</span> pop_data <span class="sc">|&gt;</span></span>
+<span id="cb27-77"><a href="#cb27-77"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb27-78"><a href="#cb27-78"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
+<span id="cb27-79"><a href="#cb27-79"></a></span>
+<span id="cb27-80"><a href="#cb27-80"></a>BRA_tour <span class="ot">&lt;-</span> tour_data <span class="sc">|&gt;</span></span>
+<span id="cb27-81"><a href="#cb27-81"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span><span class="sc">==</span> <span class="st">"Brazil"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb27-82"><a href="#cb27-82"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Country Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Code</span><span class="st">`</span>, <span class="st">`</span><span class="at">Indicator Name</span><span class="st">`</span>, <span class="st">`</span><span class="at">Country Name</span><span class="st">`</span>))</span>
+<span id="cb27-83"><a href="#cb27-83"></a><span class="in">```</span></span>
+<span id="cb27-84"><a href="#cb27-84"></a></span>
+<span id="cb27-87"><a href="#cb27-87"></a><span class="in">```{r}</span></span>
+<span id="cb27-88"><a href="#cb27-88"></a>BRA_gdp_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_gdp, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"GDP($)"</span>)</span>
+<span id="cb27-89"><a href="#cb27-89"></a></span>
+<span id="cb27-90"><a href="#cb27-90"></a>BRA_pop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_pop, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Population"</span>)</span>
+<span id="cb27-91"><a href="#cb27-91"></a></span>
+<span id="cb27-92"><a href="#cb27-92"></a>BRA_tour_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(BRA_tour, <span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"NTourists"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb27-93"><a href="#cb27-93"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(NTourists))<span class="sc">|&gt;</span></span>
+<span id="cb27-94"><a href="#cb27-94"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year)) <span class="sc">|&gt;</span></span>
+<span id="cb27-95"><a href="#cb27-95"></a>  <span class="fu">mutate</span>(<span class="at">Tourists_Millions =</span> NTourists <span class="sc">/</span> <span class="fl">1e6</span>)</span>
+<span id="cb27-96"><a href="#cb27-96"></a></span>
+<span id="cb27-97"><a href="#cb27-97"></a>BRA_pop_long <span class="sc">|&gt;</span></span>
+<span id="cb27-98"><a href="#cb27-98"></a>  <span class="fu">filter</span>(Population <span class="sc">!=</span> <span class="dv">2024</span>)</span>
+<span id="cb27-99"><a href="#cb27-99"></a></span>
+<span id="cb27-100"><a href="#cb27-100"></a>BRA_gdppop <span class="ot">&lt;-</span> <span class="fu">left_join</span>(BRA_gdp_long, BRA_pop_long, <span class="at">by =</span> <span class="fu">join_by</span>(Year))</span>
+<span id="cb27-101"><a href="#cb27-101"></a><span class="in">```</span></span>
+<span id="cb27-102"><a href="#cb27-102"></a></span>
+<span id="cb27-105"><a href="#cb27-105"></a><span class="in">```{r}</span></span>
+<span id="cb27-106"><a href="#cb27-106"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
+<span id="cb27-107"><a href="#cb27-107"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> <span class="st">`</span><span class="at">GDP($)</span><span class="st">`</span><span class="sc">/</span>Population)<span class="sc">|&gt;</span></span>
+<span id="cb27-108"><a href="#cb27-108"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))<span class="sc">|&gt;</span></span>
+<span id="cb27-109"><a href="#cb27-109"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))</span>
+<span id="cb27-110"><a href="#cb27-110"></a><span class="in">```</span></span>
+<span id="cb27-111"><a href="#cb27-111"></a></span>
+<span id="cb27-114"><a href="#cb27-114"></a><span class="in">```{r}</span></span>
+<span id="cb27-115"><a href="#cb27-115"></a>BRA_gdppop <span class="ot">&lt;-</span> BRA_gdppop <span class="sc">|&gt;</span></span>
+<span id="cb27-116"><a href="#cb27-116"></a>  <span class="fu">mutate</span>(<span class="at">Host_Status =</span> <span class="st">"No World Cup"</span>)</span>
+<span id="cb27-117"><a href="#cb27-117"></a>BRA_gdppop<span class="sc">$</span>Host_Status[BRA_gdppop<span class="sc">$</span>Year <span class="sc">==</span> <span class="dv">2014</span>] <span class="ot">&lt;-</span> <span class="st">"World Cup"</span></span>
+<span id="cb27-118"><a href="#cb27-118"></a></span>
+<span id="cb27-119"><a href="#cb27-119"></a><span class="fu">ggplot</span>(BRA_gdppop, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> GDP_per_Capita, <span class="at">fill =</span> Host_Status)) <span class="sc">+</span> </span>
+<span id="cb27-120"><a href="#cb27-120"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb27-121"><a href="#cb27-121"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"#FFCB00"</span>, <span class="st">"No World Cup"</span> <span class="ot">=</span> <span class="st">"lightgrey"</span>)) <span class="sc">+</span> </span>
+<span id="cb27-122"><a href="#cb27-122"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Brazil GDP per Capita (USD)"</span>,</span>
+<span id="cb27-123"><a href="#cb27-123"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb27-124"><a href="#cb27-124"></a>       <span class="at">y =</span> <span class="st">"Brazil's GDP per Capita (USD)"</span>, <span class="at">caption =</span> <span class="st">"Source: World Bank Population &amp; GDP Data"</span>, <span class="at">fill =</span> <span class="st">"World Cup Status"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb27-125"><a href="#cb27-125"></a><span class="in">```</span></span>
+<span id="cb27-128"><a href="#cb27-128"></a><span class="in">```{r}</span></span>
+<span id="cb27-129"><a href="#cb27-129"></a>BRA_subset <span class="ot">&lt;-</span> BRA_tour_long <span class="sc">|&gt;</span> </span>
+<span id="cb27-130"><a href="#cb27-130"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>)</span>
+<span id="cb27-131"><a href="#cb27-131"></a></span>
+<span id="cb27-132"><a href="#cb27-132"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
+<span id="cb27-133"><a href="#cb27-133"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
+<span id="cb27-134"><a href="#cb27-134"></a></span>
+<span id="cb27-135"><a href="#cb27-135"></a></span>
+<span id="cb27-136"><a href="#cb27-136"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
+<span id="cb27-137"><a href="#cb27-137"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-138"><a href="#cb27-138"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb27-139"><a href="#cb27-139"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
+<span id="cb27-140"><a href="#cb27-140"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
+<span id="cb27-141"><a href="#cb27-141"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb27-142"><a href="#cb27-142"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb27-143"><a href="#cb27-143"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
+<span id="cb27-144"><a href="#cb27-144"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
+<span id="cb27-145"><a href="#cb27-145"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb27-146"><a href="#cb27-146"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-147"><a href="#cb27-147"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb27-148"><a href="#cb27-148"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
+<span id="cb27-149"><a href="#cb27-149"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb27-150"><a href="#cb27-150"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-151"><a href="#cb27-151"></a>    <span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>,</span>
+<span id="cb27-152"><a href="#cb27-152"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb27-153"><a href="#cb27-153"></a>    <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>,</span>
+<span id="cb27-154"><a href="#cb27-154"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
+<span id="cb27-155"><a href="#cb27-155"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-156"><a href="#cb27-156"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span>
+<span id="cb27-157"><a href="#cb27-157"></a><span class="in">```</span></span>
+<span id="cb27-158"><a href="#cb27-158"></a></span>
+<span id="cb27-161"><a href="#cb27-161"></a><span class="in">```{r}</span></span>
+<span id="cb27-162"><a href="#cb27-162"></a>stadiums <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb27-163"><a href="#cb27-163"></a>  <span class="sc">~</span>name,                   <span class="sc">~</span>lat,                 <span class="sc">~</span>lon,                   <span class="sc">~</span>renovated, <span class="sc">~</span>expected_cost, <span class="sc">~</span>actual_cost,</span>
+<span id="cb27-164"><a href="#cb27-164"></a>  <span class="st">"Arena da Amazonia"</span>,     <span class="sc">-</span><span class="fl">3.083224270281717</span>,   <span class="sc">-</span><span class="fl">60.02811774693085</span>,    <span class="st">"no"</span>,       <span class="dv">499</span>,            <span class="fl">669.5</span>,</span>
+<span id="cb27-165"><a href="#cb27-165"></a>  <span class="st">"Estadio das Dunas"</span>,     <span class="sc">-</span><span class="fl">5.826773453735864</span>,   <span class="sc">-</span><span class="fl">35.21243203342208</span>,    <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">423</span>,</span>
+<span id="cb27-166"><a href="#cb27-166"></a>  <span class="st">"Arena Pernambuco"</span>,      <span class="sc">-</span><span class="fl">8.040609375176933</span>,   <span class="sc">-</span><span class="fl">35.00828336408932</span>,    <span class="st">"no"</span>,       <span class="dv">532</span>,            <span class="dv">650</span>,</span>
+<span id="cb27-167"><a href="#cb27-167"></a>  <span class="st">"Arena Fonte Nova"</span>,      <span class="sc">-</span><span class="fl">12.978740111372705</span>,  <span class="sc">-</span><span class="fl">38.504352444705404</span>,   <span class="st">"no"</span>,       <span class="dv">400</span>,            <span class="dv">592</span>,</span>
+<span id="cb27-168"><a href="#cb27-168"></a>  <span class="st">"Estadio Nacional"</span>,      <span class="sc">-</span><span class="fl">15.783384471395678</span>,  <span class="sc">-</span><span class="fl">47.898643789835376</span>,   <span class="st">"no"</span>,       <span class="dv">696</span>,           <span class="dv">1400</span>,</span>
+<span id="cb27-169"><a href="#cb27-169"></a>  <span class="st">"Arena de Sao Paulo"</span>,    <span class="sc">-</span><span class="fl">23.545165844720582</span>,  <span class="sc">-</span><span class="fl">46.473606931949604</span>,   <span class="st">"no"</span>,       <span class="dv">820</span>,           <span class="dv">1200</span>,</span>
+<span id="cb27-170"><a href="#cb27-170"></a>  <span class="st">"Arena Pantanal"</span>,        <span class="sc">-</span><span class="fl">15.603874717209912</span>,  <span class="sc">-</span><span class="fl">56.121517216278384</span>,   <span class="st">"no"</span>,       <span class="dv">342</span>,            <span class="dv">646</span>,</span>
+<span id="cb27-171"><a href="#cb27-171"></a>  <span class="st">"Estadio Castelao"</span>,      <span class="sc">-</span><span class="fl">3.8071014084665564</span>,  <span class="sc">-</span><span class="fl">38.52176791698881</span>,    <span class="st">"yes"</span>,      <span class="dv">519</span>,            <span class="dv">519</span>,</span>
+<span id="cb27-172"><a href="#cb27-172"></a>  <span class="st">"Estadio De Maracana"</span>,   <span class="sc">-</span><span class="fl">22.912012743760158</span>,  <span class="sc">-</span><span class="fl">43.2296347626551</span>,     <span class="st">"yes"</span>,      <span class="dv">706</span>,           <span class="dv">1050</span>,</span>
+<span id="cb27-173"><a href="#cb27-173"></a>  <span class="st">"Arena de Baixada"</span>,      <span class="sc">-</span><span class="fl">25.4479984444347</span>,    <span class="sc">-</span><span class="fl">49.27604246681617</span>,    <span class="st">"yes"</span>,      <span class="fl">184.6</span>,          <span class="dv">360</span>,</span>
+<span id="cb27-174"><a href="#cb27-174"></a>  <span class="st">"Estadio Beira-Rio"</span>,     <span class="sc">-</span><span class="fl">30.064370408151312</span>,  <span class="sc">-</span><span class="fl">51.231847404307615</span>,   <span class="st">"yes"</span>,      <span class="dv">200</span>,            <span class="dv">330</span>,</span>
+<span id="cb27-175"><a href="#cb27-175"></a>  <span class="st">"Estadio Mineirao"</span>,      <span class="sc">-</span><span class="fl">19.865665173965294</span>,  <span class="sc">-</span><span class="fl">43.970670164595845</span>,   <span class="st">"yes"</span>,      <span class="dv">750</span>,            <span class="dv">695</span></span>
+<span id="cb27-176"><a href="#cb27-176"></a>)</span>
+<span id="cb27-177"><a href="#cb27-177"></a><span class="in">```</span></span>
+<span id="cb27-178"><a href="#cb27-178"></a></span>
+<span id="cb27-181"><a href="#cb27-181"></a><span class="in">```{r}</span></span>
+<span id="cb27-182"><a href="#cb27-182"></a>stadiums_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(stadiums, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb27-183"><a href="#cb27-183"></a><span class="in">```</span></span>
+<span id="cb27-184"><a href="#cb27-184"></a></span>
+<span id="cb27-185"><a href="#cb27-185"></a></span>
+<span id="cb27-186"><a href="#cb27-186"></a></span>
+<span id="cb27-189"><a href="#cb27-189"></a><span class="in">```{r}</span></span>
+<span id="cb27-190"><a href="#cb27-190"></a><span class="co"># Download the 'countries' shapefile</span></span>
+<span id="cb27-191"><a href="#cb27-191"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb27-192"><a href="#cb27-192"></a></span>
+<span id="cb27-193"><a href="#cb27-193"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
+<span id="cb27-194"><a href="#cb27-194"></a></span>
+<span id="cb27-195"><a href="#cb27-195"></a>brazil<span class="sc">|&gt;</span></span>
+<span id="cb27-196"><a href="#cb27-196"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-197"><a href="#cb27-197"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-198"><a href="#cb27-198"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-199"><a href="#cb27-199"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-200"><a href="#cb27-200"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-201"><a href="#cb27-201"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb27-202"><a href="#cb27-202"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
+<span id="cb27-203"><a href="#cb27-203"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span>
+<span id="cb27-204"><a href="#cb27-204"></a><span class="in">```</span></span>
+<span id="cb27-207"><a href="#cb27-207"></a><span class="in">```{r}</span></span>
+<span id="cb27-208"><a href="#cb27-208"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb27-209"><a href="#cb27-209"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-210"><a href="#cb27-210"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-211"><a href="#cb27-211"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-212"><a href="#cb27-212"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-213"><a href="#cb27-213"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-214"><a href="#cb27-214"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-215"><a href="#cb27-215"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb27-216"><a href="#cb27-216"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
+<span id="cb27-217"><a href="#cb27-217"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb27-218"><a href="#cb27-218"></a>  )</span>
+<span id="cb27-219"><a href="#cb27-219"></a></span>
+<span id="cb27-220"><a href="#cb27-220"></a><span class="in">```</span></span>
+<span id="cb27-221"><a href="#cb27-221"></a></span>
+<span id="cb27-224"><a href="#cb27-224"></a><span class="in">```{r}</span></span>
+<span id="cb27-225"><a href="#cb27-225"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
+<span id="cb27-226"><a href="#cb27-226"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
+<span id="cb27-227"><a href="#cb27-227"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb27-228"><a href="#cb27-228"></a><span class="in">```</span></span>
+<span id="cb27-229"><a href="#cb27-229"></a></span>
+<span id="cb27-232"><a href="#cb27-232"></a><span class="in">```{r}</span></span>
+<span id="cb27-233"><a href="#cb27-233"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb27-234"><a href="#cb27-234"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-235"><a href="#cb27-235"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb27-236"><a href="#cb27-236"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-237"><a href="#cb27-237"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-238"><a href="#cb27-238"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-239"><a href="#cb27-239"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-240"><a href="#cb27-240"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
+<span id="cb27-241"><a href="#cb27-241"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
+<span id="cb27-242"><a href="#cb27-242"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb27-243"><a href="#cb27-243"></a>  )</span>
+<span id="cb27-244"><a href="#cb27-244"></a></span>
+<span id="cb27-245"><a href="#cb27-245"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

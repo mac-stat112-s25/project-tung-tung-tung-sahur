@@ -1,21 +1,33 @@
 ---
 title: "Proposal"
+format:
+  html: 
+    number-sections: true
 ---
 
-Your proposal will go here.
+## Economic Impact of the World Cup: Predicting What Will Happen During the 2026 World Cup in the U.S
 
-Title: Economic Impact of the World Cup: Predicting What Will Happen During the 2026 World Cup in the U.S 
+### Team Members
+Ben, Ari, PJ, Nolan
 
-Names: Ben, Ari, PJ, Nolan
+### Reasons / Inspiration
 
-Reasons/Inspiration: The World Cup is the biggest event in the world. Next year, 2026, the World Cup will be in the United States. The magnitude of the world cup has influence on daily life for almost everyone in the world. The guiding question for our data analysis project is: what are the economic impacts of hosting the largest event in the world? 
+The World Cup is the biggest event in the world. In 2026, it will be hosted in the United States.  
+The magnitude of the World Cup influences daily life for almost everyone in the world.
 
-Description: We will explore the relationship between the economic impact between the FIFA world cup and the hosting country's economic indexes. We will study different economic indicators (GDP, PPP, etc.) with respect to the hosting countries, yielding a holistic prospect of economics in the upcoming US-Mexico-Canada world cup.
+**Guiding Question:** *What are the economic impacts of hosting the largest event in the world?*
 
-Each team should submit a proposal for their project in the form of a rendered HTML Quarto page added as an appendix to their project website. The proposal should include the followings
+### Project Description
 
+We will explore the relationship between the FIFA World Cup and the economic indicators of hosting countries.  
+By examining metrics such as GDP, PPP, and other key economic indicators, we aim to develop a holistic understanding of the economic outcomes associated with hosting the tournament.
 
+Our focus will be on drawing insight into what may happen during the upcoming 2026 US-Mexico-Canada World Cup based on historical data.
 
-Responsibility Plan: 
-- Group members will meet 3 times per week to discuss relevant information and make sure everyone is contributing. 
-- The team group chat serves as a place where group members can inform each other of changes and updated goals towards the project. 
+### Responsibility Plan
+
+- We will meet three times per week to discuss progress and contributions.
+- A team group chat will be used to share updates and changes to the project timeline.
+- Each member is responsible for contributing to research, analysis, and presentation.
+- Regular check-ins will ensure that the project stays on track.
+

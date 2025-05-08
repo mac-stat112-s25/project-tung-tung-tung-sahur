@@ -1,8 +1,8 @@
 ---
-title: "Ari Ck"
+title: "Ari C"
 format: html
 ---
 
-https://www.atlassian.com/blog/teamwork/the-importance-of-teamwork
+[https://www.atlassian.com/blog/teamwork/the-importance-of-teamwork](https://www.atlassian.com/blog/teamwork/the-importance-of-teamwork)
 
 Research shows that people who work in teams are more likely to take more risks in innovation, feel less stress, and have higher job satisfaction. It also shows that people working together in teams are more likely to use collaborative problem solving to solve complex problems. Teamwork is essential for a company's success. Everybody has a set of different unique skills and when those skills are combined, it can be really essential to success. 

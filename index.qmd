@@ -5,7 +5,7 @@ execute:
 code-fold: true  # change to true to fold the code chunks
 ---
 
-
+Report PDF Download:
 ```{=html}
 <h2>Report</h2>
 <p>
@@ -14,4 +14,9 @@ code-fold: true  # change to true to fold the code chunks
   </a>
 </p>
 ```
-
+Presentation Slides:
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+Presentation Video:
+{{< video https://www.youtube.com/watch?v=s6XKx9IB0YM>}}

@@ -5,7 +5,6 @@ execute:
 code-fold: true  # change to true to fold the code chunks
 ---
 
-Your report will go here.
 
 ```{=html}
 <h2>Report</h2>

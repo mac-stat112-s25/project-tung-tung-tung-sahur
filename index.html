@@ -361,39 +361,37 @@ cookieconsent.run({
 <h3 class="anchored">Impacts on Inflation Rate and Unemployment Rate:</h3>
 
 <h3 class="anchored">Figure 2</h3>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(inflation_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y=</span> inflation_rate, <span class="at">fill =</span> inflation_rate)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>   <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"lightgrey"</span>, <span class="at">high =</span> <span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">title =</span> <span class="st">"Brazil's Inflation Rate"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="at">caption =</span> <span class="st">"Retrieved from FRED, Federal Reserve Bank of St. Louis"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    <span class="at">y =</span> <span class="st">"Inflation Rate"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb2-12"><a href="#cb2-12"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="figures/2.png"><div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(inflation_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> inflation_rate, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="at">title =</span> <span class="st">"Brazil's Inflation Rate"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">caption =</span> <span class="st">"Retrieved from FRED, Federal Reserve Bank of St. Louis"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="at">y =</span> <span class="st">"Inflation Rate"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="at">x =</span> <span class="st">"Year"</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb2-11"><a href="#cb2-11"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In the years leading up to the 2014 FIFA World Cup, Brazil experienced steadily increasing inflation, rising from about 5% in 2010 to over 6% by 2013. This upward trend continued in the immediate aftermath of the tournament, with inflation peaking in 2015 at around 9%. The World Cup may have contributed to this surge in inflation. Massive public spending on infrastructure and stadiums injected a large volume of money into the economy, which, combined with other monetary pressures, could have overheated demand and driven prices up. Additionally, the temporary spike in employment and consumption during and before the World Cup likely fueled price increases that became more apparent once the tournament concluded. Although the 2015 inflation spike cannot be solely attributed to the World Cup, the event likely contributed to accelerating inflationary pressures that were already building due to broader economic mismanagement and external market factors.</p>
 
 <h3 class="anchored">Figure 3:</h3>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a> <span class="st">"Unemployment rate in Brazil (2010-2020)"</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">ggplot</span>(unemployment_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y=</span> <span class="st">`</span><span class="at">Unemployment Rate</span><span class="st">`</span>, <span class="at">fill =</span> <span class="st">`</span><span class="at">Unemployment Rate</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>   <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"lightgrey"</span>, <span class="at">high =</span> <span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>)) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-8"><a href="#cb3-8"></a>    <span class="at">title =</span> <span class="st">"Unemployment rate in Brazil (2010-2020)"</span> ,</span>
-<span id="cb3-9"><a href="#cb3-9"></a>    <span class="at">y =</span> <span class="st">"Unemployment Rate (%)"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10"></a>    <span class="at">caption =</span> <span class="st">"Retrieved from FRED, Federal Reserve Bank of St. Louis"</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>    ) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb3-14"><a href="#cb3-14"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="figures/3.png"><div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(unemployment_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> <span class="st">`</span><span class="at">Unemployment Rate</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="at">title =</span> <span class="st">"Unemployment Rate in Brazil (2010-2020)"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="at">y =</span> <span class="st">"Unemployment Rate (%)"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="at">caption =</span> <span class="st">"Retrieved from FRED, Federal Reserve Bank of St. Louis"</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In the years leading up to the 2014 FIFA World Cup, Brazil experienced a period of declining unemployment, reaching its lowest point in 2014 at around 6.8%. This period of relative economic stability was influenced by steady job growth. In 2015, shortly after the World Cup, the unemployment rate began to rise sharply, jumping to approximately 8% in 2015 and climbing to nearly 13% by 2017. While the World Cup brought short-term boosts to sectors like construction, tourism, and services, the long-term economic impact was far more complex. Massive public spending on stadiums and infrastructure, often at the expense of broader economic investments, contributed to Brazil’s economic downturn. The costs of hosting the event strained public finances, and temporary jobs associated with the World Cup disappeared. Although the World Cup was not the sole contributor to the rise in unemployment, it was a contributing factor that led to economic instability in Brazil after 2014.</p>
@@ -401,58 +399,66 @@ cookieconsent.run({
 <h2 class="anchored">Impact on Brazil’s Tourism</h2>
 
 <h3 class="anchored">Figure 4:</h3>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>BRA_subset <span class="ot">&lt;-</span> BRA_tour_long <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2018</span>)</span>
+<img src="figures/4.png"><div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>highlight_years <span class="ot">&lt;-</span> BRA_subset <span class="sc">|&gt;</span> </span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">filter</span>(Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">2016</span>))</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">ggplot</span>(BRA_subset, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Tourists_Millions)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
-<span id="cb4-12"><a href="#cb4-12"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
 <span id="cb4-13"><a href="#cb4-13"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb4-15"><a href="#cb4-15"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
-<span id="cb4-16"><a href="#cb4-16"></a>    <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>),</span>
-<span id="cb4-17"><a href="#cb4-17"></a>    <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb4-20"><a href="#cb4-20"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
-<span id="cb4-21"><a href="#cb4-21"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-23"><a href="#cb4-23"></a>    <span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>,</span>
-<span id="cb4-24"><a href="#cb4-24"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25"></a>    <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>,</span>
-<span id="cb4-26"><a href="#cb4-26"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="at">name =</span> <span class="st">"Event"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2014</span>),</span>
+<span id="cb4-20"><a href="#cb4-20"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"World Cup"</span>),</span>
+<span id="cb4-21"><a href="#cb4-21"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="at">data =</span> <span class="fu">subset</span>(BRA_subset, Year <span class="sc">==</span> <span class="dv">2016</span>),</span>
+<span id="cb4-24"><a href="#cb4-24"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>),</span>
+<span id="cb4-25"><a href="#cb4-25"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Brazil International Tourist Arrivals Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"International Arrivals (Millions)"</span>, <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourists Data"</span>) <span class="sc">+</span></span>
 <span id="cb4-27"><a href="#cb4-27"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-28"><a href="#cb4-28"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb4-29"><a href="#cb4-29"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The graph above highlights international tourist arrivals in Brazil between 2010 and 2018. This timeframe includes two major global sporting events hosted by Brazil: the 2014 FIFA World Cup and the 2016 Summer Olympics. From 2010 to 2013, Brazil experienced a steady increase in international arrivals, suggesting growing interest in the country, possibly due to pre-event tourism promotion and infrastructure investment. In 2014, the year of the World Cup, there was a notable peak in tourist arrivals, highlighted in green on the graph. This increase reflects the surge in global attention and the influx of international visitors that accompanied the tournament. In 2016, marked in red, Brazil hosted the Olympics in Rio de Janeiro. While there was a smaller bump in arrivals compared to 2014, it still indicates a continued trend of elevated tourism linked to major events. However, the tourism levels appear to have slightly declined post-2016, suggesting the impact of these events may be temporary unless sustained by broader tourism policies or investments.</p>
 
 <h3 class="anchored">Figure 5:</h3>
-<div class="cell">
+<img src="figures/5.png"><div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(brazil_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Line connecting all years</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Highlight), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Points with different color for 2014</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
-<span id="cb5-5"><a href="#cb5-5"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Receipts), </span>
-<span id="cb5-6"><a href="#cb5-6"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
-<span id="cb5-8"><a href="#cb5-8"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), </span>
-<span id="cb5-9"><a href="#cb5-9"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2014"</span> <span class="ot">=</span> <span class="st">"#FCD116"</span>, <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#009B4D"</span>)) <span class="sc">+</span>  <span class="co"># Color 2014 differently</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Black points for all years</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2014</span>), </span>
+<span id="cb5-4"><a href="#cb5-4"></a>             <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"World Cup"</span>), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Green dot for 2014 (World Cup)</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb5-6"><a href="#cb5-6"></a>             <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Olympics"</span>), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Red dot for 2016 (Olympics)</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Black line connecting all years</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2014</span>), </span>
+<span id="cb5-9"><a href="#cb5-9"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"World Cup"</span>), <span class="at">vjust =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2014</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">subset</span>(brazil_long, Year <span class="sc">==</span> <span class="dv">2016</span>), </span>
+<span id="cb5-11"><a href="#cb5-11"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"Olympics"</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span>  <span class="co"># Label for 2016</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"World Cup"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Olympics"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span>  <span class="co"># Color the events</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="at">title =</span> <span class="st">"Brazil: International Tourism Receipts (2010-2018)"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="at">y =</span> <span class="st">"Receipts (billion US$)"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank International Tourism Receipts Data"</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb5-22"><a href="#cb5-22"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,  <span class="co"># Hide the legend</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb5-24"><a href="#cb5-24"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>This second graph shows Brazil’s international tourism receipts, the amount of money spent by international visitors, from 2010 to 2018. A strong correlation emerges when compared to the earlier graph of international tourist arrivals. As seen in the chart above, tourism receipts rose steadily from 2010 to a peak in 2014, reaching over $7.3 billion USD. This year is highlighted in yellow, marking the FIFA World Cup. The sharp increase in both arrivals and receipts in 2014 suggests that not only did more tourists come to Brazil, but they also spent significantly more money, pointing to the strong economic impact of hosting a mega-event. In 2016, the year of the Rio Olympics, receipts were again elevated (marked in red), though not to the same extent as in 2014. This is consistent with the first graph, where tourist arrivals also experienced a moderate increase in 2016. While the Olympics brought global attention, its financial impact on tourism appears smaller than that of the World Cup, potentially due to event structure, geographic concentration in Rio, or global economic conditions.</p>
@@ -1239,44 +1245,44 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-81"><a href="#cb9-81"></a><span class="in">&lt;h3&gt;Impacts on Inflation Rate and Unemployment Rate:&lt;/h3&gt;</span></span>
 <span id="cb9-82"><a href="#cb9-82"></a></span>
 <span id="cb9-83"><a href="#cb9-83"></a><span class="in">&lt;h3&gt;Figure 2&lt;/h3&gt;</span></span>
-<span id="cb9-84"><a href="#cb9-84"></a><span class="in">```</span></span>
-<span id="cb9-85"><a href="#cb9-85"></a></span>
-<span id="cb9-86"><a href="#cb9-86"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-87"><a href="#cb9-87"></a><span class="in">ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) +</span></span>
-<span id="cb9-88"><a href="#cb9-88"></a><span class="in"> geom_bar(stat = "identity") +</span></span>
-<span id="cb9-89"><a href="#cb9-89"></a><span class="in">   scale_fill_gradient(low = "lightgrey", high = "lightgrey") +</span></span>
+<span id="cb9-84"><a href="#cb9-84"></a><span class="in">&lt;img src="figures/2.png"&gt;</span></span>
+<span id="cb9-85"><a href="#cb9-85"></a><span class="in">```</span></span>
+<span id="cb9-86"><a href="#cb9-86"></a></span>
+<span id="cb9-87"><a href="#cb9-87"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-88"><a href="#cb9-88"></a><span class="in">ggplot(inflation_data, aes(x = year, y = inflation_rate, group = 1)) +</span></span>
+<span id="cb9-89"><a href="#cb9-89"></a><span class="in">  geom_line(color = "gray", size = 1) + geom_point()+</span></span>
 <span id="cb9-90"><a href="#cb9-90"></a><span class="in">  labs(</span></span>
 <span id="cb9-91"><a href="#cb9-91"></a><span class="in">    title = "Brazil's Inflation Rate",</span></span>
 <span id="cb9-92"><a href="#cb9-92"></a><span class="in">    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis",</span></span>
 <span id="cb9-93"><a href="#cb9-93"></a><span class="in">    y = "Inflation Rate",</span></span>
-<span id="cb9-94"><a href="#cb9-94"></a><span class="in">    x = "Year",</span></span>
+<span id="cb9-94"><a href="#cb9-94"></a><span class="in">    x = "Year"</span></span>
 <span id="cb9-95"><a href="#cb9-95"></a><span class="in">  ) +</span></span>
 <span id="cb9-96"><a href="#cb9-96"></a><span class="in">  theme_minimal() +</span></span>
 <span id="cb9-97"><a href="#cb9-97"></a><span class="in">  theme(plot.title = element_text(hjust = 0.5),</span></span>
-<span id="cb9-98"><a href="#cb9-98"></a><span class="in">        plot.caption = element_text(hjust = 0, size = 5))</span></span>
+<span id="cb9-98"><a href="#cb9-98"></a><span class="in">        plot.caption = element_text(hjust = 0, size = 10)) </span></span>
 <span id="cb9-99"><a href="#cb9-99"></a><span class="in">```</span></span>
 <span id="cb9-100"><a href="#cb9-100"></a></span>
 <span id="cb9-101"><a href="#cb9-101"></a><span class="in">```{=html}</span></span>
 <span id="cb9-102"><a href="#cb9-102"></a><span class="in">&lt;p&gt;In the years leading up to the 2014 FIFA World Cup, Brazil experienced steadily increasing inflation, rising from about 5% in 2010 to over 6% by 2013. This upward trend continued in the immediate aftermath of the tournament, with inflation peaking in 2015 at around 9%. The World Cup may have contributed to this surge in inflation. Massive public spending on infrastructure and stadiums injected a large volume of money into the economy, which, combined with other monetary pressures, could have overheated demand and driven prices up. Additionally, the temporary spike in employment and consumption during and before the World Cup likely fueled price increases that became more apparent once the tournament concluded. Although the 2015 inflation spike cannot be solely attributed to the World Cup, the event likely contributed to accelerating inflationary pressures that were already building due to broader economic mismanagement and external market factors.&lt;/p&gt;</span></span>
 <span id="cb9-103"><a href="#cb9-103"></a></span>
 <span id="cb9-104"><a href="#cb9-104"></a><span class="in">&lt;h3&gt;Figure 3:&lt;/h3&gt;</span></span>
-<span id="cb9-105"><a href="#cb9-105"></a><span class="in">```</span></span>
-<span id="cb9-106"><a href="#cb9-106"></a></span>
-<span id="cb9-107"><a href="#cb9-107"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-108"><a href="#cb9-108"></a><span class="in"> "Unemployment rate in Brazil (2010-2020)"</span></span>
-<span id="cb9-109"><a href="#cb9-109"></a></span>
-<span id="cb9-110"><a href="#cb9-110"></a><span class="in">ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemployment Rate`)) +</span></span>
-<span id="cb9-111"><a href="#cb9-111"></a><span class="in">  geom_bar(stat = "identity") +</span></span>
-<span id="cb9-112"><a href="#cb9-112"></a><span class="in">   scale_fill_gradient(low = "lightgrey", high = "lightgrey") +</span></span>
-<span id="cb9-113"><a href="#cb9-113"></a><span class="in">  scale_x_continuous(breaks = c(2010:2020)) +</span></span>
-<span id="cb9-114"><a href="#cb9-114"></a><span class="in">  labs(</span></span>
-<span id="cb9-115"><a href="#cb9-115"></a><span class="in">    title = "Unemployment rate in Brazil (2010-2020)" ,</span></span>
-<span id="cb9-116"><a href="#cb9-116"></a><span class="in">    y = "Unemployment Rate (%)",</span></span>
-<span id="cb9-117"><a href="#cb9-117"></a><span class="in">    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis"</span></span>
-<span id="cb9-118"><a href="#cb9-118"></a><span class="in">    ) +</span></span>
-<span id="cb9-119"><a href="#cb9-119"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-120"><a href="#cb9-120"></a><span class="in">    theme(plot.title = element_text(hjust = 0.5),</span></span>
-<span id="cb9-121"><a href="#cb9-121"></a><span class="in">        plot.caption = element_text(hjust = 0, size = 5))</span></span>
+<span id="cb9-105"><a href="#cb9-105"></a><span class="in">&lt;img src="figures/3.png"&gt;</span></span>
+<span id="cb9-106"><a href="#cb9-106"></a><span class="in">```</span></span>
+<span id="cb9-107"><a href="#cb9-107"></a></span>
+<span id="cb9-108"><a href="#cb9-108"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-109"><a href="#cb9-109"></a><span class="in">ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`, group = 1)) +</span></span>
+<span id="cb9-110"><a href="#cb9-110"></a><span class="in">  geom_line(color = "gray", size = 1) +  geom_point() + </span></span>
+<span id="cb9-111"><a href="#cb9-111"></a><span class="in">  scale_x_continuous(breaks = c(2010:2020)) +</span></span>
+<span id="cb9-112"><a href="#cb9-112"></a><span class="in">  labs(</span></span>
+<span id="cb9-113"><a href="#cb9-113"></a><span class="in">    title = "Unemployment Rate in Brazil (2010-2020)",</span></span>
+<span id="cb9-114"><a href="#cb9-114"></a><span class="in">    y = "Unemployment Rate (%)",</span></span>
+<span id="cb9-115"><a href="#cb9-115"></a><span class="in">    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis"</span></span>
+<span id="cb9-116"><a href="#cb9-116"></a><span class="in">  ) +</span></span>
+<span id="cb9-117"><a href="#cb9-117"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-118"><a href="#cb9-118"></a><span class="in">  theme(</span></span>
+<span id="cb9-119"><a href="#cb9-119"></a><span class="in">    plot.title = element_text(hjust = 0.5),</span></span>
+<span id="cb9-120"><a href="#cb9-120"></a><span class="in">    plot.caption = element_text(hjust = 0, size = 10)</span></span>
+<span id="cb9-121"><a href="#cb9-121"></a><span class="in">  )</span></span>
 <span id="cb9-122"><a href="#cb9-122"></a><span class="in">```</span></span>
 <span id="cb9-123"><a href="#cb9-123"></a></span>
 <span id="cb9-124"><a href="#cb9-124"></a><span class="in">```{=html}</span></span>
@@ -1285,148 +1291,157 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-127"><a href="#cb9-127"></a><span class="in">&lt;h2&gt;Impact on Brazil’s Tourism&lt;/h2&gt;</span></span>
 <span id="cb9-128"><a href="#cb9-128"></a></span>
 <span id="cb9-129"><a href="#cb9-129"></a><span class="in">&lt;h3&gt;Figure 4:&lt;/h3&gt;</span></span>
-<span id="cb9-130"><a href="#cb9-130"></a><span class="in">```</span></span>
-<span id="cb9-131"><a href="#cb9-131"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-132"><a href="#cb9-132"></a><span class="in">BRA_subset &lt;- BRA_tour_long |&gt; </span></span>
-<span id="cb9-133"><a href="#cb9-133"></a><span class="in">  filter(Year &gt;= 2010 &amp; Year &lt;= 2018)</span></span>
-<span id="cb9-134"><a href="#cb9-134"></a></span>
-<span id="cb9-135"><a href="#cb9-135"></a><span class="in">highlight_years &lt;- BRA_subset |&gt; </span></span>
-<span id="cb9-136"><a href="#cb9-136"></a><span class="in">  filter(Year %in% c(2014, 2016))</span></span>
-<span id="cb9-137"><a href="#cb9-137"></a></span>
-<span id="cb9-138"><a href="#cb9-138"></a></span>
-<span id="cb9-139"><a href="#cb9-139"></a><span class="in">ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +</span></span>
-<span id="cb9-140"><a href="#cb9-140"></a><span class="in">  geom_point(color = "black") +</span></span>
-<span id="cb9-141"><a href="#cb9-141"></a><span class="in">  geom_point(</span></span>
-<span id="cb9-142"><a href="#cb9-142"></a><span class="in">    data = subset(BRA_subset, Year == 2014),</span></span>
-<span id="cb9-143"><a href="#cb9-143"></a><span class="in">    aes(color = "World Cup"),</span></span>
-<span id="cb9-144"><a href="#cb9-144"></a><span class="in">    size = 3) +</span></span>
-<span id="cb9-145"><a href="#cb9-145"></a><span class="in">  geom_point(</span></span>
-<span id="cb9-146"><a href="#cb9-146"></a><span class="in">    data = subset(BRA_subset, Year == 2016),</span></span>
-<span id="cb9-147"><a href="#cb9-147"></a><span class="in">    aes(color = "Olympics"),</span></span>
-<span id="cb9-148"><a href="#cb9-148"></a><span class="in">    size = 3) +</span></span>
-<span id="cb9-149"><a href="#cb9-149"></a><span class="in">  geom_line(color = "black") +</span></span>
-<span id="cb9-150"><a href="#cb9-150"></a><span class="in">  scale_color_manual(</span></span>
-<span id="cb9-151"><a href="#cb9-151"></a><span class="in">    name = "Event",</span></span>
-<span id="cb9-152"><a href="#cb9-152"></a><span class="in">    values = c("World Cup" = "green", "Olympics" = "red")) +</span></span>
-<span id="cb9-153"><a href="#cb9-153"></a><span class="in">  labs(</span></span>
-<span id="cb9-154"><a href="#cb9-154"></a><span class="in">    title = "Brazil International Tourist Arrivals Over Time",</span></span>
-<span id="cb9-155"><a href="#cb9-155"></a><span class="in">    x = "Year",</span></span>
-<span id="cb9-156"><a href="#cb9-156"></a><span class="in">    y = "International Arrivals (Millions)",</span></span>
-<span id="cb9-157"><a href="#cb9-157"></a><span class="in">    caption = "Source: World Bank International Tourists Data") +</span></span>
-<span id="cb9-158"><a href="#cb9-158"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-159"><a href="#cb9-159"></a><span class="in">  theme(plot.title = element_text(hjust = 0.5), legend.title = element_text(size = 12), legend.text = element_text(size = 10))</span></span>
-<span id="cb9-160"><a href="#cb9-160"></a><span class="in">```</span></span>
-<span id="cb9-161"><a href="#cb9-161"></a></span>
-<span id="cb9-162"><a href="#cb9-162"></a><span class="in">```{=html}</span></span>
-<span id="cb9-163"><a href="#cb9-163"></a><span class="in">&lt;p&gt;The graph above highlights international tourist arrivals in Brazil between 2010 and 2018. This timeframe includes two major global sporting events hosted by Brazil: the 2014 FIFA World Cup and the 2016 Summer Olympics. From 2010 to 2013, Brazil experienced a steady increase in international arrivals, suggesting growing interest in the country, possibly due to pre-event tourism promotion and infrastructure investment. In 2014, the year of the World Cup, there was a notable peak in tourist arrivals, highlighted in green on the graph. This increase reflects the surge in global attention and the influx of international visitors that accompanied the tournament. In 2016, marked in red, Brazil hosted the Olympics in Rio de Janeiro. While there was a smaller bump in arrivals compared to 2014, it still indicates a continued trend of elevated tourism linked to major events. However, the tourism levels appear to have slightly declined post-2016, suggesting the impact of these events may be temporary unless sustained by broader tourism policies or investments.&lt;/p&gt;</span></span>
-<span id="cb9-164"><a href="#cb9-164"></a></span>
-<span id="cb9-165"><a href="#cb9-165"></a><span class="in">&lt;h3&gt;Figure 5:&lt;/h3&gt;</span></span>
-<span id="cb9-166"><a href="#cb9-166"></a><span class="in">```</span></span>
-<span id="cb9-167"><a href="#cb9-167"></a></span>
-<span id="cb9-168"><a href="#cb9-168"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-169"><a href="#cb9-169"></a><span class="in">ggplot(brazil_long, aes(x = Year, y = Receipts)) +</span></span>
-<span id="cb9-170"><a href="#cb9-170"></a><span class="in">  geom_line(color = "black", size = 1.2) +  # Line connecting all years</span></span>
-<span id="cb9-171"><a href="#cb9-171"></a><span class="in">  geom_point(aes(color = Highlight), size = 3) +  # Points with different color for 2014</span></span>
-<span id="cb9-172"><a href="#cb9-172"></a><span class="in">  geom_point(data = subset(brazil_long, Year == 2016), </span></span>
-<span id="cb9-173"><a href="#cb9-173"></a><span class="in">             aes(x = Year, y = Receipts), </span></span>
-<span id="cb9-174"><a href="#cb9-174"></a><span class="in">             color = "red", size = 4) +  # Red dot for 2016</span></span>
-<span id="cb9-175"><a href="#cb9-175"></a><span class="in">  geom_text(data = subset(brazil_long, Year == 2016), </span></span>
-<span id="cb9-176"><a href="#cb9-176"></a><span class="in">            aes(label = "Olympics"), </span></span>
-<span id="cb9-177"><a href="#cb9-177"></a><span class="in">            vjust = -1, color = "red", size = 4.5) +  # Label for 2016</span></span>
-<span id="cb9-178"><a href="#cb9-178"></a><span class="in">  scale_color_manual(values = c("2014" = "#FCD116", "Other" = "#009B4D")) +  # Color 2014 differently</span></span>
-<span id="cb9-179"><a href="#cb9-179"></a><span class="in">  labs(</span></span>
-<span id="cb9-180"><a href="#cb9-180"></a><span class="in">    title = "Brazil: International Tourism Receipts (2010-2018)",</span></span>
-<span id="cb9-181"><a href="#cb9-181"></a><span class="in">    x = "Year",</span></span>
-<span id="cb9-182"><a href="#cb9-182"></a><span class="in">    y = "Receipts (billion US$)",</span></span>
-<span id="cb9-183"><a href="#cb9-183"></a><span class="in">    color = "Year"</span></span>
-<span id="cb9-184"><a href="#cb9-184"></a><span class="in">  ) +</span></span>
-<span id="cb9-185"><a href="#cb9-185"></a><span class="in">  theme_minimal()</span></span>
-<span id="cb9-186"><a href="#cb9-186"></a></span>
-<span id="cb9-187"><a href="#cb9-187"></a><span class="in">```</span></span>
-<span id="cb9-188"><a href="#cb9-188"></a><span class="in">```{=html}</span></span>
-<span id="cb9-189"><a href="#cb9-189"></a><span class="in">&lt;p&gt;This second graph shows Brazil’s international tourism receipts, the amount of money spent by international visitors, from 2010 to 2018. A strong correlation emerges when compared to the earlier graph of international tourist arrivals. As seen in the chart above, tourism receipts rose steadily from 2010 to a peak in 2014, reaching over $7.3 billion USD. This year is highlighted in yellow, marking the FIFA World Cup. The sharp increase in both arrivals and receipts in 2014 suggests that not only did more tourists come to Brazil, but they also spent significantly more money, pointing to the strong economic impact of hosting a mega-event. In 2016, the year of the Rio Olympics, receipts were again elevated (marked in red), though not to the same extent as in 2014. This is consistent with the first graph, where tourist arrivals also experienced a moderate increase in 2016. While the Olympics brought global attention, its financial impact on tourism appears smaller than that of the World Cup, potentially due to event structure, geographic concentration in Rio, or global economic conditions.&lt;/p&gt;</span></span>
-<span id="cb9-190"><a href="#cb9-190"></a></span>
-<span id="cb9-191"><a href="#cb9-191"></a><span class="in">&lt;h2&gt;Stadium Spending&lt;/h2&gt;</span></span>
-<span id="cb9-192"><a href="#cb9-192"></a></span>
-<span id="cb9-193"><a href="#cb9-193"></a><span class="in">&lt;h3&gt;Figure 6:&lt;/h3&gt;</span></span>
-<span id="cb9-194"><a href="#cb9-194"></a><span class="in">&lt;img src="figures/6.png"&gt;</span></span>
-<span id="cb9-195"><a href="#cb9-195"></a><span class="in">```</span></span>
-<span id="cb9-196"><a href="#cb9-196"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-197"><a href="#cb9-197"></a><span class="in">world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
-<span id="cb9-198"><a href="#cb9-198"></a></span>
-<span id="cb9-199"><a href="#cb9-199"></a><span class="in">brazil &lt;- world %&gt;% filter(admin == "Brazil")</span></span>
-<span id="cb9-200"><a href="#cb9-200"></a></span>
-<span id="cb9-201"><a href="#cb9-201"></a><span class="in">brazil|&gt;</span></span>
-<span id="cb9-202"><a href="#cb9-202"></a><span class="in">  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +</span></span>
-<span id="cb9-203"><a href="#cb9-203"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-204"><a href="#cb9-204"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +</span></span>
-<span id="cb9-205"><a href="#cb9-205"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-206"><a href="#cb9-206"></a><span class="in">  labs(</span></span>
-<span id="cb9-207"><a href="#cb9-207"></a><span class="in">    title = "Expected Stadium Costs - Brazil World Cup",</span></span>
-<span id="cb9-208"><a href="#cb9-208"></a><span class="in">    subtitle = "Size reflects expected construction cost",</span></span>
-<span id="cb9-209"><a href="#cb9-209"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-210"><a href="#cb9-210"></a><span class="in">```</span></span>
-<span id="cb9-211"><a href="#cb9-211"></a></span>
-<span id="cb9-212"><a href="#cb9-212"></a><span class="in">```{=html}</span></span>
-<span id="cb9-213"><a href="#cb9-213"></a><span class="in">&lt;p&gt;This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.&lt;/p&gt;</span></span>
-<span id="cb9-214"><a href="#cb9-214"></a></span>
-<span id="cb9-215"><a href="#cb9-215"></a><span class="in">&lt;h3&gt;Figure 7:&lt;/h3&gt;</span></span>
-<span id="cb9-216"><a href="#cb9-216"></a><span class="in">&lt;img src="figures/7.png"&gt;</span></span>
-<span id="cb9-217"><a href="#cb9-217"></a><span class="in">```</span></span>
-<span id="cb9-218"><a href="#cb9-218"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-219"><a href="#cb9-219"></a><span class="in">ggplot(data = brazil) +</span></span>
-<span id="cb9-220"><a href="#cb9-220"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
-<span id="cb9-221"><a href="#cb9-221"></a><span class="in">  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +</span></span>
-<span id="cb9-222"><a href="#cb9-222"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-223"><a href="#cb9-223"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +</span></span>
-<span id="cb9-224"><a href="#cb9-224"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-225"><a href="#cb9-225"></a><span class="in">  labs(</span></span>
-<span id="cb9-226"><a href="#cb9-226"></a><span class="in">    title = "Actual Stadium Costs - Brazil World Cup",</span></span>
-<span id="cb9-227"><a href="#cb9-227"></a><span class="in">    subtitle = "Size reflects actual construction cost",</span></span>
-<span id="cb9-228"><a href="#cb9-228"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb9-229"><a href="#cb9-229"></a><span class="in">  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-230"><a href="#cb9-230"></a></span>
-<span id="cb9-231"><a href="#cb9-231"></a><span class="in">```</span></span>
-<span id="cb9-232"><a href="#cb9-232"></a><span class="in">```{=html}</span></span>
-<span id="cb9-233"><a href="#cb9-233"></a><span class="in">&lt;p&gt;This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.&lt;/p&gt;</span></span>
-<span id="cb9-234"><a href="#cb9-234"></a></span>
-<span id="cb9-235"><a href="#cb9-235"></a><span class="in">&lt;h3&gt;Figure 8:&lt;/h3&gt;</span></span>
-<span id="cb9-236"><a href="#cb9-236"></a><span class="in">&lt;img src="figures/8.png"&gt;</span></span>
-<span id="cb9-237"><a href="#cb9-237"></a><span class="in">```</span></span>
-<span id="cb9-238"><a href="#cb9-238"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-239"><a href="#cb9-239"></a><span class="in">ggplot(data = brazil) +</span></span>
-<span id="cb9-240"><a href="#cb9-240"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
-<span id="cb9-241"><a href="#cb9-241"></a><span class="in">  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +</span></span>
-<span id="cb9-242"><a href="#cb9-242"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-243"><a href="#cb9-243"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +</span></span>
-<span id="cb9-244"><a href="#cb9-244"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-245"><a href="#cb9-245"></a><span class="in">  labs(</span></span>
-<span id="cb9-246"><a href="#cb9-246"></a><span class="in">    title = "Over-Budget Stadiums - Brazil World Cup",</span></span>
-<span id="cb9-247"><a href="#cb9-247"></a><span class="in">    subtitle = "Size shows how much actual cost exceeded expected",</span></span>
-<span id="cb9-248"><a href="#cb9-248"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb9-249"><a href="#cb9-249"></a><span class="in">  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-250"><a href="#cb9-250"></a><span class="in">```</span></span>
-<span id="cb9-251"><a href="#cb9-251"></a><span class="in">```{=html}</span></span>
-<span id="cb9-252"><a href="#cb9-252"></a><span class="in">&lt;p&gt;This point map shows the over-budget stadiums that Brazil built or renovated for the 2014 World Cup. In total, Brazil used 12 stadiums for the World Cup, and 10 stadiums were over their budget. The 10 over-budget stadiums are represented in this map. The size of each dot visualizes the degree to which stadiums were over their budget. As a result of stadiums exceeding their budgets, Brazil’s public debt increased, and less funding was available for important projects such as infrastructure, healthcare, and education. The stadiums also experienced the white elephant phenomenon, meaning that they were used less than anticipated post-World Cup, and they were expensive to maintain.&lt;/p&gt;</span></span>
-<span id="cb9-253"><a href="#cb9-253"></a></span>
-<span id="cb9-254"><a href="#cb9-254"></a><span class="in">&lt;h2&gt;Conclusion:&lt;/h2&gt;</span></span>
-<span id="cb9-255"><a href="#cb9-255"></a><span class="in">&lt;p&gt;Brazil’s economy was poorly affected by hosting the World Cup in 2014. Brazil’s GDP was on a rapid upward trajectory until 2014 when the GDP halted and began to decrease. This reflects an unhealthy economy because a decrease in GDP demonstrates a decrease in economic activity. Additionally, the World Cup infrastructure experienced the white elephant phenomenon, meaning that the stadiums built and renovated were used less than anticipated after the World Cup, adding to the economic harm caused by hosting the World Cup. Furthermore, 10 of the 12 stadiums built for the World Cup exceeded their expected budget. Additionally, Brazil’s unemployment and inflation rates increased after the 2014 World Cup, indicating an unstable economy. In relation to tourism, the World Cup causes a spike to tourism and how much tourists spend but that doesn’t continue after the World Cup, and it eventually goes back down to before, which gives a false sense of how much money Brazil is getting from tourism because it is just spiked the one year and it doesn’t necessarily show a healthy economy.&lt;/p&gt;</span></span>
-<span id="cb9-256"><a href="#cb9-256"></a></span>
-<span id="cb9-257"><a href="#cb9-257"></a><span class="in">&lt;p&gt;Although the World Cup negatively affected Brazil’s economy, we do not have enough evidence to suggest that the World Cup always causes negative impacts on its host nation’s economy. To draw conclusions about the general economic effect of hosting the World Cup, data must be analyzed from a greater pool of host nations. The case study done on Brazil shows why a larger study should be conducted about the economic impact of hosting the World Cup.&lt;/p&gt;</span></span>
-<span id="cb9-258"><a href="#cb9-258"></a><span class="in">&lt;h2&gt;Limitations &amp; Future Work&lt;h2&gt;</span></span>
-<span id="cb9-259"><a href="#cb9-259"></a><span class="in">&lt;p&gt;Brazil’s economy experienced similar economic impacts to the World Cup as a result of hosting the Olympics in 2016. This makes it challenging to establish strict cause-and-effect relationships between hosting the World Cup and Brazil’s economy. Additionally, the relationships observed in the case study on Brazil do not necessarily apply to other host countries. For future analysis, it would be beneficial to complete multiple case studies. After completing multiple case studies, the common relationships observed in each case study can be confidently declared.&lt;/p&gt;</span></span>
-<span id="cb9-260"><a href="#cb9-260"></a><span class="in">```</span></span>
-<span id="cb9-261"><a href="#cb9-261"></a></span>
+<span id="cb9-130"><a href="#cb9-130"></a><span class="in">&lt;img src="figures/4.png"&gt;</span></span>
+<span id="cb9-131"><a href="#cb9-131"></a><span class="in">```</span></span>
+<span id="cb9-132"><a href="#cb9-132"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-133"><a href="#cb9-133"></a><span class="in">highlight_years &lt;- BRA_subset |&gt; </span></span>
+<span id="cb9-134"><a href="#cb9-134"></a><span class="in">  filter(Year %in% c(2014, 2016))</span></span>
+<span id="cb9-135"><a href="#cb9-135"></a></span>
+<span id="cb9-136"><a href="#cb9-136"></a><span class="in">ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +</span></span>
+<span id="cb9-137"><a href="#cb9-137"></a><span class="in">  geom_point(color = "black") +</span></span>
+<span id="cb9-138"><a href="#cb9-138"></a><span class="in">  geom_point(</span></span>
+<span id="cb9-139"><a href="#cb9-139"></a><span class="in">    data = subset(BRA_subset, Year == 2014),</span></span>
+<span id="cb9-140"><a href="#cb9-140"></a><span class="in">    aes(color = "World Cup"),</span></span>
+<span id="cb9-141"><a href="#cb9-141"></a><span class="in">    size = 3) +</span></span>
+<span id="cb9-142"><a href="#cb9-142"></a><span class="in">  geom_point(</span></span>
+<span id="cb9-143"><a href="#cb9-143"></a><span class="in">    data = subset(BRA_subset, Year == 2016),</span></span>
+<span id="cb9-144"><a href="#cb9-144"></a><span class="in">    aes(color = "Olympics"),</span></span>
+<span id="cb9-145"><a href="#cb9-145"></a><span class="in">    size = 3) +</span></span>
+<span id="cb9-146"><a href="#cb9-146"></a><span class="in">  geom_line(color = "black") +</span></span>
+<span id="cb9-147"><a href="#cb9-147"></a><span class="in">  scale_color_manual(</span></span>
+<span id="cb9-148"><a href="#cb9-148"></a><span class="in">    name = "Event",</span></span>
+<span id="cb9-149"><a href="#cb9-149"></a><span class="in">    values = c("World Cup" = "green", "Olympics" = "red")) +</span></span>
+<span id="cb9-150"><a href="#cb9-150"></a><span class="in">  geom_text(</span></span>
+<span id="cb9-151"><a href="#cb9-151"></a><span class="in">    data = subset(BRA_subset, Year == 2014),</span></span>
+<span id="cb9-152"><a href="#cb9-152"></a><span class="in">    aes(label = "World Cup"),</span></span>
+<span id="cb9-153"><a href="#cb9-153"></a><span class="in">    vjust = -1.5, color = "green", size = 4.5) +</span></span>
+<span id="cb9-154"><a href="#cb9-154"></a><span class="in">  geom_text(</span></span>
+<span id="cb9-155"><a href="#cb9-155"></a><span class="in">    data = subset(BRA_subset, Year == 2016),</span></span>
+<span id="cb9-156"><a href="#cb9-156"></a><span class="in">    aes(label = "Olympics"),</span></span>
+<span id="cb9-157"><a href="#cb9-157"></a><span class="in">    vjust = -1.1, color = "red", size = 4.5) +</span></span>
+<span id="cb9-158"><a href="#cb9-158"></a><span class="in">  labs(title = "Brazil International Tourist Arrivals Over Time", x = "Year", y = "International Arrivals (Millions)", caption = "Source: World Bank International Tourists Data") +</span></span>
+<span id="cb9-159"><a href="#cb9-159"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-160"><a href="#cb9-160"></a><span class="in">  theme(plot.title = element_text(hjust = 0.5), legend.position = "none", plot.caption = element_text(hjust = 0.5, size = 10)</span></span>
+<span id="cb9-161"><a href="#cb9-161"></a><span class="in">  )</span></span>
+<span id="cb9-162"><a href="#cb9-162"></a><span class="in">```</span></span>
+<span id="cb9-163"><a href="#cb9-163"></a></span>
+<span id="cb9-164"><a href="#cb9-164"></a><span class="in">```{=html}</span></span>
+<span id="cb9-165"><a href="#cb9-165"></a><span class="in">&lt;p&gt;The graph above highlights international tourist arrivals in Brazil between 2010 and 2018. This timeframe includes two major global sporting events hosted by Brazil: the 2014 FIFA World Cup and the 2016 Summer Olympics. From 2010 to 2013, Brazil experienced a steady increase in international arrivals, suggesting growing interest in the country, possibly due to pre-event tourism promotion and infrastructure investment. In 2014, the year of the World Cup, there was a notable peak in tourist arrivals, highlighted in green on the graph. This increase reflects the surge in global attention and the influx of international visitors that accompanied the tournament. In 2016, marked in red, Brazil hosted the Olympics in Rio de Janeiro. While there was a smaller bump in arrivals compared to 2014, it still indicates a continued trend of elevated tourism linked to major events. However, the tourism levels appear to have slightly declined post-2016, suggesting the impact of these events may be temporary unless sustained by broader tourism policies or investments.&lt;/p&gt;</span></span>
+<span id="cb9-166"><a href="#cb9-166"></a></span>
+<span id="cb9-167"><a href="#cb9-167"></a><span class="in">&lt;h3&gt;Figure 5:&lt;/h3&gt;</span></span>
+<span id="cb9-168"><a href="#cb9-168"></a><span class="in">&lt;img src="figures/5.png"&gt;</span></span>
+<span id="cb9-169"><a href="#cb9-169"></a><span class="in">```</span></span>
+<span id="cb9-170"><a href="#cb9-170"></a></span>
+<span id="cb9-171"><a href="#cb9-171"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-172"><a href="#cb9-172"></a><span class="in">ggplot(brazil_long, aes(x = Year, y = Receipts)) +</span></span>
+<span id="cb9-173"><a href="#cb9-173"></a><span class="in">  geom_point(color = "black") +  # Black points for all years</span></span>
+<span id="cb9-174"><a href="#cb9-174"></a><span class="in">  geom_point(data = subset(brazil_long, Year == 2014), </span></span>
+<span id="cb9-175"><a href="#cb9-175"></a><span class="in">             aes(color = "World Cup"), size = 3) +  # Green dot for 2014 (World Cup)</span></span>
+<span id="cb9-176"><a href="#cb9-176"></a><span class="in">  geom_point(data = subset(brazil_long, Year == 2016), </span></span>
+<span id="cb9-177"><a href="#cb9-177"></a><span class="in">             aes(color = "Olympics"), size = 3) +  # Red dot for 2016 (Olympics)</span></span>
+<span id="cb9-178"><a href="#cb9-178"></a><span class="in">  geom_line(color = "black") +  # Black line connecting all years</span></span>
+<span id="cb9-179"><a href="#cb9-179"></a><span class="in">  geom_text(data = subset(brazil_long, Year == 2014), </span></span>
+<span id="cb9-180"><a href="#cb9-180"></a><span class="in">            aes(label = "World Cup"), vjust = 3, color = "green", size = 4.5) +  # Label for 2014</span></span>
+<span id="cb9-181"><a href="#cb9-181"></a><span class="in">  geom_text(data = subset(brazil_long, Year == 2016), </span></span>
+<span id="cb9-182"><a href="#cb9-182"></a><span class="in">            aes(label = "Olympics"), vjust = -1.5, color = "red", size = 4.5) +  # Label for 2016</span></span>
+<span id="cb9-183"><a href="#cb9-183"></a><span class="in">  scale_color_manual(values = c("World Cup" = "green", "Olympics" = "red")) +  # Color the events</span></span>
+<span id="cb9-184"><a href="#cb9-184"></a><span class="in">  labs(</span></span>
+<span id="cb9-185"><a href="#cb9-185"></a><span class="in">    title = "Brazil: International Tourism Receipts (2010-2018)",</span></span>
+<span id="cb9-186"><a href="#cb9-186"></a><span class="in">    x = "Year",</span></span>
+<span id="cb9-187"><a href="#cb9-187"></a><span class="in">    y = "Receipts (billion US$)",</span></span>
+<span id="cb9-188"><a href="#cb9-188"></a><span class="in">    caption = "Source: World Bank International Tourism Receipts Data"</span></span>
+<span id="cb9-189"><a href="#cb9-189"></a><span class="in">  ) +</span></span>
+<span id="cb9-190"><a href="#cb9-190"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-191"><a href="#cb9-191"></a><span class="in">  theme(</span></span>
+<span id="cb9-192"><a href="#cb9-192"></a><span class="in">    plot.title = element_text(hjust = 0.5),</span></span>
+<span id="cb9-193"><a href="#cb9-193"></a><span class="in">    legend.position = "none",  # Hide the legend</span></span>
+<span id="cb9-194"><a href="#cb9-194"></a><span class="in">    plot.caption = element_text(hjust = 0.5, size = 10)</span></span>
+<span id="cb9-195"><a href="#cb9-195"></a><span class="in">  )</span></span>
+<span id="cb9-196"><a href="#cb9-196"></a><span class="in">```</span></span>
+<span id="cb9-197"><a href="#cb9-197"></a><span class="in">```{=html}</span></span>
+<span id="cb9-198"><a href="#cb9-198"></a><span class="in">&lt;p&gt;This second graph shows Brazil’s international tourism receipts, the amount of money spent by international visitors, from 2010 to 2018. A strong correlation emerges when compared to the earlier graph of international tourist arrivals. As seen in the chart above, tourism receipts rose steadily from 2010 to a peak in 2014, reaching over $7.3 billion USD. This year is highlighted in yellow, marking the FIFA World Cup. The sharp increase in both arrivals and receipts in 2014 suggests that not only did more tourists come to Brazil, but they also spent significantly more money, pointing to the strong economic impact of hosting a mega-event. In 2016, the year of the Rio Olympics, receipts were again elevated (marked in red), though not to the same extent as in 2014. This is consistent with the first graph, where tourist arrivals also experienced a moderate increase in 2016. While the Olympics brought global attention, its financial impact on tourism appears smaller than that of the World Cup, potentially due to event structure, geographic concentration in Rio, or global economic conditions.&lt;/p&gt;</span></span>
+<span id="cb9-199"><a href="#cb9-199"></a></span>
+<span id="cb9-200"><a href="#cb9-200"></a><span class="in">&lt;h2&gt;Stadium Spending&lt;/h2&gt;</span></span>
+<span id="cb9-201"><a href="#cb9-201"></a></span>
+<span id="cb9-202"><a href="#cb9-202"></a><span class="in">&lt;h3&gt;Figure 6:&lt;/h3&gt;</span></span>
+<span id="cb9-203"><a href="#cb9-203"></a><span class="in">&lt;img src="figures/6.png"&gt;</span></span>
+<span id="cb9-204"><a href="#cb9-204"></a><span class="in">```</span></span>
+<span id="cb9-205"><a href="#cb9-205"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-206"><a href="#cb9-206"></a><span class="in">world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
+<span id="cb9-207"><a href="#cb9-207"></a></span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="in">brazil &lt;- world %&gt;% filter(admin == "Brazil")</span></span>
+<span id="cb9-209"><a href="#cb9-209"></a></span>
+<span id="cb9-210"><a href="#cb9-210"></a><span class="in">brazil|&gt;</span></span>
+<span id="cb9-211"><a href="#cb9-211"></a><span class="in">  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +</span></span>
+<span id="cb9-212"><a href="#cb9-212"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +</span></span>
+<span id="cb9-214"><a href="#cb9-214"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-215"><a href="#cb9-215"></a><span class="in">  labs(</span></span>
+<span id="cb9-216"><a href="#cb9-216"></a><span class="in">    title = "Expected Stadium Costs - Brazil World Cup",</span></span>
+<span id="cb9-217"><a href="#cb9-217"></a><span class="in">    subtitle = "Size reflects expected construction cost",</span></span>
+<span id="cb9-218"><a href="#cb9-218"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-219"><a href="#cb9-219"></a><span class="in">```</span></span>
+<span id="cb9-220"><a href="#cb9-220"></a></span>
+<span id="cb9-221"><a href="#cb9-221"></a><span class="in">```{=html}</span></span>
+<span id="cb9-222"><a href="#cb9-222"></a><span class="in">&lt;p&gt;This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.&lt;/p&gt;</span></span>
+<span id="cb9-223"><a href="#cb9-223"></a></span>
+<span id="cb9-224"><a href="#cb9-224"></a><span class="in">&lt;h3&gt;Figure 7:&lt;/h3&gt;</span></span>
+<span id="cb9-225"><a href="#cb9-225"></a><span class="in">&lt;img src="figures/7.png"&gt;</span></span>
+<span id="cb9-226"><a href="#cb9-226"></a><span class="in">```</span></span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-228"><a href="#cb9-228"></a><span class="in">ggplot(data = brazil) +</span></span>
+<span id="cb9-229"><a href="#cb9-229"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
+<span id="cb9-230"><a href="#cb9-230"></a><span class="in">  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +</span></span>
+<span id="cb9-231"><a href="#cb9-231"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-232"><a href="#cb9-232"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +</span></span>
+<span id="cb9-233"><a href="#cb9-233"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-234"><a href="#cb9-234"></a><span class="in">  labs(</span></span>
+<span id="cb9-235"><a href="#cb9-235"></a><span class="in">    title = "Actual Stadium Costs - Brazil World Cup",</span></span>
+<span id="cb9-236"><a href="#cb9-236"></a><span class="in">    subtitle = "Size reflects actual construction cost",</span></span>
+<span id="cb9-237"><a href="#cb9-237"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb9-238"><a href="#cb9-238"></a><span class="in">  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-239"><a href="#cb9-239"></a></span>
+<span id="cb9-240"><a href="#cb9-240"></a><span class="in">```</span></span>
+<span id="cb9-241"><a href="#cb9-241"></a><span class="in">```{=html}</span></span>
+<span id="cb9-242"><a href="#cb9-242"></a><span class="in">&lt;p&gt;This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.&lt;/p&gt;</span></span>
+<span id="cb9-243"><a href="#cb9-243"></a></span>
+<span id="cb9-244"><a href="#cb9-244"></a><span class="in">&lt;h3&gt;Figure 8:&lt;/h3&gt;</span></span>
+<span id="cb9-245"><a href="#cb9-245"></a><span class="in">&lt;img src="figures/8.png"&gt;</span></span>
+<span id="cb9-246"><a href="#cb9-246"></a><span class="in">```</span></span>
+<span id="cb9-247"><a href="#cb9-247"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-248"><a href="#cb9-248"></a><span class="in">ggplot(data = brazil) +</span></span>
+<span id="cb9-249"><a href="#cb9-249"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
+<span id="cb9-250"><a href="#cb9-250"></a><span class="in">  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +</span></span>
+<span id="cb9-251"><a href="#cb9-251"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-252"><a href="#cb9-252"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +</span></span>
+<span id="cb9-253"><a href="#cb9-253"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-254"><a href="#cb9-254"></a><span class="in">  labs(</span></span>
+<span id="cb9-255"><a href="#cb9-255"></a><span class="in">    title = "Over-Budget Stadiums - Brazil World Cup",</span></span>
+<span id="cb9-256"><a href="#cb9-256"></a><span class="in">    subtitle = "Size shows how much actual cost exceeded expected",</span></span>
+<span id="cb9-257"><a href="#cb9-257"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb9-258"><a href="#cb9-258"></a><span class="in">  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-259"><a href="#cb9-259"></a><span class="in">```</span></span>
+<span id="cb9-260"><a href="#cb9-260"></a><span class="in">```{=html}</span></span>
+<span id="cb9-261"><a href="#cb9-261"></a><span class="in">&lt;p&gt;This point map shows the over-budget stadiums that Brazil built or renovated for the 2014 World Cup. In total, Brazil used 12 stadiums for the World Cup, and 10 stadiums were over their budget. The 10 over-budget stadiums are represented in this map. The size of each dot visualizes the degree to which stadiums were over their budget. As a result of stadiums exceeding their budgets, Brazil’s public debt increased, and less funding was available for important projects such as infrastructure, healthcare, and education. The stadiums also experienced the white elephant phenomenon, meaning that they were used less than anticipated post-World Cup, and they were expensive to maintain.&lt;/p&gt;</span></span>
 <span id="cb9-262"><a href="#cb9-262"></a></span>
-<span id="cb9-263"><a href="#cb9-263"></a><span class="in">```{=html}</span></span>
-<span id="cb9-264"><a href="#cb9-264"></a><span class="in">&lt;h2&gt;Slides&lt;/h2&gt;</span></span>
-<span id="cb9-265"><a href="#cb9-265"></a><span class="in">&lt;iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb9-266"><a href="#cb9-266"></a><span class="in">```</span></span>
-<span id="cb9-267"><a href="#cb9-267"></a></span>
-<span id="cb9-268"><a href="#cb9-268"></a><span class="in">```{=html}</span></span>
-<span id="cb9-269"><a href="#cb9-269"></a><span class="in">&lt;h2&gt;Videos&lt;/h2&gt;</span></span>
-<span id="cb9-270"><a href="#cb9-270"></a><span class="in">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3eIvak8Mp_8?si=YGK2GO0SDcQVD0wv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
-<span id="cb9-271"><a href="#cb9-271"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb9-263"><a href="#cb9-263"></a><span class="in">&lt;h2&gt;Conclusion:&lt;/h2&gt;</span></span>
+<span id="cb9-264"><a href="#cb9-264"></a><span class="in">&lt;p&gt;Brazil’s economy was poorly affected by hosting the World Cup in 2014. Brazil’s GDP was on a rapid upward trajectory until 2014 when the GDP halted and began to decrease. This reflects an unhealthy economy because a decrease in GDP demonstrates a decrease in economic activity. Additionally, the World Cup infrastructure experienced the white elephant phenomenon, meaning that the stadiums built and renovated were used less than anticipated after the World Cup, adding to the economic harm caused by hosting the World Cup. Furthermore, 10 of the 12 stadiums built for the World Cup exceeded their expected budget. Additionally, Brazil’s unemployment and inflation rates increased after the 2014 World Cup, indicating an unstable economy. In relation to tourism, the World Cup causes a spike to tourism and how much tourists spend but that doesn’t continue after the World Cup, and it eventually goes back down to before, which gives a false sense of how much money Brazil is getting from tourism because it is just spiked the one year and it doesn’t necessarily show a healthy economy.&lt;/p&gt;</span></span>
+<span id="cb9-265"><a href="#cb9-265"></a></span>
+<span id="cb9-266"><a href="#cb9-266"></a><span class="in">&lt;p&gt;Although the World Cup negatively affected Brazil’s economy, we do not have enough evidence to suggest that the World Cup always causes negative impacts on its host nation’s economy. To draw conclusions about the general economic effect of hosting the World Cup, data must be analyzed from a greater pool of host nations. The case study done on Brazil shows why a larger study should be conducted about the economic impact of hosting the World Cup.&lt;/p&gt;</span></span>
+<span id="cb9-267"><a href="#cb9-267"></a><span class="in">&lt;h2&gt;Limitations &amp; Future Work&lt;h2&gt;</span></span>
+<span id="cb9-268"><a href="#cb9-268"></a><span class="in">&lt;p&gt;Brazil’s economy experienced similar economic impacts to the World Cup as a result of hosting the Olympics in 2016. This makes it challenging to establish strict cause-and-effect relationships between hosting the World Cup and Brazil’s economy. Additionally, the relationships observed in the case study on Brazil do not necessarily apply to other host countries. For future analysis, it would be beneficial to complete multiple case studies. After completing multiple case studies, the common relationships observed in each case study can be confidently declared.&lt;/p&gt;</span></span>
+<span id="cb9-269"><a href="#cb9-269"></a><span class="in">```</span></span>
+<span id="cb9-270"><a href="#cb9-270"></a></span>
+<span id="cb9-271"><a href="#cb9-271"></a></span>
+<span id="cb9-272"><a href="#cb9-272"></a><span class="in">```{=html}</span></span>
+<span id="cb9-273"><a href="#cb9-273"></a><span class="in">&lt;h2&gt;Slides&lt;/h2&gt;</span></span>
+<span id="cb9-274"><a href="#cb9-274"></a><span class="in">&lt;iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb9-275"><a href="#cb9-275"></a><span class="in">```</span></span>
+<span id="cb9-276"><a href="#cb9-276"></a></span>
+<span id="cb9-277"><a href="#cb9-277"></a><span class="in">```{=html}</span></span>
+<span id="cb9-278"><a href="#cb9-278"></a><span class="in">&lt;h2&gt;Videos&lt;/h2&gt;</span></span>
+<span id="cb9-279"><a href="#cb9-279"></a><span class="in">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3eIvak8Mp_8?si=YGK2GO0SDcQVD0wv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb9-280"><a href="#cb9-280"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

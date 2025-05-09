@@ -81,44 +81,44 @@ ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) +
 <h3>Impacts on Inflation Rate and Unemployment Rate:</h3>
 
 <h3>Figure 2</h3>
+<img src="figures/2.png">
 ```
 
 ```{r eval=FALSE}
-ggplot(inflation_data, aes(x = year, y= inflation_rate, fill = inflation_rate)) +
- geom_bar(stat = "identity") +
-   scale_fill_gradient(low = "lightgrey", high = "lightgrey") +
+ggplot(inflation_data, aes(x = year, y = inflation_rate, group = 1)) +
+  geom_line(color = "gray", size = 1) + geom_point()+
   labs(
     title = "Brazil's Inflation Rate",
     caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis",
     y = "Inflation Rate",
-    x = "Year",
+    x = "Year"
   ) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5),
-        plot.caption = element_text(hjust = 0, size = 5))
+        plot.caption = element_text(hjust = 0, size = 10)) 
 ```
 
 ```{=html}
 <p>In the years leading up to the 2014 FIFA World Cup, Brazil experienced steadily increasing inflation, rising from about 5% in 2010 to over 6% by 2013. This upward trend continued in the immediate aftermath of the tournament, with inflation peaking in 2015 at around 9%. The World Cup may have contributed to this surge in inflation. Massive public spending on infrastructure and stadiums injected a large volume of money into the economy, which, combined with other monetary pressures, could have overheated demand and driven prices up. Additionally, the temporary spike in employment and consumption during and before the World Cup likely fueled price increases that became more apparent once the tournament concluded. Although the 2015 inflation spike cannot be solely attributed to the World Cup, the event likely contributed to accelerating inflationary pressures that were already building due to broader economic mismanagement and external market factors.</p>
 
 <h3>Figure 3:</h3>
+<img src="figures/3.png">
 ```
 
 ```{r eval=FALSE}
- "Unemployment rate in Brazil (2010-2020)"
-
-ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemployment Rate`)) +
-  geom_bar(stat = "identity") +
-   scale_fill_gradient(low = "lightgrey", high = "lightgrey") +
+ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`, group = 1)) +
+  geom_line(color = "gray", size = 1) +  geom_point() + 
   scale_x_continuous(breaks = c(2010:2020)) +
   labs(
-    title = "Unemployment rate in Brazil (2010-2020)" ,
+    title = "Unemployment Rate in Brazil (2010-2020)",
     y = "Unemployment Rate (%)",
     caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis"
-    ) +
+  ) +
   theme_minimal() +
-    theme(plot.title = element_text(hjust = 0.5),
-        plot.caption = element_text(hjust = 0, size = 5))
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.caption = element_text(hjust = 0, size = 10)
+  )
 ```
 
 ```{=html}
@@ -127,14 +127,11 @@ ggplot(unemployment_data, aes(x = Year, y= `Unemployment Rate`, fill = `Unemploy
 <h2>Impact on Brazil’s Tourism</h2>
 
 <h3>Figure 4:</h3>
+<img src="figures/4.png">
 ```
 ```{r eval=FALSE}
-BRA_subset <- BRA_tour_long |> 
-  filter(Year >= 2010 & Year <= 2018)
-
 highlight_years <- BRA_subset |> 
   filter(Year %in% c(2014, 2016))
-
 
 ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +
   geom_point(color = "black") +
@@ -150,40 +147,52 @@ ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +
   scale_color_manual(
     name = "Event",
     values = c("World Cup" = "green", "Olympics" = "red")) +
-  labs(
-    title = "Brazil International Tourist Arrivals Over Time",
-    x = "Year",
-    y = "International Arrivals (Millions)",
-    caption = "Source: World Bank International Tourists Data") +
+  geom_text(
+    data = subset(BRA_subset, Year == 2014),
+    aes(label = "World Cup"),
+    vjust = -1.5, color = "green", size = 4.5) +
+  geom_text(
+    data = subset(BRA_subset, Year == 2016),
+    aes(label = "Olympics"),
+    vjust = -1.1, color = "red", size = 4.5) +
+  labs(title = "Brazil International Tourist Arrivals Over Time", x = "Year", y = "International Arrivals (Millions)", caption = "Source: World Bank International Tourists Data") +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5), legend.title = element_text(size = 12), legend.text = element_text(size = 10))
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none", plot.caption = element_text(hjust = 0.5, size = 10)
+  )
 ```
 
 ```{=html}
 <p>The graph above highlights international tourist arrivals in Brazil between 2010 and 2018. This timeframe includes two major global sporting events hosted by Brazil: the 2014 FIFA World Cup and the 2016 Summer Olympics. From 2010 to 2013, Brazil experienced a steady increase in international arrivals, suggesting growing interest in the country, possibly due to pre-event tourism promotion and infrastructure investment. In 2014, the year of the World Cup, there was a notable peak in tourist arrivals, highlighted in green on the graph. This increase reflects the surge in global attention and the influx of international visitors that accompanied the tournament. In 2016, marked in red, Brazil hosted the Olympics in Rio de Janeiro. While there was a smaller bump in arrivals compared to 2014, it still indicates a continued trend of elevated tourism linked to major events. However, the tourism levels appear to have slightly declined post-2016, suggesting the impact of these events may be temporary unless sustained by broader tourism policies or investments.</p>
 
 <h3>Figure 5:</h3>
+<img src="figures/5.png">
 ```
 
 ```{r eval=FALSE}
 ggplot(brazil_long, aes(x = Year, y = Receipts)) +
-  geom_line(color = "black", size = 1.2) +  # Line connecting all years
-  geom_point(aes(color = Highlight), size = 3) +  # Points with different color for 2014
+  geom_point(color = "black") +  # Black points for all years
+  geom_point(data = subset(brazil_long, Year == 2014), 
+             aes(color = "World Cup"), size = 3) +  # Green dot for 2014 (World Cup)
   geom_point(data = subset(brazil_long, Year == 2016), 
-             aes(x = Year, y = Receipts), 
-             color = "red", size = 4) +  # Red dot for 2016
+             aes(color = "Olympics"), size = 3) +  # Red dot for 2016 (Olympics)
+  geom_line(color = "black") +  # Black line connecting all years
+  geom_text(data = subset(brazil_long, Year == 2014), 
+            aes(label = "World Cup"), vjust = 3, color = "green", size = 4.5) +  # Label for 2014
   geom_text(data = subset(brazil_long, Year == 2016), 
-            aes(label = "Olympics"), 
-            vjust = -1, color = "red", size = 4.5) +  # Label for 2016
-  scale_color_manual(values = c("2014" = "#FCD116", "Other" = "#009B4D")) +  # Color 2014 differently
+            aes(label = "Olympics"), vjust = -1.5, color = "red", size = 4.5) +  # Label for 2016
+  scale_color_manual(values = c("World Cup" = "green", "Olympics" = "red")) +  # Color the events
   labs(
     title = "Brazil: International Tourism Receipts (2010-2018)",
     x = "Year",
     y = "Receipts (billion US$)",
-    color = "Year"
+    caption = "Source: World Bank International Tourism Receipts Data"
   ) +
-  theme_minimal()
-
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    legend.position = "none",  # Hide the legend
+    plot.caption = element_text(hjust = 0.5, size = 10)
+  )
 ```
 ```{=html}
 <p>This second graph shows Brazil’s international tourism receipts, the amount of money spent by international visitors, from 2010 to 2018. A strong correlation emerges when compared to the earlier graph of international tourist arrivals. As seen in the chart above, tourism receipts rose steadily from 2010 to a peak in 2014, reaching over $7.3 billion USD. This year is highlighted in yellow, marking the FIFA World Cup. The sharp increase in both arrivals and receipts in 2014 suggests that not only did more tourists come to Brazil, but they also spent significantly more money, pointing to the strong economic impact of hosting a mega-event. In 2016, the year of the Rio Olympics, receipts were again elevated (marked in red), though not to the same extent as in 2014. This is consistent with the first graph, where tourist arrivals also experienced a moderate increase in 2016. While the Olympics brought global attention, its financial impact on tourism appears smaller than that of the World Cup, potentially due to event structure, geographic concentration in Rio, or global economic conditions.</p>

@@ -49,6 +49,7 @@ code-fold: true  # change to true to fold the code chunks
 <h2>Statistical Visualization and Interpretation:</h2>
 
 <h3>Figure 1:</h3>
+<img src="figures/1.png">
 ```
 
 ```{r eval=FALSE}
@@ -70,8 +71,8 @@ ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.4),
         plot.subtitle = element_text(hjust = 0.4),
-        plot.caption = element_text(hjust = 0, size = 5))
-
+        plot.caption = element_text(hjust = 0, size = 10),
+        legend.position = "none") 
 ```
 
 ```{=html}
@@ -190,9 +191,8 @@ ggplot(brazil_long, aes(x = Year, y = Receipts)) +
 <h2>Stadium Spending</h2>
 
 <h3>Figure 6:</h3>
-![](figures/6.png)
+<img src="figures/6.png">
 ```
-
 ```{r eval=FALSE}
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
@@ -207,14 +207,13 @@ brazil|>
     title = "Expected Stadium Costs - Brazil World Cup",
     subtitle = "Size reflects expected construction cost",
     caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-
 ```
 
 ```{=html}
 <p>This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.</p>
 
 <h3>Figure 7:</h3>
-![](figures/7.png)
+<img src="figures/7.png">
 ```
 ```{r eval=FALSE}
 ggplot(data = brazil) +
@@ -234,7 +233,7 @@ ggplot(data = brazil) +
 <p>This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.</p>
 
 <h3>Figure 8:</h3>
-![](figures/8.png)
+<img src="figures/8.png">
 ```
 ```{r eval=FALSE}
 ggplot(data = brazil) +

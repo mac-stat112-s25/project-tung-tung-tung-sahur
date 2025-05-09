@@ -459,7 +459,7 @@ cookieconsent.run({
 <h2 class="anchored">Stadium Spending</h2>
 
 <h3 class="anchored">Figure 6:</h3>
-![](figures/6.png)
+<p><img src="figures/6.png" class="img-fluid"></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
@@ -479,7 +479,7 @@ cookieconsent.run({
 <p>This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.</p>
 
 <h3 class="anchored">Figure 7:</h3>
-![](figures/7.png)
+<p><img src="figures/7.png" class="img-fluid"></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
@@ -497,7 +497,7 @@ cookieconsent.run({
 <p>This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.</p>
 
 <h3 class="anchored">Figure 8:</h3>
-![](figures/8.png)
+<p><img src="figures/8.png" class="img-fluid"></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
@@ -1350,86 +1350,85 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-190"><a href="#cb9-190"></a><span class="in">&lt;h2&gt;Stadium Spending&lt;/h2&gt;</span></span>
 <span id="cb9-191"><a href="#cb9-191"></a></span>
 <span id="cb9-192"><a href="#cb9-192"></a><span class="in">&lt;h3&gt;Figure 6:&lt;/h3&gt;</span></span>
-<span id="cb9-193"><a href="#cb9-193"></a><span class="in">![](figures/6.png)</span></span>
-<span id="cb9-194"><a href="#cb9-194"></a><span class="in">```</span></span>
-<span id="cb9-195"><a href="#cb9-195"></a></span>
-<span id="cb9-196"><a href="#cb9-196"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-197"><a href="#cb9-197"></a><span class="in">world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
-<span id="cb9-198"><a href="#cb9-198"></a></span>
-<span id="cb9-199"><a href="#cb9-199"></a><span class="in">brazil &lt;- world %&gt;% filter(admin == "Brazil")</span></span>
-<span id="cb9-200"><a href="#cb9-200"></a></span>
-<span id="cb9-201"><a href="#cb9-201"></a><span class="in">brazil|&gt;</span></span>
-<span id="cb9-202"><a href="#cb9-202"></a><span class="in">  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +</span></span>
-<span id="cb9-203"><a href="#cb9-203"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-204"><a href="#cb9-204"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +</span></span>
-<span id="cb9-205"><a href="#cb9-205"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-206"><a href="#cb9-206"></a><span class="in">  labs(</span></span>
-<span id="cb9-207"><a href="#cb9-207"></a><span class="in">    title = "Expected Stadium Costs - Brazil World Cup",</span></span>
-<span id="cb9-208"><a href="#cb9-208"></a><span class="in">    subtitle = "Size reflects expected construction cost",</span></span>
-<span id="cb9-209"><a href="#cb9-209"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-210"><a href="#cb9-210"></a></span>
-<span id="cb9-211"><a href="#cb9-211"></a><span class="in">```</span></span>
-<span id="cb9-212"><a href="#cb9-212"></a></span>
-<span id="cb9-213"><a href="#cb9-213"></a><span class="in">```{=html}</span></span>
-<span id="cb9-214"><a href="#cb9-214"></a><span class="in">&lt;p&gt;This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.&lt;/p&gt;</span></span>
-<span id="cb9-215"><a href="#cb9-215"></a></span>
-<span id="cb9-216"><a href="#cb9-216"></a><span class="in">&lt;h3&gt;Figure 7:&lt;/h3&gt;</span></span>
-<span id="cb9-217"><a href="#cb9-217"></a><span class="in">![](figures/7.png)</span></span>
-<span id="cb9-218"><a href="#cb9-218"></a><span class="in">```</span></span>
-<span id="cb9-219"><a href="#cb9-219"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-220"><a href="#cb9-220"></a><span class="in">ggplot(data = brazil) +</span></span>
-<span id="cb9-221"><a href="#cb9-221"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
-<span id="cb9-222"><a href="#cb9-222"></a><span class="in">  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +</span></span>
-<span id="cb9-223"><a href="#cb9-223"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-224"><a href="#cb9-224"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +</span></span>
-<span id="cb9-225"><a href="#cb9-225"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-226"><a href="#cb9-226"></a><span class="in">  labs(</span></span>
-<span id="cb9-227"><a href="#cb9-227"></a><span class="in">    title = "Actual Stadium Costs - Brazil World Cup",</span></span>
-<span id="cb9-228"><a href="#cb9-228"></a><span class="in">    subtitle = "Size reflects actual construction cost",</span></span>
-<span id="cb9-229"><a href="#cb9-229"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb9-230"><a href="#cb9-230"></a><span class="in">  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-231"><a href="#cb9-231"></a></span>
-<span id="cb9-232"><a href="#cb9-232"></a><span class="in">```</span></span>
-<span id="cb9-233"><a href="#cb9-233"></a><span class="in">```{=html}</span></span>
-<span id="cb9-234"><a href="#cb9-234"></a><span class="in">&lt;p&gt;This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.&lt;/p&gt;</span></span>
-<span id="cb9-235"><a href="#cb9-235"></a></span>
-<span id="cb9-236"><a href="#cb9-236"></a><span class="in">&lt;h3&gt;Figure 8:&lt;/h3&gt;</span></span>
-<span id="cb9-237"><a href="#cb9-237"></a><span class="in">![](figures/8.png)</span></span>
-<span id="cb9-238"><a href="#cb9-238"></a><span class="in">```</span></span>
-<span id="cb9-239"><a href="#cb9-239"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb9-240"><a href="#cb9-240"></a><span class="in">ggplot(data = brazil) +</span></span>
-<span id="cb9-241"><a href="#cb9-241"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
-<span id="cb9-242"><a href="#cb9-242"></a><span class="in">  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +</span></span>
-<span id="cb9-243"><a href="#cb9-243"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
-<span id="cb9-244"><a href="#cb9-244"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +</span></span>
-<span id="cb9-245"><a href="#cb9-245"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb9-246"><a href="#cb9-246"></a><span class="in">  labs(</span></span>
-<span id="cb9-247"><a href="#cb9-247"></a><span class="in">    title = "Over-Budget Stadiums - Brazil World Cup",</span></span>
-<span id="cb9-248"><a href="#cb9-248"></a><span class="in">    subtitle = "Size shows how much actual cost exceeded expected",</span></span>
-<span id="cb9-249"><a href="#cb9-249"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb9-250"><a href="#cb9-250"></a><span class="in">  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
-<span id="cb9-251"><a href="#cb9-251"></a><span class="in">```</span></span>
-<span id="cb9-252"><a href="#cb9-252"></a><span class="in">```{=html}</span></span>
-<span id="cb9-253"><a href="#cb9-253"></a><span class="in">&lt;p&gt;This point map shows the over-budget stadiums that Brazil built or renovated for the 2014 World Cup. In total, Brazil used 12 stadiums for the World Cup, and 10 stadiums were over their budget. The 10 over-budget stadiums are represented in this map. The size of each dot visualizes the degree to which stadiums were over their budget. As a result of stadiums exceeding their budgets, Brazil’s public debt increased, and less funding was available for important projects such as infrastructure, healthcare, and education. The stadiums also experienced the white elephant phenomenon, meaning that they were used less than anticipated post-World Cup, and they were expensive to maintain.&lt;/p&gt;</span></span>
-<span id="cb9-254"><a href="#cb9-254"></a></span>
-<span id="cb9-255"><a href="#cb9-255"></a><span class="in">&lt;h2&gt;Conclusion:&lt;/h2&gt;</span></span>
-<span id="cb9-256"><a href="#cb9-256"></a><span class="in">&lt;p&gt;Brazil’s economy was poorly affected by hosting the World Cup in 2014. Brazil’s GDP was on a rapid upward trajectory until 2014 when the GDP halted and began to decrease. This reflects an unhealthy economy because a decrease in GDP demonstrates a decrease in economic activity. Additionally, the World Cup infrastructure experienced the white elephant phenomenon, meaning that the stadiums built and renovated were used less than anticipated after the World Cup, adding to the economic harm caused by hosting the World Cup. Furthermore, 10 of the 12 stadiums built for the World Cup exceeded their expected budget. Additionally, Brazil’s unemployment and inflation rates increased after the 2014 World Cup, indicating an unstable economy. In relation to tourism, the World Cup causes a spike to tourism and how much tourists spend but that doesn’t continue after the World Cup, and it eventually goes back down to before, which gives a false sense of how much money Brazil is getting from tourism because it is just spiked the one year and it doesn’t necessarily show a healthy economy.&lt;/p&gt;</span></span>
-<span id="cb9-257"><a href="#cb9-257"></a></span>
-<span id="cb9-258"><a href="#cb9-258"></a><span class="in">&lt;p&gt;Although the World Cup negatively affected Brazil’s economy, we do not have enough evidence to suggest that the World Cup always causes negative impacts on its host nation’s economy. To draw conclusions about the general economic effect of hosting the World Cup, data must be analyzed from a greater pool of host nations. The case study done on Brazil shows why a larger study should be conducted about the economic impact of hosting the World Cup.&lt;/p&gt;</span></span>
-<span id="cb9-259"><a href="#cb9-259"></a><span class="in">&lt;h2&gt;Limitations &amp; Future Work&lt;h2&gt;</span></span>
-<span id="cb9-260"><a href="#cb9-260"></a><span class="in">&lt;p&gt;Brazil’s economy experienced similar economic impacts to the World Cup as a result of hosting the Olympics in 2016. This makes it challenging to establish strict cause-and-effect relationships between hosting the World Cup and Brazil’s economy. Additionally, the relationships observed in the case study on Brazil do not necessarily apply to other host countries. For future analysis, it would be beneficial to complete multiple case studies. After completing multiple case studies, the common relationships observed in each case study can be confidently declared.&lt;/p&gt;</span></span>
-<span id="cb9-261"><a href="#cb9-261"></a><span class="in">```</span></span>
+<span id="cb9-193"><a href="#cb9-193"></a><span class="in">```</span></span>
+<span id="cb9-194"><a href="#cb9-194"></a><span class="al">![](figures/6.png)</span></span>
+<span id="cb9-195"><a href="#cb9-195"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-196"><a href="#cb9-196"></a><span class="in">world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
+<span id="cb9-197"><a href="#cb9-197"></a></span>
+<span id="cb9-198"><a href="#cb9-198"></a><span class="in">brazil &lt;- world %&gt;% filter(admin == "Brazil")</span></span>
+<span id="cb9-199"><a href="#cb9-199"></a></span>
+<span id="cb9-200"><a href="#cb9-200"></a><span class="in">brazil|&gt;</span></span>
+<span id="cb9-201"><a href="#cb9-201"></a><span class="in">  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +</span></span>
+<span id="cb9-202"><a href="#cb9-202"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-203"><a href="#cb9-203"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +</span></span>
+<span id="cb9-204"><a href="#cb9-204"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-205"><a href="#cb9-205"></a><span class="in">  labs(</span></span>
+<span id="cb9-206"><a href="#cb9-206"></a><span class="in">    title = "Expected Stadium Costs - Brazil World Cup",</span></span>
+<span id="cb9-207"><a href="#cb9-207"></a><span class="in">    subtitle = "Size reflects expected construction cost",</span></span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-209"><a href="#cb9-209"></a></span>
+<span id="cb9-210"><a href="#cb9-210"></a><span class="in">```</span></span>
+<span id="cb9-211"><a href="#cb9-211"></a></span>
+<span id="cb9-212"><a href="#cb9-212"></a><span class="in">```{=html}</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a><span class="in">&lt;p&gt;This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.&lt;/p&gt;</span></span>
+<span id="cb9-214"><a href="#cb9-214"></a></span>
+<span id="cb9-215"><a href="#cb9-215"></a><span class="in">&lt;h3&gt;Figure 7:&lt;/h3&gt;</span></span>
+<span id="cb9-216"><a href="#cb9-216"></a><span class="in">```</span></span>
+<span id="cb9-217"><a href="#cb9-217"></a><span class="al">![](figures/7.png)</span></span>
+<span id="cb9-218"><a href="#cb9-218"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-219"><a href="#cb9-219"></a><span class="in">ggplot(data = brazil) +</span></span>
+<span id="cb9-220"><a href="#cb9-220"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
+<span id="cb9-221"><a href="#cb9-221"></a><span class="in">  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +</span></span>
+<span id="cb9-222"><a href="#cb9-222"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-223"><a href="#cb9-223"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +</span></span>
+<span id="cb9-224"><a href="#cb9-224"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-225"><a href="#cb9-225"></a><span class="in">  labs(</span></span>
+<span id="cb9-226"><a href="#cb9-226"></a><span class="in">    title = "Actual Stadium Costs - Brazil World Cup",</span></span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="in">    subtitle = "Size reflects actual construction cost",</span></span>
+<span id="cb9-228"><a href="#cb9-228"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb9-229"><a href="#cb9-229"></a><span class="in">  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-230"><a href="#cb9-230"></a></span>
+<span id="cb9-231"><a href="#cb9-231"></a><span class="in">```</span></span>
+<span id="cb9-232"><a href="#cb9-232"></a><span class="in">```{=html}</span></span>
+<span id="cb9-233"><a href="#cb9-233"></a><span class="in">&lt;p&gt;This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.&lt;/p&gt;</span></span>
+<span id="cb9-234"><a href="#cb9-234"></a></span>
+<span id="cb9-235"><a href="#cb9-235"></a><span class="in">&lt;h3&gt;Figure 8:&lt;/h3&gt;</span></span>
+<span id="cb9-236"><a href="#cb9-236"></a><span class="in">```</span></span>
+<span id="cb9-237"><a href="#cb9-237"></a><span class="al">![](figures/8.png)</span></span>
+<span id="cb9-238"><a href="#cb9-238"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb9-239"><a href="#cb9-239"></a><span class="in">ggplot(data = brazil) +</span></span>
+<span id="cb9-240"><a href="#cb9-240"></a><span class="in">  geom_sf(fill = "gray95", color = "black") +</span></span>
+<span id="cb9-241"><a href="#cb9-241"></a><span class="in">  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +</span></span>
+<span id="cb9-242"><a href="#cb9-242"></a><span class="in">  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +</span></span>
+<span id="cb9-243"><a href="#cb9-243"></a><span class="in">  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +</span></span>
+<span id="cb9-244"><a href="#cb9-244"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb9-245"><a href="#cb9-245"></a><span class="in">  labs(</span></span>
+<span id="cb9-246"><a href="#cb9-246"></a><span class="in">    title = "Over-Budget Stadiums - Brazil World Cup",</span></span>
+<span id="cb9-247"><a href="#cb9-247"></a><span class="in">    subtitle = "Size shows how much actual cost exceeded expected",</span></span>
+<span id="cb9-248"><a href="#cb9-248"></a><span class="in">    caption = "Source: StadiumDB &amp; Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb9-249"><a href="#cb9-249"></a><span class="in">  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())</span></span>
+<span id="cb9-250"><a href="#cb9-250"></a><span class="in">```</span></span>
+<span id="cb9-251"><a href="#cb9-251"></a><span class="in">```{=html}</span></span>
+<span id="cb9-252"><a href="#cb9-252"></a><span class="in">&lt;p&gt;This point map shows the over-budget stadiums that Brazil built or renovated for the 2014 World Cup. In total, Brazil used 12 stadiums for the World Cup, and 10 stadiums were over their budget. The 10 over-budget stadiums are represented in this map. The size of each dot visualizes the degree to which stadiums were over their budget. As a result of stadiums exceeding their budgets, Brazil’s public debt increased, and less funding was available for important projects such as infrastructure, healthcare, and education. The stadiums also experienced the white elephant phenomenon, meaning that they were used less than anticipated post-World Cup, and they were expensive to maintain.&lt;/p&gt;</span></span>
+<span id="cb9-253"><a href="#cb9-253"></a></span>
+<span id="cb9-254"><a href="#cb9-254"></a><span class="in">&lt;h2&gt;Conclusion:&lt;/h2&gt;</span></span>
+<span id="cb9-255"><a href="#cb9-255"></a><span class="in">&lt;p&gt;Brazil’s economy was poorly affected by hosting the World Cup in 2014. Brazil’s GDP was on a rapid upward trajectory until 2014 when the GDP halted and began to decrease. This reflects an unhealthy economy because a decrease in GDP demonstrates a decrease in economic activity. Additionally, the World Cup infrastructure experienced the white elephant phenomenon, meaning that the stadiums built and renovated were used less than anticipated after the World Cup, adding to the economic harm caused by hosting the World Cup. Furthermore, 10 of the 12 stadiums built for the World Cup exceeded their expected budget. Additionally, Brazil’s unemployment and inflation rates increased after the 2014 World Cup, indicating an unstable economy. In relation to tourism, the World Cup causes a spike to tourism and how much tourists spend but that doesn’t continue after the World Cup, and it eventually goes back down to before, which gives a false sense of how much money Brazil is getting from tourism because it is just spiked the one year and it doesn’t necessarily show a healthy economy.&lt;/p&gt;</span></span>
+<span id="cb9-256"><a href="#cb9-256"></a></span>
+<span id="cb9-257"><a href="#cb9-257"></a><span class="in">&lt;p&gt;Although the World Cup negatively affected Brazil’s economy, we do not have enough evidence to suggest that the World Cup always causes negative impacts on its host nation’s economy. To draw conclusions about the general economic effect of hosting the World Cup, data must be analyzed from a greater pool of host nations. The case study done on Brazil shows why a larger study should be conducted about the economic impact of hosting the World Cup.&lt;/p&gt;</span></span>
+<span id="cb9-258"><a href="#cb9-258"></a><span class="in">&lt;h2&gt;Limitations &amp; Future Work&lt;h2&gt;</span></span>
+<span id="cb9-259"><a href="#cb9-259"></a><span class="in">&lt;p&gt;Brazil’s economy experienced similar economic impacts to the World Cup as a result of hosting the Olympics in 2016. This makes it challenging to establish strict cause-and-effect relationships between hosting the World Cup and Brazil’s economy. Additionally, the relationships observed in the case study on Brazil do not necessarily apply to other host countries. For future analysis, it would be beneficial to complete multiple case studies. After completing multiple case studies, the common relationships observed in each case study can be confidently declared.&lt;/p&gt;</span></span>
+<span id="cb9-260"><a href="#cb9-260"></a><span class="in">```</span></span>
+<span id="cb9-261"><a href="#cb9-261"></a></span>
 <span id="cb9-262"><a href="#cb9-262"></a></span>
-<span id="cb9-263"><a href="#cb9-263"></a></span>
-<span id="cb9-264"><a href="#cb9-264"></a><span class="in">```{=html}</span></span>
-<span id="cb9-265"><a href="#cb9-265"></a><span class="in">&lt;h2&gt;Slides&lt;/h2&gt;</span></span>
-<span id="cb9-266"><a href="#cb9-266"></a><span class="in">&lt;iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb9-267"><a href="#cb9-267"></a><span class="in">```</span></span>
-<span id="cb9-268"><a href="#cb9-268"></a></span>
-<span id="cb9-269"><a href="#cb9-269"></a><span class="in">```{=html}</span></span>
-<span id="cb9-270"><a href="#cb9-270"></a><span class="in">&lt;h2&gt;Videos&lt;/h2&gt;</span></span>
-<span id="cb9-271"><a href="#cb9-271"></a><span class="in">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3eIvak8Mp_8?si=YGK2GO0SDcQVD0wv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
-<span id="cb9-272"><a href="#cb9-272"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb9-263"><a href="#cb9-263"></a><span class="in">```{=html}</span></span>
+<span id="cb9-264"><a href="#cb9-264"></a><span class="in">&lt;h2&gt;Slides&lt;/h2&gt;</span></span>
+<span id="cb9-265"><a href="#cb9-265"></a><span class="in">&lt;iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb9-266"><a href="#cb9-266"></a><span class="in">```</span></span>
+<span id="cb9-267"><a href="#cb9-267"></a></span>
+<span id="cb9-268"><a href="#cb9-268"></a><span class="in">```{=html}</span></span>
+<span id="cb9-269"><a href="#cb9-269"></a><span class="in">&lt;h2&gt;Videos&lt;/h2&gt;</span></span>
+<span id="cb9-270"><a href="#cb9-270"></a><span class="in">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3eIvak8Mp_8?si=YGK2GO0SDcQVD0wv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb9-271"><a href="#cb9-271"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

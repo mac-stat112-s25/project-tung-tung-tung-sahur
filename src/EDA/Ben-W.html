@@ -869,20 +869,19 @@ Type: Character
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Download the 'countries' shapefile</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
-<span id="cb23-5"><a href="#cb23-5"></a></span>
-<span id="cb23-6"><a href="#cb23-6"></a>brazil<span class="sc">|&gt;</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb23-11"><a href="#cb23-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb23-12"><a href="#cb23-12"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb23-13"><a href="#cb23-13"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
-<span id="cb23-14"><a href="#cb23-14"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a></span>
+<span id="cb23-3"><a href="#cb23-3"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4"></a></span>
+<span id="cb23-5"><a href="#cb23-5"></a>brazil<span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-11"><a href="#cb23-11"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
@@ -901,7 +900,7 @@ Type: Character
 <span id="cb24-8"><a href="#cb24-8"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
 <span id="cb24-9"><a href="#cb24-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
 <span id="cb24-10"><a href="#cb24-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-11"><a href="#cb24-11"></a>  ) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
@@ -926,7 +925,7 @@ Type: Character
 <span id="cb26-8"><a href="#cb26-8"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
 <span id="cb26-9"><a href="#cb26-9"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
 <span id="cb26-10"><a href="#cb26-10"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb26-11"><a href="#cb26-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-11"><a href="#cb26-11"></a>  )<span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Ben-W_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1728,56 +1727,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-185"><a href="#cb27-185"></a></span>
 <span id="cb27-186"><a href="#cb27-186"></a></span>
 <span id="cb27-189"><a href="#cb27-189"></a><span class="in">```{r}</span></span>
-<span id="cb27-190"><a href="#cb27-190"></a><span class="co"># Download the 'countries' shapefile</span></span>
-<span id="cb27-191"><a href="#cb27-191"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb27-192"><a href="#cb27-192"></a></span>
-<span id="cb27-193"><a href="#cb27-193"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
-<span id="cb27-194"><a href="#cb27-194"></a></span>
-<span id="cb27-195"><a href="#cb27-195"></a>brazil<span class="sc">|&gt;</span></span>
-<span id="cb27-196"><a href="#cb27-196"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb27-197"><a href="#cb27-197"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb27-198"><a href="#cb27-198"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb27-199"><a href="#cb27-199"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb27-200"><a href="#cb27-200"></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-201"><a href="#cb27-201"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb27-202"><a href="#cb27-202"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
-<span id="cb27-203"><a href="#cb27-203"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>)</span>
-<span id="cb27-204"><a href="#cb27-204"></a><span class="in">```</span></span>
-<span id="cb27-207"><a href="#cb27-207"></a><span class="in">```{r}</span></span>
-<span id="cb27-208"><a href="#cb27-208"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb27-209"><a href="#cb27-209"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb27-210"><a href="#cb27-210"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb27-211"><a href="#cb27-211"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb27-212"><a href="#cb27-212"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb27-213"><a href="#cb27-213"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb27-214"><a href="#cb27-214"></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-215"><a href="#cb27-215"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
-<span id="cb27-216"><a href="#cb27-216"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
-<span id="cb27-217"><a href="#cb27-217"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb27-218"><a href="#cb27-218"></a>  )</span>
-<span id="cb27-219"><a href="#cb27-219"></a></span>
-<span id="cb27-220"><a href="#cb27-220"></a><span class="in">```</span></span>
-<span id="cb27-221"><a href="#cb27-221"></a></span>
-<span id="cb27-224"><a href="#cb27-224"></a><span class="in">```{r}</span></span>
-<span id="cb27-225"><a href="#cb27-225"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
-<span id="cb27-226"><a href="#cb27-226"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
-<span id="cb27-227"><a href="#cb27-227"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb27-228"><a href="#cb27-228"></a><span class="in">```</span></span>
-<span id="cb27-229"><a href="#cb27-229"></a></span>
-<span id="cb27-232"><a href="#cb27-232"></a><span class="in">```{r}</span></span>
-<span id="cb27-233"><a href="#cb27-233"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb27-234"><a href="#cb27-234"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb27-235"><a href="#cb27-235"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb27-236"><a href="#cb27-236"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
-<span id="cb27-237"><a href="#cb27-237"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
-<span id="cb27-238"><a href="#cb27-238"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb27-239"><a href="#cb27-239"></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-240"><a href="#cb27-240"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
-<span id="cb27-241"><a href="#cb27-241"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
-<span id="cb27-242"><a href="#cb27-242"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
-<span id="cb27-243"><a href="#cb27-243"></a>  )</span>
-<span id="cb27-244"><a href="#cb27-244"></a></span>
-<span id="cb27-245"><a href="#cb27-245"></a><span class="in">```</span></span>
+<span id="cb27-190"><a href="#cb27-190"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb27-191"><a href="#cb27-191"></a></span>
+<span id="cb27-192"><a href="#cb27-192"></a>brazil <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span> <span class="fu">filter</span>(admin <span class="sc">==</span> <span class="st">"Brazil"</span>)</span>
+<span id="cb27-193"><a href="#cb27-193"></a></span>
+<span id="cb27-194"><a href="#cb27-194"></a>brazil<span class="sc">|&gt;</span></span>
+<span id="cb27-195"><a href="#cb27-195"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> expected_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-196"><a href="#cb27-196"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-197"><a href="#cb27-197"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Expected Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-198"><a href="#cb27-198"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-199"><a href="#cb27-199"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-200"><a href="#cb27-200"></a>    <span class="at">title =</span> <span class="st">"Expected Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb27-201"><a href="#cb27-201"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects expected construction cost"</span>,</span>
+<span id="cb27-202"><a href="#cb27-202"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb27-203"><a href="#cb27-203"></a><span class="in">```</span></span>
+<span id="cb27-206"><a href="#cb27-206"></a><span class="in">```{r}</span></span>
+<span id="cb27-207"><a href="#cb27-207"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb27-208"><a href="#cb27-208"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-209"><a href="#cb27-209"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stadiums_sf, <span class="fu">aes</span>(<span class="at">size =</span> actual_cost, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-210"><a href="#cb27-210"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-211"><a href="#cb27-211"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Actual Cost (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-212"><a href="#cb27-212"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-213"><a href="#cb27-213"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-214"><a href="#cb27-214"></a>    <span class="at">title =</span> <span class="st">"Actual Stadium Costs - Brazil World Cup"</span>,</span>
+<span id="cb27-215"><a href="#cb27-215"></a>    <span class="at">subtitle =</span> <span class="st">"Size reflects actual construction cost"</span>,</span>
+<span id="cb27-216"><a href="#cb27-216"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb27-217"><a href="#cb27-217"></a>  ) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb27-218"><a href="#cb27-218"></a></span>
+<span id="cb27-219"><a href="#cb27-219"></a><span class="in">```</span></span>
+<span id="cb27-220"><a href="#cb27-220"></a></span>
+<span id="cb27-223"><a href="#cb27-223"></a><span class="in">```{r}</span></span>
+<span id="cb27-224"><a href="#cb27-224"></a>over_budget <span class="ot">&lt;-</span> stadiums_sf <span class="sc">%&gt;%</span></span>
+<span id="cb27-225"><a href="#cb27-225"></a>  <span class="fu">mutate</span>(<span class="at">overrun =</span> actual_cost <span class="sc">-</span> expected_cost) <span class="sc">%&gt;%</span></span>
+<span id="cb27-226"><a href="#cb27-226"></a>  <span class="fu">filter</span>(overrun <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb27-227"><a href="#cb27-227"></a><span class="in">```</span></span>
+<span id="cb27-228"><a href="#cb27-228"></a></span>
+<span id="cb27-231"><a href="#cb27-231"></a><span class="in">```{r}</span></span>
+<span id="cb27-232"><a href="#cb27-232"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb27-233"><a href="#cb27-233"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"gray95"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-234"><a href="#cb27-234"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> over_budget, <span class="fu">aes</span>(<span class="at">size =</span> overrun, <span class="at">color =</span> renovated), <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb27-235"><a href="#cb27-235"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Status"</span>,  <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"no"</span> <span class="ot">=</span> <span class="st">"#009739"</span>, <span class="st">"yes"</span> <span class="ot">=</span> <span class="st">"royalblue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Newly Built"</span>, <span class="st">"Renovated"</span>)) <span class="sc">+</span></span>
+<span id="cb27-236"><a href="#cb27-236"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Cost Overrun (Million BRL)"</span>) <span class="sc">+</span></span>
+<span id="cb27-237"><a href="#cb27-237"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-238"><a href="#cb27-238"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-239"><a href="#cb27-239"></a>    <span class="at">title =</span> <span class="st">"Over-Budget Stadiums - Brazil World Cup"</span>,</span>
+<span id="cb27-240"><a href="#cb27-240"></a>    <span class="at">subtitle =</span> <span class="st">"Size shows how much actual cost exceeded expected"</span>,</span>
+<span id="cb27-241"><a href="#cb27-241"></a>    <span class="at">caption =</span> <span class="st">"Source: StadiumDB &amp; Natural Earth</span><span class="sc">\n</span><span class="st">1 Brazilian Real = 0.45 USD in 2014"</span></span>
+<span id="cb27-242"><a href="#cb27-242"></a>  )<span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb27-243"><a href="#cb27-243"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

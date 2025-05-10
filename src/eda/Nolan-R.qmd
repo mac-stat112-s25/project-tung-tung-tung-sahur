@@ -1,0 +1,139 @@
+---
+title: "Nolan R"
+format: html
+execute: 
+  echo: false
+  warning: false
+  error: false
+
+---
+
+
+```{r}
+
+library(tidyverse)
+
+library(shiny)
+
+library(scales)
+
+```
+
+```{r}
+read_csv("../../data/wcmatches.csv")
+```
+
+
+
+```{r}
+
+read_csv("../../data/brazil_econ 2/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+
+read_csv("../../data/brazil_econ 2/Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+
+read_csv("../../data/brazil_econ 2/Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv")
+
+```
+
+
+```{r}
+
+gdp_data <- read_csv("../../World Bank Econ Data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv", skip = 4)
+
+
+brazil_gdp <- gdp_data |>
+  filter(`Country Name` == "Brazil")
+
+brazil_gdp_long <- brazil_gdp |>
+  select(-`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) |>
+  pivot_longer(cols = everything(), names_to = "year", values_to = "gdp_usd") |>
+  mutate(
+    year = as.integer(year),
+    gdp_usd = as.numeric(gdp_usd)
+  ) |>
+  filter(!is.na(year))
+
+head(brazil_gdp_long)
+
+
+```
+
+```{r}
+brazil_gdp_long <- brazil_gdp_long |>
+  mutate(hosted_wc = ifelse(year %in% c(1950, 2014), "Hosted", "Did Not Host"))
+
+# Had to look up how to fill certain columns a specific color. 
+
+ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) + 
+  geom_col() + 
+  scale_fill_manual(values = c("Hosted" = "#009C3B", "Did Not Host" = "lightgrey")) + 
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) + 
+  labs(title = "Brazil's GPD Over Time (USD)", 
+       subtitle = "Brazil Hosted the World Cup in 2014",
+       x = "Year",
+       y = "Brazil's GDP (USD, Trillions)", 
+       fill = "Hosted World Cup",
+       caption = "World Bank. GDP (current US$) – Brazil. The World Bank Group, 2024,\nhttps://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BR. Accessed 15 Apr. 2025.") + 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.4),
+        plot.subtitle = element_text(hjust = 0.4),
+        plot.caption = element_text(hjust = 0, size = 5))
+
+```
+
+```{r}
+ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd)) + 
+  geom_col(fill = "lightgrey") + 
+  theme_minimal() + 
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) + 
+  labs(title = "Brazil's GPD Over Time (USD)",
+       x = "Year",
+       y = "Brazil's GDP (USD, Trillions)", 
+       caption = "World Bank. GDP (current US$) – Brazil. The World Bank Group, 2024,\nhttps://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BR. Accessed 15 Apr. 2025.") +
+  theme(plot.title = element_text(hjust = 0.4),
+        plot.caption = element_text(hjust = 0, size = 5)) 
+```
+
+
+
+## Key Takeaways
+
+- Brazil's GDP was on a rapid upward trend from 2002 to 2014 (the year of the World Cup). The GDP reflects the overall economic activity and generation of wealth of a country. This can be a deceiving metric for wealth the wealth of a country because the GDP can raise due to government spending. The government of Brazil's total spending surged to an all time high in the years previous to the World Cup. Additionally, Brazil hosted the Olympics in 2016 which had a similar economic impact.  
+
+- After the World Cup, the GDP's upward trend was halted and began to decrease. This can partially be attributed to a decrease of government spending following the World Cup. However, there were other economic factors that contributed to the change in GDP following 2014.
+
+## Questions
+
+- What specifically caused the GDP of Brazil to increase before the World Cup?
+
+- What caused the GDP of Brazil to decrease after hosting the World Cup?
+
+- Can this be attributed to the World Cup or were other events more impactful?
+
+
+
+
+
+
+```{r}
+library(shiny)
+
+library(summarytools)
+
+dfSummary(gdp_data)
+```
+
+```{r}
+
+view(dfSummary(gdp_data))
+
+```
+
+```{r}
+
+print(dfSummary(gdp_data), method = "render")
+
+
+```
+
+

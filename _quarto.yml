@@ -11,8 +11,8 @@ project:
 
 
 book:
-  title: "project title"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name"]
+  title: "The Economic Effects of the World Cup: Case Study on Brazil World Cup"
+  author: ["Ari Cohen","PJ Pozniak","Nolan Rittenberg", "Benjamin Weng"]
   date: today  # use today to update date published based on last time project was edited
   date-format: full
   # favicon: images/logo.png
@@ -29,7 +29,7 @@ book:
 
 
   sidebar:
-    title: "sidebar title"
+    title: "STAT 112: Tung Tung Tung Sahur Group Project"
     collapse-level: 2
     style: "docked"
     pinned: true
@@ -37,6 +37,19 @@ book:
 
   chapters:
     - index.qmd
+    - part: "Teamwork"
+      chapters: 
+      - src/et/Nolan-R.qmd
+      - src/et/Ari-C.qmd
+      - src/et/Ben-W.qmd
+      - src/et/PJ-P.qmd
+    - part: "EDA"
+      chapters: 
+        - src/EDA/Nolan-R.qmd
+        - src/EDA/PJ-P.qmd
+        - src/EDA/Ari-C.qmd
+        - src/EDA/Ben-W.qmd
+        
 
   appendices:
   - src/appx/proposal.qmd
@@ -63,6 +76,7 @@ format:
     code-block-border-left: "#1482FA"
     code-tools: true
     page-layout: full
+    code-fold: true
 
   # pdf:
   #   documentclass: scrreprt
@@ -72,6 +86,7 @@ format:
 
 execute:
   cache: true
+  warning: false
 #   freeze: auto # remove when using GitHub action to execute code
 
 

@@ -1,19 +1,284 @@
 ---
 title: "Report"
-execute: 
+execute:
   echo: true      # change to true to show the code
 code-fold: true  # change to true to fold the code chunks
 ---
 
-Your report will go here.
-
 ```{=html}
-<h2>Report</h2>
-<p>
-  <a href="Data%20Science%20Group%20Project%20Report.pdf" target="_blank">
-    2014 Brazil World Cup Economic Impacts Report
-  </a>
-</p>
+<h1>The Economic Effects of the World Cup: Case Study on Brazil World Cup</h1>
+
+<h2>Motivation:</h2>
+<p>As we all share an interest in soccer, we thought creating a project centered around the World Cup would be interesting. Initially, we considered analyzing multiple countries, but we realized it would be optimal to do a case study on a single country, given the scope of our project. We chose to focus on one country, Brazil. We are excited that the World Cup will be hosted by the United States in 2026. The case study on Brazil was chosen to forecast how the World Cup economically impacts its host country. We explored various economic indicators in relation to Brazil's role in hosting the World Cup, including GDP, unemployment rate, inflation rate, tourism, and the overall cost of hosting the tournament.</p>
+
+<h2>Research Question:</h2>
+<p>How did Brazil's hosting of the World Cup in 2014 affect its economy?</p>
+
+<h2>Key Goals:</h2>
+<ul>
+  <li>The key goal of this project was to understand the economic impact of hosting the World Cup. Brazil was used as a case study to understand this.</li>
+  <li>The goal was to provide evidence-based insights using data science.</li>
+  <li>We also wanted to assess whether the World Cup contributed to economic development or left economic strains on Brazil.</li>
+</ul>
+
+<h2>Key Ideas:</h2>
+<p>Our goal is to communicate that the economic impact of such large events should be studied and critically evaluated to inform future decisions on whether to host them.</p>
+
+<h2>Background:</h2>
+<p>The FIFA World Cup is an international professional soccer tournament that happens once every four years. The event lasts thirty-nine days and takes place in a single host country. Fans from across the world come to the host country to attend matches. Matches are played at various stadiums within the host country. Thirty-two teams participate in the tournament, each representing their nation. The winner hoists the World Cup trophy, the most prestigious trophy in soccer.</p>
+
+<h2>Important terms:</h2>
+<ul>
+  <li><strong>Gross Domestic Product (GDP):</strong> An economic measure of the value of the total final output of goods and services produced by that economy.</li>
+  <li><strong>Inflation Rate:</strong> The rate at which prices of goods and services increase over time.</li>
+  <li><strong>Unemployment Rate:</strong> The percentage of the labor force that is unemployed. Someone unemployed is at working age, without a job, and is trying to get a job.</li>
+</ul>
+
+<h2>Dataset Used & EDA (Works Cited)</h2>
+<ul>
+  <li>World Bank. World Development Indicators: GDP (Current US$) by Country, 1960–2023. API_NY.GDP.MKTP.CD_DS2_en_csv_v2_26433.csv, The World Bank Group, 2024.</li>
+  <li>World Bank. World Development Indicators: International Tourism, Number of Arrivals by Country, 1960–2023. API_ST.INT.ARVL_DS2_en_csv_v2_19636.csv, The World Bank Group, 2024.</li>
+  <li>World Bank. World Development Indicators: Total Population by Country, 1960–2023. API_SP.POP.TOTL_DS2_en_csv_v2_19373.csv, The World Bank Group, 2024.</li>
+  <li>World Bank. World Development Indicators: International Tourism, Receipts (Current US$) by Country, 1960–2023. API_ST.INT.RCPT.CD_DS2_en_csv_v2_19613.csv, The World Bank Group, 2024.</li>
+</ul>
+
+<p>Each dataset has a Country Name and years from 1960 to 2023 as column names. All countries’ data and the numerical values for each year are stored in these datasets. We used pivot_longer(), select(), and as.numeric() to wrangle these datasets to fit our needs.</p>
 ```
 
+<<<<<<< HEAD
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+=======
+```{=html}
+<h2>Statistical Visualization and Interpretation:</h2>
+
+<h3>Figure 1:</h3>
+<img src="figures/1.png">
+```
+
+```{r eval=FALSE}
+brazil_gdp_long <- brazil_gdp_long |>
+  mutate(hosted_wc = ifelse(year %in% c(1950, 2014), "Hosted", "Did Not Host"))
+
+# Had to look up how to fill certain columns a specific color. 
+
+ggplot(brazil_gdp_long, aes(x = year, y = gdp_usd, fill = hosted_wc)) + 
+  geom_col() + 
+  scale_fill_manual(values = c("Hosted" = "#009C3B", "Did Not Host" = "lightgrey")) + 
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) + 
+  labs(title = "Brazil's GPD Over Time (USD)", 
+       subtitle = "Brazil Hosted the World Cup in 2014",
+       x = "Year",
+       y = "Brazil's GDP (USD, Trillions)", 
+       fill = "Hosted World Cup",
+       caption = "World Bank. GDP (current US$) – Brazil. The World Bank Group, 2024,\nhttps://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BR. Accessed 15 Apr. 2025.") + 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.4),
+        plot.subtitle = element_text(hjust = 0.4),
+        plot.caption = element_text(hjust = 0, size = 10),
+        legend.position = "none") 
+```
+
+```{=html}
+<p>This graph shows Brazil’s GDP from 1960 to 2024. Brazil's GDP experienced a rapid upward trend from 2002 to 2014 (the year of the World Cup). The GDP reflects the country's overall economic activity and wealth generation. This can be a deceiving metric for a country's wealth because GDP can rise due to government spending. Brazil's total government spending surged to an all-time high in the years leading up to the World Cup, as the country massively invested in World Cup-related infrastructure and tourism projects. Additionally, Brazil hosted the Olympics in 2016, which had a similar economic impact. After the World Cup, the GDP's upward trend halted and decreased. This can be partially attributed to reduced government spending following the World Cup. However, other economic factors also contributed to the change in GDP after 2014. Cash flow and the job market for construction declined, and Brazil entered its worst recession in the past century from 2015 to 2016. Furthermore, after hosting the event, the stadiums built for the World Cup were underused, and overall tourism was below expectations.</p>
+
+<h3>Impacts on Inflation Rate and Unemployment Rate:</h3>
+
+<h3>Figure 2</h3>
+<img src="figures/2.png">
+```
+
+```{r eval=FALSE}
+ggplot(inflation_data, aes(x = year, y = inflation_rate, group = 1)) +
+  geom_line(color = "gray", size = 1) + geom_point()+
+  labs(
+    title = "Brazil's Inflation Rate",
+    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis",
+    y = "Inflation Rate",
+    x = "Year"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0, size = 10)) 
+```
+
+```{=html}
+<p>In the years leading up to the 2014 FIFA World Cup, Brazil experienced steadily increasing inflation, rising from about 5% in 2010 to over 6% by 2013. This upward trend continued in the immediate aftermath of the tournament, with inflation peaking in 2015 at around 9%. The World Cup may have contributed to this surge in inflation. Massive public spending on infrastructure and stadiums injected a large volume of money into the economy, which, combined with other monetary pressures, could have overheated demand and driven prices up. Additionally, the temporary spike in employment and consumption during and before the World Cup likely fueled price increases that became more apparent once the tournament concluded. Although the 2015 inflation spike cannot be solely attributed to the World Cup, the event likely contributed to accelerating inflationary pressures that were already building due to broader economic mismanagement and external market factors.</p>
+
+<h3>Figure 3:</h3>
+<img src="figures/3.png">
+```
+
+```{r eval=FALSE}
+ggplot(unemployment_data, aes(x = Year, y = `Unemployment Rate`, group = 1)) +
+  geom_line(color = "gray", size = 1) +  geom_point() + 
+  scale_x_continuous(breaks = c(2010:2020)) +
+  labs(
+    title = "Unemployment Rate in Brazil (2010-2020)",
+    y = "Unemployment Rate (%)",
+    caption = "Retrieved from FRED, Federal Reserve Bank of St. Louis"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.caption = element_text(hjust = 0, size = 10)
+  )
+```
+
+```{=html}
+<p>In the years leading up to the 2014 FIFA World Cup, Brazil experienced a period of declining unemployment, reaching its lowest point in 2014 at around 6.8%. This period of relative economic stability was influenced by steady job growth. In 2015, shortly after the World Cup, the unemployment rate began to rise sharply, jumping to approximately 8% in 2015 and climbing to nearly 13% by 2017. While the World Cup brought short-term boosts to sectors like construction, tourism, and services, the long-term economic impact was far more complex. Massive public spending on stadiums and infrastructure, often at the expense of broader economic investments, contributed to Brazil’s economic downturn. The costs of hosting the event strained public finances, and temporary jobs associated with the World Cup disappeared. Although the World Cup was not the sole contributor to the rise in unemployment, it was a contributing factor that led to economic instability in Brazil after 2014.</p>
+
+<h2>Impact on Brazil’s Tourism</h2>
+
+<h3>Figure 4:</h3>
+<img src="figures/4.png">
+```
+```{r eval=FALSE}
+highlight_years <- BRA_subset |> 
+  filter(Year %in% c(2014, 2016))
+
+ggplot(BRA_subset, aes(x = Year, y = Tourists_Millions)) +
+  geom_point(color = "black") +
+  geom_point(
+    data = subset(BRA_subset, Year == 2014),
+    aes(color = "World Cup"),
+    size = 3) +
+  geom_point(
+    data = subset(BRA_subset, Year == 2016),
+    aes(color = "Olympics"),
+    size = 3) +
+  geom_line(color = "black") +
+  scale_color_manual(
+    name = "Event",
+    values = c("World Cup" = "green", "Olympics" = "red")) +
+  geom_text(
+    data = subset(BRA_subset, Year == 2014),
+    aes(label = "World Cup"),
+    vjust = -1.5, color = "green", size = 4.5) +
+  geom_text(
+    data = subset(BRA_subset, Year == 2016),
+    aes(label = "Olympics"),
+    vjust = -1.1, color = "red", size = 4.5) +
+  labs(title = "Brazil International Tourist Arrivals Over Time", x = "Year", y = "International Arrivals (Millions)", caption = "Source: World Bank International Tourists Data") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none", plot.caption = element_text(hjust = 0.5, size = 10)
+  )
+```
+
+```{=html}
+<p>The graph above highlights international tourist arrivals in Brazil between 2010 and 2018. This timeframe includes two major global sporting events hosted by Brazil: the 2014 FIFA World Cup and the 2016 Summer Olympics. From 2010 to 2013, Brazil experienced a steady increase in international arrivals, suggesting growing interest in the country, possibly due to pre-event tourism promotion and infrastructure investment. In 2014, the year of the World Cup, there was a notable peak in tourist arrivals, highlighted in green on the graph. This increase reflects the surge in global attention and the influx of international visitors that accompanied the tournament. In 2016, marked in red, Brazil hosted the Olympics in Rio de Janeiro. While there was a smaller bump in arrivals compared to 2014, it still indicates a continued trend of elevated tourism linked to major events. However, the tourism levels appear to have slightly declined post-2016, suggesting the impact of these events may be temporary unless sustained by broader tourism policies or investments.</p>
+
+<h3>Figure 5:</h3>
+<img src="figures/5.png">
+```
+
+```{r eval=FALSE}
+ggplot(brazil_long, aes(x = Year, y = Receipts)) +
+  geom_point(color = "black") +  # Black points for all years
+  geom_point(data = subset(brazil_long, Year == 2014), 
+             aes(color = "World Cup"), size = 3) +  # Green dot for 2014 (World Cup)
+  geom_point(data = subset(brazil_long, Year == 2016), 
+             aes(color = "Olympics"), size = 3) +  # Red dot for 2016 (Olympics)
+  geom_line(color = "black") +  # Black line connecting all years
+  geom_text(data = subset(brazil_long, Year == 2014), 
+            aes(label = "World Cup"), vjust = 3, color = "green", size = 4.5) +  # Label for 2014
+  geom_text(data = subset(brazil_long, Year == 2016), 
+            aes(label = "Olympics"), vjust = -1.5, color = "red", size = 4.5) +  # Label for 2016
+  scale_color_manual(values = c("World Cup" = "green", "Olympics" = "red")) +  # Color the events
+  labs(
+    title = "Brazil: International Tourism Receipts (2010-2018)",
+    x = "Year",
+    y = "Receipts (billion US$)",
+    caption = "Source: World Bank International Tourism Receipts Data"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    legend.position = "none",  # Hide the legend
+    plot.caption = element_text(hjust = 0.5, size = 10)
+  )
+```
+```{=html}
+<p>This second graph shows Brazil’s international tourism receipts, the amount of money spent by international visitors, from 2010 to 2018. A strong correlation emerges when compared to the earlier graph of international tourist arrivals. As seen in the chart above, tourism receipts rose steadily from 2010 to a peak in 2014, reaching over $7.3 billion USD. This year is highlighted in yellow, marking the FIFA World Cup. The sharp increase in both arrivals and receipts in 2014 suggests that not only did more tourists come to Brazil, but they also spent significantly more money, pointing to the strong economic impact of hosting a mega-event. In 2016, the year of the Rio Olympics, receipts were again elevated (marked in red), though not to the same extent as in 2014. This is consistent with the first graph, where tourist arrivals also experienced a moderate increase in 2016. While the Olympics brought global attention, its financial impact on tourism appears smaller than that of the World Cup, potentially due to event structure, geographic concentration in Rio, or global economic conditions.</p>
+
+<h2>Stadium Spending</h2>
+
+<h3>Figure 6:</h3>
+<img src="figures/6.png">
+```
+```{r eval=FALSE}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+brazil <- world %>% filter(admin == "Brazil")
+
+brazil|>
+  ggplot() + geom_sf(fill = "gray95") + theme_minimal() + geom_sf(data = stadiums_sf, aes(size = expected_cost, color = renovated), alpha = 0.8) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Expected Cost (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Expected Stadium Costs - Brazil World Cup",
+    subtitle = "Size reflects expected construction cost",
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+```
+
+```{=html}
+<p>This visualization illustrates the expected construction costs of stadiums built or renovated for the Brazil World Cup. Displayed on a map of Brazil, each stadium is represented by a circle, where the size corresponds to the expected cost in millions of Brazilian Reais (BRL). The circles are color-coded to indicate the status of each stadium: green for newly built and blue for renovated. The legend on the right shows cost intervals ranging from 200 to 800 million BRL, allowing viewers to compare spending levels across locations. The map reveals that newly built stadiums generally incurred higher costs, as indicated by their larger green circles, while renovated stadiums tended to be less expensive. There is a wide geographic distribution of stadium projects, with notable clusters in the southeastern and northeastern regions of the country. Overall, the visualization highlights both the financial magnitude and regional spread of Brazil's investment in World Cup stadium infrastructure.</p>
+
+<h3>Figure 7:</h3>
+<img src="figures/7.png">
+```
+```{r eval=FALSE}
+ggplot(data = brazil) +
+  geom_sf(fill = "gray95", color = "black") +
+  geom_sf(data = stadiums_sf, aes(size = actual_cost, color = renovated), alpha = 0.8) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Actual Cost (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Actual Stadium Costs - Brazil World Cup",
+    subtitle = "Size reflects actual construction cost",
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
+  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+```
+```{=html}
+<p>This visualization presents the actual construction costs of stadiums used for the Brazil World Cup, offering a real-world counterpart to the projected figures shown previously. Each stadium is represented by a circle on a map of Brazil, where the size of the circle indicates the actual cost in millions of Brazilian Reais (BRL). Green circles signify newly built stadiums, while blue circles denote those that were renovated. The legend indicates cost ranges from 400 million BRL to 1,400 million BRL, showing that some projects significantly exceeded initial expectations. Compared to the projected costs, many of the actual costs appear to be higher, with several stadiums, especially newly built ones, represented by very large circles. This suggests considerable cost overruns. The geographic pattern remains similar, with major investments concentrated in the southeastern and northeastern regions. Overall, this map highlights the substantial increase in actual spending and underscores the financial scale of Brazil's World Cup infrastructure effort.</p>
+
+<h3>Figure 8:</h3>
+<img src="figures/8.png">
+```
+```{r eval=FALSE}
+ggplot(data = brazil) +
+  geom_sf(fill = "gray95", color = "black") +
+  geom_sf(data = over_budget, aes(size = overrun, color = renovated), alpha = 0.85) +
+  scale_color_manual(name = "Status",  values = c("no" = "#009739", "yes" = "royalblue"), labels = c("Newly Built", "Renovated")) +
+  scale_size_continuous(range = c(2, 10), name = "Cost Overrun (Million BRL)") +
+  theme_minimal() +
+  labs(
+    title = "Over-Budget Stadiums - Brazil World Cup",
+    subtitle = "Size shows how much actual cost exceeded expected",
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
+  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+```
+```{=html}
+<p>This point map shows the over-budget stadiums that Brazil built or renovated for the 2014 World Cup. In total, Brazil used 12 stadiums for the World Cup, and 10 stadiums were over their budget. The 10 over-budget stadiums are represented in this map. The size of each dot visualizes the degree to which stadiums were over their budget. As a result of stadiums exceeding their budgets, Brazil’s public debt increased, and less funding was available for important projects such as infrastructure, healthcare, and education. The stadiums also experienced the white elephant phenomenon, meaning that they were used less than anticipated post-World Cup, and they were expensive to maintain.</p>
+
+<h2>Conclusion:</h2>
+<p>Brazil’s economy was poorly affected by hosting the World Cup in 2014. Brazil’s GDP was on a rapid upward trajectory until 2014 when the GDP halted and began to decrease. This reflects an unhealthy economy because a decrease in GDP demonstrates a decrease in economic activity. Additionally, the World Cup infrastructure experienced the white elephant phenomenon, meaning that the stadiums built and renovated were used less than anticipated after the World Cup, adding to the economic harm caused by hosting the World Cup. Furthermore, 10 of the 12 stadiums built for the World Cup exceeded their expected budget. Additionally, Brazil’s unemployment and inflation rates increased after the 2014 World Cup, indicating an unstable economy. In relation to tourism, the World Cup causes a spike to tourism and how much tourists spend but that doesn’t continue after the World Cup, and it eventually goes back down to before, which gives a false sense of how much money Brazil is getting from tourism because it is just spiked the one year and it doesn’t necessarily show a healthy economy.</p>
+
+<p>Although the World Cup negatively affected Brazil’s economy, we do not have enough evidence to suggest that the World Cup always causes negative impacts on its host nation’s economy. To draw conclusions about the general economic effect of hosting the World Cup, data must be analyzed from a greater pool of host nations. The case study done on Brazil shows why a larger study should be conducted about the economic impact of hosting the World Cup.</p>
+<h2>Limitations & Future Work</h2>
+<p>Brazil’s economy experienced similar economic impacts to the World Cup as a result of hosting the Olympics in 2016. This makes it challenging to establish strict cause-and-effect relationships between hosting the World Cup and Brazil’s economy. Additionally, the relationships observed in the case study on Brazil do not necessarily apply to other host countries. For future analysis, it would be beneficial to complete multiple case studies. After completing multiple case studies, the common relationships observed in each case study can be confidently declared.</p>
+```
+
+
+```{=html}
+<h2>Slides</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZ1HK3h8T00XVlnQV6eNb_zL0K9A6-GNSY84VHRpE_y1wygYtxOgpIp_WJjXSrttZP-oomLAma26yW/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+```{=html}
+<h2>Videos</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3eIvak8Mp_8?si=YGK2GO0SDcQVD0wv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+>>>>>>> 41cf6bae840a9c9cbe30603a518323aee3b349f7

@@ -158,7 +158,6 @@ stadiums_sf <- st_as_sf(stadiums, coords = c("lon", "lat"), crs = 4326)
 
 
 ```{r}
-# Download the 'countries' shapefile
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
 brazil <- world %>% filter(admin == "Brazil")
@@ -171,7 +170,7 @@ brazil|>
   labs(
     title = "Expected Stadium Costs - Brazil World Cup",
     subtitle = "Size reflects expected construction cost",
-    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014")
+    caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 ```
 ```{r}
 ggplot(data = brazil) +
@@ -184,7 +183,7 @@ ggplot(data = brazil) +
     title = "Actual Stadium Costs - Brazil World Cup",
     subtitle = "Size reflects actual construction cost",
     caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
-  )
+  ) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 ```
 
@@ -205,6 +204,5 @@ ggplot(data = brazil) +
     title = "Over-Budget Stadiums - Brazil World Cup",
     subtitle = "Size shows how much actual cost exceeded expected",
     caption = "Source: StadiumDB & Natural Earth\n1 Brazilian Real = 0.45 USD in 2014"
-  )
-
+  )+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 ```

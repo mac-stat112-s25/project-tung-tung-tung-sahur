@@ -3,7 +3,7 @@ title: "Ben W"
 format: html
 ---
 
-https://pubmed.ncbi.nlm.nih.gov/20085405/
+[https://pubmed.ncbi.nlm.nih.gov/20085405/](https://pubmed.ncbi.nlm.nih.gov/20085405/)
 
 In this study about effective teamwork, team cognitive foundation
 is revealed to be underpinning teamwork. Team cognition is highly related to the team's behavioral process, motivational states, and the overall performance of teamwork. 

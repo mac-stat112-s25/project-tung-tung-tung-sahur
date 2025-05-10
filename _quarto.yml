@@ -29,7 +29,7 @@ book:
 
 
   sidebar:
-    title: "sidebar title"
+    title: "STAT 112: Tung Tung Tung Sahur Group Project"
     collapse-level: 2
     style: "docked"
     pinned: true
@@ -76,6 +76,7 @@ format:
     code-block-border-left: "#1482FA"
     code-tools: true
     page-layout: full
+    code-fold: true
 
   # pdf:
   #   documentclass: scrreprt
@@ -85,6 +86,7 @@ format:
 
 execute:
   cache: true
+  warning: false
 #   freeze: auto # remove when using GitHub action to execute code
 
 

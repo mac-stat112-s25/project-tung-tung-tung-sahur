@@ -2,7 +2,7 @@
 title: "Case Study"
 ---
 
-NYC Ubers Case Study
+NYC Ubers Case Study [Link](https://fivethirtyeight.com/features/uber-is-taking-millions-of-manhattan-rides-away-from-taxis/)
 
 This article examines Uber's impact on Manhattan's taxi industry and traffic congestion using city data from the New York City Taxi and Limousine Commission. It finds that while Uber has replaced millions of taxi pickups, it has not significantly increased overall congestion. From April to June 2014 to the same period in 2015, Uber pickups increased by over 4 million in Manhattan, while taxi pickups dropped by nearly the same amount, indicating a shift in riders rather than a rise in overall trips.
 
